@@ -223,28 +223,37 @@ button{
   font-size:14px;
   font-weight:700;
   cursor:pointer;
+
+  transition:0.2s;
 }
 
 button:active{
   transform:scale(0.96);
+  opacity:0.8;
 }
 
 /* 開始：緑 */
 
 .start-btn{
-  background:#16a34a;
+  background:white;
+  color:#16a34a;
+  border:2px solid #16a34a;
 }
 
 /* 停止：黄色 */
 
 .end-btn{
-  background:#f59e0b;
+  background:white;
+  color:#f59e0b;
+  border:2px solid #f59e0b;
 }
 
 /* クリア：赤 */
 
 .clear-btn{
-  background:#ef4444;
+  background:white;
+  color:#ef4444;
+  border:2px solid #ef4444;
 }
 
 /* 雨OFF：グレー */
