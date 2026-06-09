@@ -503,7 +503,7 @@ textarea{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   z-index:999;
-  padding:12px 0 22px;
+  padding:10px 0 18px;
   box-shadow: 0 -2px 10px rgba(0,0,0,0.06);
 }
 
