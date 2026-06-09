@@ -507,17 +507,13 @@ textarea{
   
 }
 
-..nav-btn{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:2px;
-
-  background:white;
+.nav-btn{
+  background:transparent;
   color:#6b7280;
   border:none;
   padding:12px 0 8px;
   font-size:12px;
+  box-shadow:none;
 }
 
 .nav-btn.active{
