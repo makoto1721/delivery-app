@@ -232,6 +232,14 @@ button:active{
   opacity:0.8;
 }
 
+.finish-btn{
+  background:white;
+  border:2px solid #ef4444;
+  color:#ef4444;
+  font-weight:700;
+  border-radius:14px;
+}
+
 /* 開始：緑 */
 
 .start-btn{
