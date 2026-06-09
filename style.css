@@ -233,9 +233,9 @@ button:active{
 }
 
 .finish-btn{
-  background:white;
-  border:2px solid #ef4444;
-  color:#ef4444;
+  background:#ef4444;
+  border:none;
+  color:white;
   font-weight:700;
   border-radius:14px;
 }
