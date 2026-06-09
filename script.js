@@ -1755,16 +1755,4 @@ function updateLiveWorkTime() {
     `${hours}時間 ${minutes}分`;
 }
 
-// =======================
-// 分析ページ
-// =======================
 
-if (type === "analysis") {
-
-  if (diff < 0) {
-    moveAnalysisPeriod(1);
-  } else {
-    moveAnalysisPeriod(-1);
-  }
-
-}
