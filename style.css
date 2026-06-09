@@ -787,3 +787,13 @@ textarea{
 .yen-input input{
   width: 160px;
 }
+
+.history-page .end-btn {
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+.history-page .clear-btn {
+  border-color: #ef4444;
+  color: #ef4444;
+}
