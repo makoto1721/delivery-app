@@ -1,0 +1,769 @@
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+body{
+  margin:0;
+  background:#f4f6fb;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:#111827;
+}
+
+.container{
+  max-width:480px;
+  margin:0 auto;
+  padding:12px 12px 110px;
+}
+
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
+}
+
+.card{
+  background:white;
+  border-radius:20px;
+  padding:16px;
+  margin-bottom:12px;
+  box-shadow:0 4px 14px rgba(0,0,0,0.06);
+}
+
+/* =======================
+売上合計
+======================= */
+
+.sales-title{
+  text-align:center;
+  font-size:14px;
+  color:#6b7280;
+  margin-bottom:8px;
+}
+
+.sales-value{
+  text-align:center;
+  font-size:52px;
+  font-weight:700;
+  color:#2563eb;
+  line-height:1;
+}
+
+.sales-unit{
+  text-align:center;
+  margin-top:8px;
+  color:#6b7280;
+}
+
+/* =======================
+目標売上
+======================= */
+
+.goal-input-wrap{
+  margin-top:12px;
+}
+
+#dailyGoal{
+  position:relative;
+  z-index:20;
+}
+
+.goal-label{
+  font-size:13px;
+  color:#6b7280;
+  margin-bottom:8px;
+  font-weight:700;
+}
+
+.goal-progress-wrap{
+  margin-top:14px;
+}
+
+.goal-progress-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:6px;
+  font-size:13px;
+  font-weight:700;
+}
+
+.goal-progress-bar{
+  width:100%;
+  height:14px;
+  background:#e5e7eb;
+  border-radius:999px;
+  overflow:hidden;
+}
+
+.goal-progress-fill{
+  height:100%;
+  width:0%;
+  background:#2563eb;
+  border-radius:999px;
+  transition:0.25s;
+}
+
+/* 目標達成時 */
+
+.sales-goal-achieved{
+  background:#fef9c3 !important;
+}
+
+/* =======================
+入力テーブル
+======================= */
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th{
+  color:#6b7280;
+  font-size:13px;
+  padding-bottom:8px;
+}
+
+td{
+  text-align:center;
+  padding:6px 3px;
+}
+
+.service-name{
+  width:34%;
+  font-weight:700;
+  text-align:left;
+}
+
+input{
+  width:100%;
+  height:38px;
+  border:none;
+  border-radius:12px;
+  background:#f3f4f6;
+  text-align:center;
+  font-size:18px;
+  font-weight:700;
+}
+
+input[readonly]{
+  background:#e5e7eb;
+  color:#6b7280;
+}
+
+.history-page input:not([readonly]),
+.history-page textarea{
+  background:#fff7e8;
+}
+
+input:focus,
+textarea:focus{
+  outline:none;
+  background:#eef4ff;
+}
+
+/* =======================
+集計
+======================= */
+
+.result-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.result-item{
+  background:#f9fafb;
+  border-radius:16px;
+  padding:14px;
+  text-align:center;
+}
+
+.result-label{
+  font-size:12px;
+  color:#6b7280;
+  margin-bottom:8px;
+  line-height:1.4;
+}
+
+.result-value{
+  font-size:28px;
+  font-weight:700;
+}
+
+.result-unit{
+  margin-top:5px;
+  font-size:12px;
+  color:#6b7280;
+}
+
+.blue{
+  color:#2563eb;
+}
+
+/* =======================
+ボタン
+======================= */
+
+.button-row{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  margin-bottom:16px;
+}
+
+button{
+  border:none;
+  border-radius:14px;
+  padding:13px 8px;
+  color:white;
+  font-size:14px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+button:active{
+  transform:scale(0.96);
+}
+
+/* 開始：緑 */
+
+.start-btn{
+  background:#16a34a;
+}
+
+/* 停止：黄色 */
+
+.end-btn{
+  background:#f59e0b;
+}
+
+/* クリア：赤 */
+
+.clear-btn{
+  background:#ef4444;
+}
+
+/* 雨OFF：グレー */
+
+.rain-btn{
+  background:#94a3b8;
+}
+
+/* 雨ON：青 */
+
+.rain-btn.active{
+  background:#2563eb;
+}
+
+
+/* =======================
+打刻
+======================= */
+
+.time-table input{
+  height:34px;
+  font-size:16px;
+}
+
+.work-title{
+  text-align:center;
+  color:#6b7280;
+  margin-bottom:8px;
+}
+
+.work-value{
+  text-align:center;
+  font-size:42px;
+  font-weight:700;
+}
+
+/* 稼働時間 横並び */
+
+.work-inline{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+}
+
+.work-inline-label{
+  font-size:14px;
+  color:#6b7280;
+  font-weight:700;
+}
+
+.work-inline-value{
+  font-size:24px;
+  font-weight:700;
+  color:#111827;
+}
+
+/* =======================
+備考
+======================= */
+
+.memo-title{
+  font-size:14px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+textarea{
+  width:100%;
+  min-height:100px;
+  border:none;
+  border-radius:14px;
+  background:#f3f4f6;
+  padding:12px;
+  resize:none;
+  font-size:15px;
+}
+
+/* =======================
+カレンダー
+======================= */
+
+.calendar-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:16px;
+}
+
+.calendar-arrow{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  background:#f3f4f6;
+  color:#111827;
+  font-size:20px;
+}
+
+.calendar-title{
+  font-size:24px;
+  font-weight:700;
+  text-align:center;
+}
+
+.month-total{
+  text-align:center;
+  color:#2563eb;
+  font-size:26px;
+  font-weight:700;
+  margin-top:4px;
+}
+
+.calendar-grid{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:6px;
+}
+
+.day-name{
+  text-align:center;
+  font-size:12px;
+  color:#6b7280;
+}
+
+.day-name.saturday{
+  color:#2563eb;
+  font-weight:700;
+}
+
+.day-name.sunday{
+  color:#ef4444;
+  font-weight:700;
+}
+
+.calendar-day{
+  min-height:72px;
+  border-radius:14px;
+  background:#f9fafb;
+  padding:6px;
+  cursor:pointer;
+  border:2px solid transparent;
+}
+
+.calendar-day.active{
+  border-color:#2563eb;
+  background:#eff6ff;
+}
+
+.day-number{
+  font-size:13px;
+  font-weight:700;
+}
+
+.day-sales{
+  margin-top:6px;
+  font-size:9px;
+  color:#2563eb;
+  font-weight:700;
+  line-height:1.2;
+  word-break:break-all;
+}
+
+/* =======================
+実績詳細
+======================= */
+
+.detail-date{
+  font-size:22px;
+  font-weight:700;
+  margin-bottom:20px;
+}
+
+.history-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:8px;
+  margin-bottom:18px;
+}
+
+/* 実績：稼働時間と時給換算を縦並び */
+
+.history-grid-single{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+  margin-bottom:18px;
+}
+
+.history-item{
+  background:#f9fafb;
+  border-radius:16px;
+  padding:14px;
+}
+
+.history-label{
+  font-size:13px;
+  color:#6b7280;
+  margin-bottom:8px;
+  font-weight:700;
+}
+
+.history-input-row{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.history-input-row input{
+  flex:1;
+  height:46px;
+  border:none;
+  border-radius:12px;
+  background:#f3f4f6;
+  text-align:center;
+  font-size:22px;
+  font-weight:700;
+}
+
+.history-input-row span{
+  font-size:16px;
+  color:#6b7280;
+  font-weight:700;
+}
+
+.service-detail-block{
+  margin-bottom:20px;
+}
+
+.service-detail-name{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.history-service-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.history-memo-block{
+  margin-top:24px;
+}
+
+/* =======================
+下タブ
+======================= */
+
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  background:white;
+  border-top:1px solid #e5e7eb;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  z-index:999;
+}
+
+.nav-btn{
+  background:white;
+  color:#6b7280;
+  border:none;
+  padding:10px 0;
+  font-size:12px;
+}
+
+.nav-btn.active{
+  color:#2563eb;
+  font-weight:700;
+}
+
+.nav-icon{
+  display:block;
+  font-size:22px;
+  margin-bottom:4px;
+}
+
+/* 稼働時間だけ文字を小さく */
+
+#historyWorkHour,
+#historyWorkMinute{
+  font-size:16px !important;
+}
+
+/* 稼働時間入力 */
+
+.time-unit{
+  font-size:12px;
+  color:#6b7280;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+#historyWorkHour,
+#historyWorkMinute{
+  font-size:16px !important;
+  height:40px !important;
+  min-width:90px;
+}
+
+/* =======================
+実績ページ専用
+======================= */
+
+.history-page{
+  padding:0;
+}
+
+.history-calendar-wrap{
+  background:white;
+  padding:8px;
+  margin-bottom:12px;
+
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+}
+
+.history-page .calendar-grid{
+  gap:2px;
+}
+
+.history-page .calendar-day{
+  min-height:72px;
+  border-radius:10px;
+  padding:4px;
+}
+
+.history-page .day-sales{
+  margin-top:4px;
+  font-size:10px;
+  line-height:1.1;
+  white-space:nowrap;
+}
+/* 月タイトル */
+
+.history-page .calendar-title{
+  font-size:20px;
+}
+
+/* 月合計 */
+
+.history-page .month-total{
+  font-size:22px;
+}
+
+/* =======================
+実績詳細コンパクト化
+======================= */
+
+.history-item{
+  padding:10px 12px;
+}
+
+.history-label{
+  font-size:12px;
+  margin-bottom:0;
+  min-width:82px;
+}
+
+.history-input-row{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.history-input-row input{
+  height:38px;
+  font-size:18px;
+}
+
+.history-item.compact{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+/* サービス行を横並び化 */
+
+.service-detail-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:14px;
+}
+
+.service-detail-name{
+  font-size:16px;
+  font-weight:700;
+  min-width:72px;
+  margin-bottom:0;
+}
+
+.history-service-grid{
+  flex:1;
+  display:flex;
+  gap:10px;
+}
+
+.history-service-grid .history-input-row{
+  flex:1;
+}
+
+.history-service-grid input{
+  height:38px;
+  font-size:18px;
+}
+
+/* =======================
+分析ページ コンパクト化
+======================= */
+
+#analysisPage .card{
+  padding:12px;
+}
+
+#analysisPage .result-grid{
+  gap:8px;
+}
+
+#analysisPage .result-item{
+  padding:10px 6px;
+  border-radius:12px;
+}
+
+#analysisPage .result-label{
+  font-size:11px;
+  margin-bottom:4px;
+  line-height:1.2;
+}
+
+#analysisPage .result-value{
+  font-size:20px;
+}
+
+#analysisPage .result-unit{
+  font-size:10px;
+  margin-top:2px;
+}
+
+#analysisPage .calendar-arrow{
+  width:36px;
+  height:36px;
+}
+
+#analysisPage #analysisPeriodLabel{
+  font-size:16px !important;
+}
+
+.analysis-service-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:8px;
+}
+
+.analysis-service-table th{
+  padding:8px 4px;
+  font-size:11px;
+  color:#6b7280;
+  text-align:center;
+  background:#f3f4f6;
+}
+
+.analysis-service-table td{
+  padding:8px 4px;
+  border-top:1px solid #e5e7eb;
+  font-size:13px;
+  font-weight:700;
+  text-align:right;
+}
+
+.analysis-service-table td:first-child{
+  text-align:left;
+}
+
+.analysis-service-table tr:last-child{
+  background:#f3f4f6;
+}
+
+.analysis-service-table tr:last-child td{
+  color:#2563eb;
+  font-weight:700;
+}
+
+.analysis-arrow-disabled{
+  opacity:0.35;
+  pointer-events:none;
+}
+
+.day-number.saturday{
+  color:#2563eb;
+}
+
+.day-number.sunday{
+  color:#ef4444;
+}
+
+.yen-input{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.yen-mark{
+  font-size: 18px;
+  font-weight: bold;
+  color: #666;
+  flex-shrink: 0;
+}
+
+.yen-input{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.yen-input input{
+  width: 160px;
+}

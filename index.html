@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+<link rel="stylesheet" href="style.css">
+  
+<title></title>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- =======================
+今日
+======================= -->
+
+<div id="todayPage" class="page active">
+
+<!-- 稼働日 -->
+
+<div class="card">
+
+<input
+type="date"
+id="businessDate"
+onchange="saveCurrentData();"
+/>
+
+</div>
+
+<div class="card" id="salesCard">
+
+<div class="sales-title">
+Total
+</div>
+
+<div class="sales-value" id="todaySales">
+¥ 0
+</div>
+
+<div class="goal-progress-wrap">
+
+<div class="goal-progress-top">
+
+<div id="goalPercent">
+0%
+</div>
+
+<div id="remainingText">
+あと0円
+</div>
+
+</div>
+
+<div class="goal-progress-bar">
+
+<div
+class="goal-progress-fill"
+id="goalProgressFill"
+></div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 入力 -->
+
+<div class="card">
+
+<table>
+
+<tr>
+<th></th>
+<th>件数</th>
+<th>売上</th>
+</tr>
+
+<tr>
+<td class="service-name">Uber</td>
+
+<td>
+<input type="tel" inputmode="numeric" id="uberCount" oninput="calculateResults()">
+</td>
+
+<td>
+<input type="tel" inputmode="numeric" id="uberSales" oninput="calculateResults()">
+</td>
+</tr>
+
+<tr>
+<td class="service-name">出前館</td>
+
+<td>
+<input type="tel" inputmode="numeric" id="demaeCount" oninput="calculateResults()">
+</td>
+
+<td>
+<input type="tel" inputmode="numeric" id="demaeSales" oninput="calculateResults()">
+</td>
+</tr>
+
+<tr>
+<td class="service-name">ロケット</td>
+
+<td>
+<input type="tel" inputmode="numeric" id="rocketCount" oninput="calculateResults()">
+</td>
+
+<td>
+<input type="tel" inputmode="numeric" id="rocketSales" oninput="calculateResults()">
+</td>
+</tr>
+
+</table>
+
+</div>
+
+<!-- 集計 -->
+
+<div class="card">
+
+<div class="result-grid">
+
+<div class="result-item">
+<div class="result-label">合計件数</div>
+<div class="result-value" id="totalCount">0</div>
+<div class="result-unit">件</div>
+</div>
+
+<div class="result-item">
+<div class="result-label">1件単価</div>
+<div class="result-value" id="unitPrice">0</div>
+<div class="result-unit">円</div>
+</div>
+
+<div class="result-item">
+<div class="result-label">時給換算</div>
+<div class="result-value blue" id="hourlyPay">0</div>
+<div class="result-unit">円</div>
+</div>
+
+<div class="result-item">
+<div class="result-label">配達件数/h</div>
+<div class="result-value blue" id="deliveryPerHour">0.00</div>
+<div class="result-unit">件</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- 目標売上 -->
+
+<div class="card" style="position:relative; z-index:10;">
+
+<div class="goal-label">
+本日の目標売上
+</div>
+
+<div class="yen-input">
+
+  <span class="yen-mark">￥</span>
+
+  <input
+type="tel"
+inputmode="numeric"
+id="dailyGoal"
+value="5000"
+oninput="calculateResults()"
+onfocus="removeGoalComma()"
+onblur="formatGoalInput()"
+>
+
+</div>
+
+</div>
+
+<!-- 打刻 -->
+
+<div class="card">
+
+<div class="button-row">
+
+<button class="start-btn" onclick="startWork()">
+開始
+</button>
+
+<button class="end-btn" onclick="endWork()">
+停止
+</button>
+
+<button class="clear-btn" onclick="clearAllData()">
+クリア
+</button>
+
+<button
+id="rainToggleBtn"
+class="rain-btn"
+onclick="toggleRain()"
+>
+☔ 雨ｸｴOFF
+</button>
+
+
+</div>
+
+<table class="time-table">
+
+<tr>
+<th></th>
+<th>開始</th>
+<th>終了</th>
+</tr>
+
+<tr>
+<td>①</td>
+<td><input type="time" id="start1" onchange="calculateWorkTime()"></td>
+<td><input type="time" id="end1" onchange="calculateWorkTime()"></td>
+</tr>
+
+<tr>
+<td>②</td>
+<td><input type="time" id="start2" onchange="calculateWorkTime()"></td>
+<td><input type="time" id="end2" onchange="calculateWorkTime()"></td>
+</tr>
+
+<tr>
+<td>③</td>
+<td><input type="time" id="start3" onchange="calculateWorkTime()"></td>
+<td><input type="time" id="end3" onchange="calculateWorkTime()"></td>
+</tr>
+
+</table>
+
+</div>
+
+<!-- 稼働 -->
+
+<div class="card">
+
+<div class="work-inline">
+
+<span class="work-inline-label">
+稼働時間
+</span>
+
+<span class="work-inline-value" id="workTime">
+0時間 0分
+</span>
+
+</div>
+
+</div>
+
+<!-- 備考 -->
+
+<div class="card">
+
+<div class="memo-title">
+備考
+</div>
+
+<textarea id="memo" oninput="saveCurrentData()"></textarea>
+
+<button
+class="clear-btn"
+style="
+width:100%;
+margin-top:16px;
+padding:16px;
+font-size:16px;
+"
+onclick="finishWork()"
+>
+本日の業務終了
+</button>
+
+</div>
+
+</div>
+
+<!-- =======================
+実績
+======================= -->
+
+<div id="historyPage" class="page history-page">
+
+<div class="history-calendar-wrap">
+
+<!-- ここから追加 -->
+
+<div style="
+text-align:center;
+margin-bottom:10px;
+">
+
+<button
+onclick="goCurrentMonth()"
+style="
+background:#f3f4f6;
+color:#6b7280;
+border:none;
+border-radius:999px;
+padding:6px 14px;
+font-size:12px;
+font-weight:700;
+"
+>
+現在
+</button>
+
+</div>
+
+<!-- ここまで追加 -->
+
+<div class="calendar-header">
+<button class="calendar-arrow" onclick="changeMonth(-1)">
+◀
+</button>
+
+<div>
+
+<div class="calendar-title" id="calendarTitle"></div>
+
+<div class="month-total" id="monthTotal">
+¥0
+</div>
+
+</div>
+
+<button class="calendar-arrow" onclick="changeMonth(1)">
+▶
+</button>
+
+</div>
+
+<div class="calendar-grid" id="calendarGrid"></div>
+
+</div>
+
+<!-- 詳細 -->
+
+<div class="card">
+
+<div style="
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+margin-bottom:20px;
+">
+
+<div class="detail-date" id="detailDate">
+日付を選択してください
+</div>
+
+<button
+id="historyRainBtn"
+class="rain-btn"
+style="
+width:110px;
+padding:10px;
+"
+onclick="toggleHistoryRain()"
+>
+☔ 雨ｸｴOFF
+</button>
+
+</div>
+
+<div class="history-grid">
+
+<div class="history-item compact">
+
+<div class="history-label">
+売上合計
+</div>
+
+<div class="history-input-row">
+
+<input
+type="tel"
+inputmode="numeric"
+id="historyTotalSales"
+readonly
+>
+
+<span>円</span>
+
+</div>
+
+</div>
+
+<div class="history-item compact">
+
+<div class="history-label">
+合計件数
+</div>
+
+<div class="history-input-row">
+
+<input
+type="tel"
+inputmode="numeric"
+id="historyTotalCount"
+readonly
+>
+
+
+<span>件</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="history-grid">
+
+<div class="history-item compact">
+
+<div class="history-label">
+時給換算
+</div>
+
+<div class="history-input-row">
+
+<input
+type="tel"
+inputmode="numeric"
+id="historyHourly"
+readonly
+>
+
+<span>円</span>
+
+</div>
+
+</div>
+
+<div class="history-item compact">
+
+<div class="history-label">
+時間件数
+</div>
+
+<div class="history-input-row">
+
+<input
+type="tel"
+inputmode="decimal"
+id="historyDeliveryPerHour"
+readonly
+>
+
+<span>件</span>
+
+</div>
+
+</div>
+
+<div class="history-item compact">
+
+<div class="history-label">
+1件単価
+</div>
+
+<div class="history-input-row">
+
+<input
+type="tel"
+inputmode="numeric"
+id="historyUnitPrice"
+readonly
+>
+
+<span>円</span>
+
+</div>
+
+</div>
+
+<div class="history-item compact">
+
+<div class="history-label">
+稼働時間
+</div>
+
+<div class="history-input-row">
+
+<div style="display:flex; gap:4px; align-items:center; width:100%;">
+
+<input
+type="tel"
+inputmode="numeric"
+id="historyWorkHour"
+placeholder="0"
+oninput="calculateHistoryDetail()"
+onchange="calculateHistoryDetail()"
+>
+
+<span class="time-unit">時間</span>
+
+<input
+type="tel"
+inputmode="numeric"
+id="historyWorkMinute"
+placeholder="0"
+oninput="calculateHistoryDetail()"
+onchange="calculateHistoryDetail()"
+>
+
+<span class="time-unit">分</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+<!-- Uber -->
+
+<div class="service-detail-block">
+
+<div class="service-detail-row">
+
+<div class="service-detail-name">
+Uber
+</div>
+
+<div class="history-service-grid">
+
+<div class="history-input-row">
+
+<input
+type="tel"
+inputmode="numeric"
+id="historyUberCount"
+oninput="calculateHistoryDetail()"
+>
+
+<span>件</span>
+
+</div>
+
+<div class="history-input-row">
+
+<input
+type="tel"
+inputmode="numeric"
+id="historyUberSales"
+oninput="calculateHistoryDetail()"
+>
+
+<span>円</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 出前館 -->
+
+<div class="service-detail-block">
+
+<div class="service-detail-row">
+
+<div class="service-detail-name">
+出前館
+</div>
+
+<div class="history-service-grid">
+
+<div class="history-input-row">
+
+<input
+type="tel"
+inputmode="numeric"
+id="historyDemaeCount"
+oninput="calculateHistoryDetail()"
+>
+<span>件</span>
+
+</div>
+
+<div class="history-input-row">
+
+<input
+type="tel"
+inputmode="numeric"
+id="historyDemaeSales"
+oninput="calculateHistoryDetail()"
+>
+<span>円</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ロケット -->
+
+<div class="service-detail-block">
+
+<div class="service-detail-row">
+
+<div class="service-detail-name">
+ロケット
+</div>
+
+<div class="history-service-grid">
+
+<div class="history-input-row">
+
+<input
+type="tel"
+inputmode="numeric"
+id="historyRocketCount"
+oninput="calculateHistoryDetail()"
+>
+<span>件</span>
+
+</div>
+
+<div class="history-input-row">
+
+<input
+type="tel"
+inputmode="numeric"
+id="historyRocketSales"
+oninput="calculateHistoryDetail()"
+>
+<span>円</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 備考 -->
+
+<div class="history-memo-block">
+
+<div class="history-label">
+備考
+</div>
+
+<textarea id="historyMemo"></textarea>
+
+<button
+class="end-btn"
+style="width:100%; margin-top:14px;"
+onclick="saveHistoryDetail()"
+>
+この内容で保存する
+</button>
+
+<button
+class="clear-btn"
+style="width:100%; margin-top:14px;"
+onclick="clearHistoryDetail()"
+>
+この日の内容をクリア
+</button>
+</div>
+
+</div>
+
+</div>
+
+<!-- 分析 -->
+
+<div id="analysisPage" class="page">
+
+<div class="card">
+
+<div style="
+display:flex;
+gap:8px;
+margin-bottom:16px;
+">
+
+<button
+id="analysisWeekBtn"
+class="rain-btn active"
+style="flex:1;"
+onclick="changeAnalysisType('week')"
+>
+週間
+</button>
+
+<button
+id="analysisMonthBtn"
+class="rain-btn"
+style="flex:1;"
+onclick="changeAnalysisType('month')"
+>
+月間
+</button>
+
+<button
+id="analysisYearBtn"
+class="rain-btn"
+style="flex:1;"
+onclick="changeAnalysisType('year')"
+>
+年間
+</button>
+
+<button
+id="analysisAllBtn"
+class="rain-btn"
+style="flex:1;"
+onclick="changeAnalysisType('all')"
+>
+全期間
+</button>
+
+</div>
+
+<div style="
+text-align:center;
+margin-top:10px;
+margin-bottom:6px;
+">
+
+<button
+id="analysisTodayBtn"
+onclick="goCurrentAnalysisPeriod()"
+style="
+background:#f3f4f6;
+color:#6b7280;
+border:none;
+border-radius:999px;
+padding:6px 14px;
+font-size:12px;
+font-weight:700;
+"
+>
+現在
+</button>
+
+</div>
+
+<div style="
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-top:8px;
+">
+
+<button
+id="analysisPrevBtn"
+class="calendar-arrow"
+onclick="moveAnalysisPeriod(-1)"
+>
+◀
+</button>
+
+<div
+class="sales-title"
+id="analysisPeriodLabel"
+style="
+margin:0;
+font-size:18px;
+font-weight:700;
+color:#111827;
+"
+>
+2026年
+</div>
+
+<button
+id="analysisNextBtn"
+class="calendar-arrow"
+onclick="moveAnalysisPeriod(1)"
+>
+▶
+</button>
+
+</div>
+
+</div>
+
+<!-- 集計 -->
+
+<div class="card">
+
+<div class="result-grid">
+
+<div class="result-item">
+<div class="result-label">稼働日数</div>
+<div class="result-value" id="analysisWorkDays">0</div>
+<div class="result-unit">日</div>
+</div>
+
+<div class="result-item">
+<div class="result-label">売上合計</div>
+<div class="result-value blue" id="analysisTotalSales">0</div>
+<div class="result-unit">円</div>
+</div>
+
+<div class="result-item">
+<div class="result-label">稼働時間合計</div>
+<div class="result-value" id="analysisTotalHours">0</div>
+<div class="result-unit">時間</div>
+</div>
+
+<div class="result-item">
+<div class="result-label">配達件数合計</div>
+<div class="result-value" id="analysisTotalCount">0</div>
+<div class="result-unit">件</div>
+</div>
+
+<div class="result-item">
+<div class="result-label">最大売上</div>
+<div class="result-value" id="analysisMaxSales">0</div>
+<div class="result-unit">円</div>
+</div>
+
+<div class="result-item">
+<div class="result-label">最小売上</div>
+<div class="result-value" id="analysisMinSales">0</div>
+<div class="result-unit">円</div>
+</div>
+
+<div class="result-item">
+<div class="result-label">平均売上</div>
+<div class="result-value" id="analysisAvgSales">0</div>
+<div class="result-unit">円</div>
+</div>
+
+<div class="result-item">
+<div class="result-label">平均時給</div>
+<div class="result-value blue" id="analysisAvgHourly">0</div>
+<div class="result-unit">円</div>
+</div>
+
+<div class="result-item">
+<div class="result-label">平均件数/時間</div>
+<div class="result-value" id="analysisAvgPerHour">0</div>
+<div class="result-unit">件</div>
+</div>
+
+<div class="result-item">
+<div class="result-label">最高件数/時間</div>
+<div class="result-value" id="analysisMaxPerHour">0</div>
+<div class="result-unit">件</div>
+</div>
+
+<div class="result-item">
+<div class="result-label">平均件数/日</div>
+<div class="result-value" id="analysisAvgPerDay">0</div>
+<div class="result-unit">件</div>
+</div>
+
+<div class="result-item">
+<div class="result-label">平均1件単価</div>
+<div class="result-value" id="analysisUnitPrice">0</div>
+<div class="result-unit">円</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div
+id="analysisServicePeriod"
+style="
+text-align:center;
+font-size:14px;
+font-weight:700;
+color:#6b7280;
+margin-bottom:10px;
+"
+>
+2026年
+</div>
+
+<table class="analysis-service-table">
+
+<tr>
+  <th>サービス</th>
+  <th>件数</th>
+  <th>売上</th>
+  <th>単価</th>
+</tr>
+
+<tr>
+  <td>Uber</td>
+  <td id="analysisUberCount">0</td>
+  <td id="analysisUberSales">0</td>
+  <td id="analysisUberUnit">0</td>
+</tr>
+
+<tr>
+  <td>出前館</td>
+  <td id="analysisDemaeCount">0</td>
+  <td id="analysisDemaeSales">0</td>
+  <td id="analysisDemaeUnit">0</td>
+</tr>
+
+<tr>
+  <td>ロケット</td>
+  <td id="analysisRocketCount">0</td>
+  <td id="analysisRocketSales">0</td>
+  <td id="analysisRocketUnit">0</td>
+</tr>
+
+<tr>
+
+  <td><strong>合計</strong></td>
+
+  <td id="analysisAllCount">0</td>
+
+  <td id="analysisAllSales">0</td>
+
+  <td id="analysisAllUnit">0</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- 設定 -->
+
+<div id="settingsPage" class="page">
+<div class="card">
+設定機能は今後追加予定
+</div>
+</div>
+
+</div>
+
+<!-- 下タブ -->
+
+<div class="bottom-nav">
+
+<button class="nav-btn active" onclick="switchPage('today')">
+<span class="nav-icon">🏠</span>
+今日
+</button>
+
+<button class="nav-btn" onclick="switchPage('history')">
+<span class="nav-icon">📅</span>
+実績
+</button>
+
+<button class="nav-btn" onclick="switchPage('analysis')">
+<span class="nav-icon">📈</span>
+分析
+</button>
+
+<button class="nav-btn" onclick="switchPage('settings')">
+<span class="nav-icon">⚙️</span>
+設定
+</button>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
