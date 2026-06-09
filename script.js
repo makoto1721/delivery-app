@@ -1711,3 +1711,60 @@ function handleSwipe(type){
   }
 
 }
+
+ // =======================
+ // ストップウォッチ（リアルタイム稼働時間）
+ // =======================
+
+let workTimerInterval = null;
+let workStartTime = null;
+let isWorking = false;
+
+function startWork() {
+  if (isWorking) return;
+
+  isWorking = true;
+  workStartTime = new Date();
+
+  // すぐ1回表示更新
+  updateLiveWorkTime();
+
+  // 1秒ごとに更新（ストップウォッチ化）
+  workTimerInterval = setInterval(updateLiveWorkTime, 1000);
+}
+
+function endWork() {
+  isWorking = false;
+
+  if (workTimerInterval) {
+    clearInterval(workTimerInterval);
+    workTimerInterval = null;
+  }
+}
+
+function updateLiveWorkTime() {
+  if (!workStartTime) return;
+
+  const now = new Date();
+  const diff = now - workStartTime;
+
+  const hours = Math.floor(diff / 1000 / 60 / 60);
+  const minutes = Math.floor((diff / 1000 / 60) % 60);
+
+  document.getElementById("workTime").textContent =
+    `${hours}時間 ${minutes}分`;
+}
+
+// =======================
+// 分析ページ
+// =======================
+
+if (type === "analysis") {
+
+  if (diff < 0) {
+    moveAnalysisPeriod(1);
+  } else {
+    moveAnalysisPeriod(-1);
+  }
+
+}
