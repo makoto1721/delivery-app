@@ -1604,8 +1604,6 @@ if(analysisType === "all"){
     totalSales.toLocaleString();
 
   document.getElementById("analysisAllUnit").innerText =
-    totalCount > 0
-   document.getElementById("analysisAllUnit").innerText =
   totalCount > 0
   ? Math.round(totalSales / totalCount).toLocaleString()
   : 0;
