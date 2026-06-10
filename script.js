@@ -1531,6 +1531,57 @@ let weekendMaxPerHour = 0;
 
 });
 
+    weekendFiltered.forEach(h=>{
+
+  const sales =
+    Number(h.totalSales || 0);
+
+  const count =
+    Number(h.totalCount || 0);
+
+  weekendSales += sales;
+  weekendCount += count;
+
+  if(weekendMaxSales === 0 || sales > weekendMaxSales){
+    weekendMaxSales = sales;
+  }
+
+  if(weekendMinSales === null || sales < weekendMinSales){
+    weekendMinSales = sales;
+  }
+
+  const match =
+    (h.workTime || "")
+    .match(/(\d+)時間\s(\d+)分/);
+
+  if(match){
+
+    const hour =
+      Number(match[1]);
+
+    const minute =
+      Number(match[2]);
+
+    const hours =
+      hour + (minute / 60);
+
+    weekendHours += hours;
+
+    if(hours > 0){
+
+      const perHour =
+        count / hours;
+
+      if(perHour > weekendMaxPerHour){
+        weekendMaxPerHour = perHour;
+      }
+
+    }
+
+  }
+
+});
+
     const sales =
       Number(h.totalSales || 0);
 
