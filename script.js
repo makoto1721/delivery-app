@@ -1425,6 +1425,17 @@ if(analysisType === "all"){
 
   const workDays = filtered.length;
 
+  // 平日・土日データ抽出
+const weekdayFiltered = filtered.filter(h => {
+  const day = new Date(h.date).getDay();
+  return day >= 1 && day <= 5;   // 月～金
+});
+
+const weekendFiltered = filtered.filter(h => {
+  const day = new Date(h.date).getDay();
+  return day === 0 || day === 6; // 日・土
+});
+
   let totalSales = 0;
   let totalCount = 0;
   let totalHours = 0;
