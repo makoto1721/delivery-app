@@ -1665,6 +1665,62 @@ let weekendMaxPerHour = 0;
     ? Math.round(totalSales / totalCount)
     : 0;
 
+  const weekdayWorkDays =
+  weekdayFiltered.length;
+
+const weekdayAvgSales =
+  weekdayWorkDays > 0
+  ? Math.round(weekdaySales / weekdayWorkDays)
+  : 0;
+
+const weekdayAvgHourly =
+  weekdayHours > 0
+  ? Math.round(weekdaySales / weekdayHours)
+  : 0;
+
+const weekdayAvgPerHour =
+  weekdayHours > 0
+  ? (weekdayCount / weekdayHours).toFixed(2)
+  : "0.00";
+
+const weekdayAvgPerDay =
+  weekdayWorkDays > 0
+  ? (weekdayCount / weekdayWorkDays).toFixed(1)
+  : "0.0";
+
+const weekdayUnitPrice =
+  weekdayCount > 0
+  ? Math.round(weekdaySales / weekdayCount)
+  : 0;
+
+  const weekendWorkDays =
+  weekendFiltered.length;
+
+const weekendAvgSales =
+  weekendWorkDays > 0
+  ? Math.round(weekendSales / weekendWorkDays)
+  : 0;
+
+const weekendAvgHourly =
+  weekendHours > 0
+  ? Math.round(weekendSales / weekendHours)
+  : 0;
+
+const weekendAvgPerHour =
+  weekendHours > 0
+  ? (weekendCount / weekendHours).toFixed(2)
+  : "0.00";
+
+const weekendAvgPerDay =
+  weekendWorkDays > 0
+  ? (weekendCount / weekendWorkDays).toFixed(1)
+  : "0.0";
+
+const weekendUnitPrice =
+  weekendCount > 0
+  ? Math.round(weekendSales / weekendCount)
+  : 0;
+
   document.getElementById("analysisWorkDays").innerText =
     workDays;
 
