@@ -1479,8 +1479,66 @@ let weekendMaxPerHour = 0;
   let maxPerHour = 0;
 
   filtered.forEach(h=>{
+ 
+    const sales =
+      Number(h.totalSales || 0);
 
-    weekdayFiltered.forEach(h=>{
+    const count =
+      Number(h.totalCount || 0);
+
+    totalSales += sales;
+    totalCount += count;
+
+    uberCount += Number(h.uberCount || 0);
+    uberSales += Number(h.uberSales || 0);
+
+    demaeCount += Number(h.demaeCount || 0);
+    demaeSales += Number(h.demaeSales || 0);
+
+    rocketCount += Number(h.rocketCount || 0);
+    rocketSales += Number(h.rocketSales || 0);
+
+    if(maxSales === 0 || sales > maxSales){
+      maxSales = sales;
+    }
+
+    if(minSales === null || sales < minSales){
+      minSales = sales;
+    }
+
+    const match =
+      (h.workTime || "")
+      .match(/(\d+)時間\s(\d+)分/);
+
+    if(match){
+
+      const hour =
+        Number(match[1]);
+
+      const minute =
+        Number(match[2]);
+
+      const hours =
+        hour + (minute / 60);
+
+      totalHours += hours;
+
+      if(hours > 0){
+
+        const perHour =
+          count / hours;
+
+        if(perHour > maxPerHour){
+          maxPerHour = perHour;
+        }
+
+      }
+
+    }
+
+  });
+
+  weekdayFiltered.forEach(h=>{
 
   const sales =
     Number(h.totalSales || 0);
@@ -1581,64 +1639,6 @@ let weekendMaxPerHour = 0;
   }
 
 });
-
-    const sales =
-      Number(h.totalSales || 0);
-
-    const count =
-      Number(h.totalCount || 0);
-
-    totalSales += sales;
-    totalCount += count;
-
-    uberCount += Number(h.uberCount || 0);
-    uberSales += Number(h.uberSales || 0);
-
-    demaeCount += Number(h.demaeCount || 0);
-    demaeSales += Number(h.demaeSales || 0);
-
-    rocketCount += Number(h.rocketCount || 0);
-    rocketSales += Number(h.rocketSales || 0);
-
-    if(maxSales === 0 || sales > maxSales){
-      maxSales = sales;
-    }
-
-    if(minSales === null || sales < minSales){
-      minSales = sales;
-    }
-
-    const match =
-      (h.workTime || "")
-      .match(/(\d+)時間\s(\d+)分/);
-
-    if(match){
-
-      const hour =
-        Number(match[1]);
-
-      const minute =
-        Number(match[2]);
-
-      const hours =
-        hour + (minute / 60);
-
-      totalHours += hours;
-
-      if(hours > 0){
-
-        const perHour =
-          count / hours;
-
-        if(perHour > maxPerHour){
-          maxPerHour = perHour;
-        }
-
-      }
-
-    }
-
-  });
 
   const avgSales =
     workDays > 0
