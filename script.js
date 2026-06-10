@@ -1801,6 +1801,84 @@ const weekendUnitPrice =
   ? Math.round(totalSales / totalCount).toLocaleString()
   : 0;
 
+  document.getElementById("weekdaySummary").innerHTML = `
+<div class="result-grid">
+
+  <div class="result-item">
+    <div class="result-label">稼働日数</div>
+    <div class="result-value">${weekdayWorkDays}</div>
+    <div class="result-unit">日</div>
+  </div>
+
+  <div class="result-item">
+    <div class="result-label">売上合計</div>
+    <div class="result-value blue">${weekdaySales.toLocaleString()}</div>
+    <div class="result-unit">円</div>
+  </div>
+
+  <div class="result-item">
+    <div class="result-label">稼働時間合計</div>
+    <div class="result-value">${weekdayHours.toFixed(1)}</div>
+    <div class="result-unit">時間</div>
+  </div>
+
+  <div class="result-item">
+    <div class="result-label">配達件数合計</div>
+    <div class="result-value">${weekdayCount}</div>
+    <div class="result-unit">件</div>
+  </div>
+
+  <div class="result-item">
+    <div class="result-label">最大売上</div>
+    <div class="result-value">${weekdayMaxSales.toLocaleString()}</div>
+    <div class="result-unit">円</div>
+  </div>
+
+  <div class="result-item">
+    <div class="result-label">最小売上</div>
+    <div class="result-value">${(weekdayMinSales ?? 0).toLocaleString()}</div>
+    <div class="result-unit">円</div>
+  </div>
+
+  <div class="result-item">
+    <div class="result-label">平均売上</div>
+    <div class="result-value">${weekdayAvgSales.toLocaleString()}</div>
+    <div class="result-unit">円</div>
+  </div>
+
+  <div class="result-item">
+    <div class="result-label">平均時給</div>
+    <div class="result-value blue">${weekdayAvgHourly.toLocaleString()}</div>
+    <div class="result-unit">円</div>
+  </div>
+
+  <div class="result-item">
+    <div class="result-label">平均件数/時間</div>
+    <div class="result-value">${weekdayAvgPerHour}</div>
+    <div class="result-unit">件</div>
+  </div>
+
+  <div class="result-item">
+    <div class="result-label">最高件数/時間</div>
+    <div class="result-value">${weekdayMaxPerHour.toFixed(2)}</div>
+    <div class="result-unit">件</div>
+  </div>
+
+  <div class="result-item">
+    <div class="result-label">平均件数/日</div>
+    <div class="result-value">${weekdayAvgPerDay}</div>
+    <div class="result-unit">件</div>
+  </div>
+
+  <div class="result-item">
+    <div class="result-label">平均1件単価</div>
+    <div class="result-value">${weekdayUnitPrice.toLocaleString()}</div>
+    <div class="result-unit">円</div>
+  </div>
+
+</div>
+`;
+
 // ↓ここから追加
 
 const prevBtn =
