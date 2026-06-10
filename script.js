@@ -756,6 +756,14 @@ ${
   : ""
 }
 </div>
+
+<div class="day-count">
+${
+  historyData
+  ? `${historyData.totalCount}件`
+  : ""
+}
+</div>
 `;
 
     day.onclick = ()=>{
