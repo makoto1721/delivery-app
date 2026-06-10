@@ -1436,6 +1436,30 @@ const weekendFiltered = filtered.filter(h => {
   return day === 0 || day === 6; // 日・土
 });
 
+  // ======================
+// 平日集計用
+// ======================
+
+let weekdaySales = 0;
+let weekdayCount = 0;
+let weekdayHours = 0;
+
+let weekdayMaxSales = 0;
+let weekdayMinSales = null;
+let weekdayMaxPerHour = 0;
+
+// ======================
+// 土日集計用
+// ======================
+
+let weekendSales = 0;
+let weekendCount = 0;
+let weekendHours = 0;
+
+let weekendMaxSales = 0;
+let weekendMinSales = null;
+let weekendMaxPerHour = 0;
+
   let totalSales = 0;
   let totalCount = 0;
   let totalHours = 0;
@@ -1455,6 +1479,57 @@ const weekendFiltered = filtered.filter(h => {
   let maxPerHour = 0;
 
   filtered.forEach(h=>{
+
+    weekdayFiltered.forEach(h=>{
+
+  const sales =
+    Number(h.totalSales || 0);
+
+  const count =
+    Number(h.totalCount || 0);
+
+  weekdaySales += sales;
+  weekdayCount += count;
+
+  if(weekdayMaxSales === 0 || sales > weekdayMaxSales){
+    weekdayMaxSales = sales;
+  }
+
+  if(weekdayMinSales === null || sales < weekdayMinSales){
+    weekdayMinSales = sales;
+  }
+
+  const match =
+    (h.workTime || "")
+    .match(/(\d+)時間\s(\d+)分/);
+
+  if(match){
+
+    const hour =
+      Number(match[1]);
+
+    const minute =
+      Number(match[2]);
+
+    const hours =
+      hour + (minute / 60);
+
+    weekdayHours += hours;
+
+    if(hours > 0){
+
+      const perHour =
+        count / hours;
+
+      if(perHour > weekdayMaxPerHour){
+        weekdayMaxPerHour = perHour;
+      }
+
+    }
+
+  }
+
+});
 
     const sales =
       Number(h.totalSales || 0);
