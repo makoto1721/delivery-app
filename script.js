@@ -1688,6 +1688,28 @@ analysisSwipeArea.addEventListener("touchend", e=>{
 
 });
 
+function toggleWeekdayWeekendAnalysis(){
+
+  const area =
+    document.getElementById("weekdayWeekendAnalysis");
+
+  const btn =
+    document.querySelector(".analysis-detail-toggle");
+
+  if(area.style.display === "none"){
+
+    area.style.display = "block";
+    btn.innerText = "▲ 平日・土日詳細分析";
+
+  }else{
+
+    area.style.display = "none";
+    btn.innerText = "▼ 平日・土日詳細分析";
+
+  }
+
+}
+
 function handleSwipe(type){
 
   const diff = touchEndX - touchStartX;
