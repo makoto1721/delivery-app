@@ -424,6 +424,14 @@ textarea{
   word-break:break-all;
 }
 
+.day-count{
+  margin-top:2px;
+  font-size:9px;
+  color:#6b7280;
+  font-weight:700;
+  line-height:1.1;
+}
+
 /* =======================
 実績詳細
 ======================= */
