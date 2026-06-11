@@ -1311,44 +1311,6 @@ function goCurrentMonth(){
 
 }
 
-function getAnalysisPeriodLabel(type, date){
-
-  const y = date.getFullYear();
-  const m = date.getMonth() + 1;
-
-  if(type === "year"){
-    return `${y}年`;
-  }
-
-  if(type === "month"){
-    return `${y}年${m}月`;
-  }
-
-  if(type === "week"){
-
-    const today = new Date(date);
-
-    const day = today.getDay();
-    const monday = new Date(today);
-
-    monday.setDate(today.getDate() - (day === 0 ? 6 : day - 1));
-
-    const sunday = new Date(monday);
-    sunday.setDate(monday.getDate() + 6);
-
-    const start = `${monday.getMonth()+1}/${monday.getDate()}`;
-    const end = `${sunday.getMonth()+1}/${sunday.getDate()}`;
-
-    return `${start}〜${end}`;
-  }
-
-  if(type === "all"){
-    return "全期間";
-  }
-
-  return "";
-}
-
 function renderAnalysis(){
 
   const history =
@@ -1370,7 +1332,18 @@ function renderAnalysis(){
 
     });
 
-    
+    document.getElementById(
+      "analysisPeriodLabel"
+    ).innerText =
+      `${now.getFullYear()}年`;
+
+document.getElementById(
+  "analysisServicePeriod"
+).innerText =
+  `${now.getFullYear()}年`;
+
+  }
+
   if(analysisType === "month"){
 
     filtered = history.filter(h=>{
@@ -1383,6 +1356,18 @@ function renderAnalysis(){
       );
 
     });
+
+    document.getElementById(
+      "analysisPeriodLabel"
+    ).innerText =
+      `${now.getFullYear()}年 ${now.getMonth()+1}月`;
+
+document.getElementById(
+  "analysisServicePeriod"
+).innerText =
+  `${now.getFullYear()}年 ${now.getMonth()+1}月`;
+
+  }
 
   if(analysisType === "week"){
 
@@ -1412,19 +1397,31 @@ function renderAnalysis(){
 
     });
 
+    document.getElementById(
+      "analysisPeriodLabel"
+    ).innerText =
+      `${monday.getMonth()+1}/${monday.getDate()}〜${sunday.getMonth()+1}/${sunday.getDate()}`;
+
+document.getElementById(
+  "analysisServicePeriod"
+).innerText =
+  `${monday.getMonth()+1}/${monday.getDate()}〜${sunday.getMonth()+1}/${sunday.getDate()}`;
+
+  }
+
 if(analysisType === "all"){
 
   filtered = history;
 
-  const periodLabel =
-  getAnalysisPeriodLabel(
-    analysisType,
-    analysisDate
-  );
+  document.getElementById(
+    "analysisPeriodLabel"
+  ).innerText = "全期間";
 
-document.getElementById(
-  "analysisPeriodLabel"
-).innerText = periodLabel;
+  document.getElementById(
+    "analysisServicePeriod"
+  ).innerText = "全期間";
+
+}
 
   const workDays = filtered.length;
 
