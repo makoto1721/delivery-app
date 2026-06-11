@@ -1367,6 +1367,16 @@ document.getElementById(
 ).innerText =
   `${now.getFullYear()}年 ${now.getMonth()+1}月`;
 
+    document.getElementById(
+  "weekdayTitle"
+).innerText =
+  `${now.getFullYear()}年 ${now.getMonth()+1}月（平日）`;
+
+document.getElementById(
+  "weekendTitle"
+).innerText =
+  `${now.getFullYear()}年 ${now.getMonth()+1}月（土日）`;
+
   }
 
   if(analysisType === "week"){
