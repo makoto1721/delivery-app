@@ -1451,6 +1451,16 @@ if(analysisType === "all"){
     "analysisServicePeriod"
   ).innerText = "全期間";
 
+  document.getElementById(
+  "weekdayTitle"
+).innerText =
+  "全期間（平日）";
+
+document.getElementById(
+  "weekendTitle"
+).innerText =
+  "全期間（土日）";
+
 }
 
   const workDays = filtered.length;
