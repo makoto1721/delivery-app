@@ -1407,6 +1407,16 @@ document.getElementById(
 ).innerText =
   `${monday.getMonth()+1}/${monday.getDate()}〜${sunday.getMonth()+1}/${sunday.getDate()}`;
 
+    document.getElementById(
+  "weekdayTitle"
+).innerText =
+  `${monday.getMonth()+1}/${monday.getDate()}〜${sunday.getMonth()+1}/${sunday.getDate()}（平日）`;
+
+document.getElementById(
+  "weekendTitle"
+).innerText =
+  `${monday.getMonth()+1}/${monday.getDate()}〜${sunday.getMonth()+1}/${sunday.getDate()}（土日）`;
+
   }
 
 if(analysisType === "all"){
