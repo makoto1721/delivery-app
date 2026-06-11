@@ -827,3 +827,7 @@ textarea{
   margin-bottom:12px;
   text-align:center;
 }
+
+.time-table td{
+  padding: 4px 8px;
+}
