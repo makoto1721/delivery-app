@@ -2291,6 +2291,7 @@ function enterWorkTimeEditMode(){
 
     <div style="
   display:flex;
+  justify-content:center;
   align-items:center;
   gap:4px;
   margin-bottom:8px;
@@ -2325,6 +2326,7 @@ function enterWorkTimeEditMode(){
 
    <div style="
   display:flex;
+  justify-content:center;
   align-items:center;
   gap:4px;
   margin-bottom:8px;
@@ -2359,6 +2361,7 @@ function enterWorkTimeEditMode(){
 
     <div style="
   display:flex;
+  justify-content:center;
   align-items:center;
   gap:4px;
   margin-bottom:8px;
