@@ -831,3 +831,16 @@ textarea{
 .time-table td:first-child{
   padding-right: 12px;
 }
+
+.work-refresh-btn{
+  background: transparent;
+  border: none;
+  color: #6b7280;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.work-refresh-btn:active{
+  transform: rotate(180deg);
+}
