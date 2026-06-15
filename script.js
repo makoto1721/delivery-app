@@ -2211,6 +2211,10 @@ function openWorkTimeModal(){
   ).innerHTML = html;
 
   document.getElementById(
+  "workTimeEditBtn"
+).style.display = "block";
+
+  document.getElementById(
     "workTimeModal"
   ).style.display = "flex";
 
