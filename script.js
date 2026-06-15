@@ -2304,3 +2304,54 @@ function enterWorkTimeEditMode(){
   ).style.display = "none";
 
 }
+
+function saveWorkTimeModal(){
+
+  const targetDate = getSelectedHistoryDate();
+
+  if(!targetDate){
+    return;
+  }
+
+  let history =
+    JSON.parse(
+      localStorage.getItem("deliveryHistory") || "[]"
+    );
+
+  const index =
+    history.findIndex(h => h.date === targetDate);
+
+  if(index < 0){
+    return;
+  }
+
+  history[index].start1 =
+    document.getElementById("modalStart1").value;
+
+  history[index].end1 =
+    document.getElementById("modalEnd1").value;
+
+  history[index].start2 =
+    document.getElementById("modalStart2").value;
+
+  history[index].end2 =
+    document.getElementById("modalEnd2").value;
+
+  history[index].start3 =
+    document.getElementById("modalStart3").value;
+
+  history[index].end3 =
+    document.getElementById("modalEnd3").value;
+
+  localStorage.setItem(
+    "deliveryHistory",
+    JSON.stringify(history)
+  );
+
+  alert("稼働時間を保存しました");
+
+  closeWorkTimeModal();
+
+  showHistoryDetail(targetDate);
+
+}
