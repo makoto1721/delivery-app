@@ -2168,8 +2168,19 @@ function openWorkTimeModal(){
 
   if(!data){
 
-    html =
-      "この日の時間帯データはありません";
+    html = `
+  この日の時間帯データはありません
+
+  <br><br>
+
+  <button
+    class="rain-btn"
+    style="width:100%;"
+    onclick="enterWorkTimeEditMode()"
+  >
+    入力する
+  </button>
+`;
 
   }else{
 
@@ -2195,8 +2206,19 @@ function openWorkTimeModal(){
 
     if(periods.length === 0){
 
-      html =
-        "この日の時間帯データはありません";
+      html = `
+  この日の時間帯データはありません
+
+  <br><br>
+
+  <button
+    class="rain-btn"
+    style="width:100%;"
+    onclick="enterWorkTimeEditMode()"
+  >
+    入力する
+  </button>
+`;
 
     }else{
 
