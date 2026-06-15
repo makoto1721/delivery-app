@@ -2289,50 +2289,107 @@ function enterWorkTimeEditMode(){
     "workTimeModalBody"
   ).innerHTML = `
 
-    <div style="margin-bottom:12px;">
-      ①
-      <input
-        type="time"
-        id="modalStart1"
-        value="${data.start1 || ""}"
-      >
-      ～
-      <input
-        type="time"
-        id="modalEnd1"
-        value="${data.end1 || ""}"
-      >
-    </div>
+    <div style="
+  display:flex;
+  align-items:center;
+  gap:4px;
+  margin-bottom:8px;
+  font-size:13px;
+">
+  <span style="width:16px;">①</span>
 
-    <div style="margin-bottom:12px;">
-      ②
-      <input
-        type="time"
-        id="modalStart2"
-        value="${data.start2 || ""}"
-      >
-      ～
-      <input
-        type="time"
-        id="modalEnd2"
-        value="${data.end2 || ""}"
-      >
-    </div>
+  <input
+    type="time"
+    id="modalStart1"
+    value="${data.start1 || ""}"
+    style="
+      width:90px;
+      font-size:12px;
+      padding:4px;
+    "
+  >
 
-    <div style="margin-bottom:12px;">
-      ③
-      <input
-        type="time"
-        id="modalStart3"
-        value="${data.start3 || ""}"
-      >
-      ～
-      <input
-        type="time"
-        id="modalEnd3"
-        value="${data.end3 || ""}"
-      >
-    </div>
+  <span>～</span>
+
+  <input
+    type="time"
+    id="modalEnd1"
+    value="${data.end1 || ""}"
+    style="
+      width:90px;
+      font-size:12px;
+      padding:4px;
+    "
+  >
+</div>
+
+   <div style="
+  display:flex;
+  align-items:center;
+  gap:4px;
+  margin-bottom:8px;
+  font-size:13px;
+">
+  <span style="width:16px;">②</span>
+
+  <input
+    type="time"
+    id="modalStart2"
+    value="${data.start2 || ""}"
+    style="
+      width:90px;
+      font-size:12px;
+      padding:4px;
+    "
+  >
+
+  <span>～</span>
+
+  <input
+    type="time"
+    id="modalEnd2"
+    value="${data.end2 || ""}"
+    style="
+      width:90px;
+      font-size:12px;
+      padding:4px;
+    "
+  >
+</div>
+
+    <div style="
+  display:flex;
+  align-items:center;
+  gap:4px;
+  margin-bottom:8px;
+  font-size:13px;
+">
+  <span style="width:16px;">③</span>
+
+  <input
+    type="time"
+    id="modalStart3"
+    value="${data.start3 || ""}"
+    style="
+      width:90px;
+      font-size:12px;
+      padding:4px;
+    "
+  >
+
+  <span>～</span>
+
+  <input
+    type="time"
+    id="modalEnd3"
+    value="${data.end3 || ""}"
+    style="
+      width:90px;
+      font-size:12px;
+      padding:4px;
+    "
+  >
+</div>
 
     <button
       class="end-btn"
