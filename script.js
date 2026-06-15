@@ -2226,6 +2226,14 @@ function closeWorkTimeModal(){
     "workTimeModal"
   ).style.display = "none";
 
+  document.getElementById(
+    "workTimeModalBody"
+  ).innerHTML = "";
+
+  document.getElementById(
+    "workTimeEditBtn"
+  ).style.display = "block";
+
 }
 
 function enterWorkTimeEditMode(){
@@ -2354,8 +2362,8 @@ function saveWorkTimeModal(){
 
   alert("稼働時間を保存しました");
 
-  closeWorkTimeModal();
+showHistoryDetail(targetDate);
 
-  showHistoryDetail(targetDate);
-
+closeWorkTimeModal();
+  
 }
