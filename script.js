@@ -1096,6 +1096,24 @@ deliveryPerHour:
    memo:
   document.getElementById("historyMemo").value,
 
+start1:
+  document.getElementById("start1").value,
+
+end1:
+  document.getElementById("end1").value,
+
+start2:
+  document.getElementById("start2").value,
+
+end2:
+  document.getElementById("end2").value,
+
+start3:
+  document.getElementById("start3").value,
+
+end3:
+  document.getElementById("end3").value,
+
 isRainy:historyRainy,
 
   };
