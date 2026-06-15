@@ -2229,16 +2229,27 @@ function openWorkTimeModal(){
   }
 
   document.getElementById(
-    "workTimeModalBody"
-  ).innerHTML = html;
+  "workTimeModalBody"
+).innerHTML = html;
 
-  document.getElementById(
-  "workTimeEditBtn"
-).style.display = "block";
+const editBtn =
+  document.getElementById("workTimeEditBtn");
 
-  document.getElementById(
-    "workTimeModal"
-  ).style.display = "flex";
+if(
+  html.includes("入力する")
+){
+
+  editBtn.style.display = "none";
+
+}else{
+
+  editBtn.style.display = "block";
+
+}
+
+document.getElementById(
+  "workTimeModal"
+).style.display = "flex";
 
 }
 
