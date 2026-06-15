@@ -2146,3 +2146,19 @@ function handleSwipe(type){
   }
 
 }
+
+function openWorkTimeModal(){
+
+  document.getElementById(
+    "workTimeModal"
+  ).style.display = "flex";
+
+}
+
+function closeWorkTimeModal(){
+
+  document.getElementById(
+    "workTimeModal"
+  ).style.display = "none";
+
+}
