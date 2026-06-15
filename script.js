@@ -2223,3 +2223,84 @@ function closeWorkTimeModal(){
   ).style.display = "none";
 
 }
+
+function enterWorkTimeEditMode(){
+
+  const targetDate = getSelectedHistoryDate();
+
+  if(!targetDate){
+    return;
+  }
+
+  const history =
+    JSON.parse(
+      localStorage.getItem("deliveryHistory") || "[]"
+    );
+
+  const data =
+    history.find(h => h.date === targetDate) || {};
+
+  document.getElementById(
+    "workTimeModalBody"
+  ).innerHTML = `
+
+    <div style="margin-bottom:12px;">
+      ①
+      <input
+        type="time"
+        id="modalStart1"
+        value="${data.start1 || ""}"
+      >
+      ～
+      <input
+        type="time"
+        id="modalEnd1"
+        value="${data.end1 || ""}"
+      >
+    </div>
+
+    <div style="margin-bottom:12px;">
+      ②
+      <input
+        type="time"
+        id="modalStart2"
+        value="${data.start2 || ""}"
+      >
+      ～
+      <input
+        type="time"
+        id="modalEnd2"
+        value="${data.end2 || ""}"
+      >
+    </div>
+
+    <div style="margin-bottom:12px;">
+      ③
+      <input
+        type="time"
+        id="modalStart3"
+        value="${data.start3 || ""}"
+      >
+      ～
+      <input
+        type="time"
+        id="modalEnd3"
+        value="${data.end3 || ""}"
+      >
+    </div>
+
+    <button
+      class="end-btn"
+      style="width:100%; margin-top:14px;"
+      onclick="saveWorkTimeModal()"
+    >
+      保存
+    </button>
+
+  `;
+
+  document.getElementById(
+    "workTimeEditBtn"
+  ).style.display = "none";
+
+}
