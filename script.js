@@ -2149,6 +2149,67 @@ function handleSwipe(type){
 
 function openWorkTimeModal(){
 
+  const targetDate = getSelectedHistoryDate();
+
+  if(!targetDate){
+    alert("日付を選択してください");
+    return;
+  }
+
+  const history =
+    JSON.parse(
+      localStorage.getItem("deliveryHistory") || "[]"
+    );
+
+  const data =
+    history.find(h => h.date === targetDate);
+
+  let html = "";
+
+  if(!data){
+
+    html =
+      "この日の時間帯データはありません";
+
+  }else{
+
+    const periods = [];
+
+    if(data.start1 || data.end1){
+      periods.push(
+        `① ${data.start1 || "--:--"} ～ ${data.end1 || "--:--"}`
+      );
+    }
+
+    if(data.start2 || data.end2){
+      periods.push(
+        `② ${data.start2 || "--:--"} ～ ${data.end2 || "--:--"}`
+      );
+    }
+
+    if(data.start3 || data.end3){
+      periods.push(
+        `③ ${data.start3 || "--:--"} ～ ${data.end3 || "--:--"}`
+      );
+    }
+
+    if(periods.length === 0){
+
+      html =
+        "この日の時間帯データはありません";
+
+    }else{
+
+      html = periods.join("<br>");
+
+    }
+
+  }
+
+  document.getElementById(
+    "workTimeModalBody"
+  ).innerHTML = html;
+
   document.getElementById(
     "workTimeModal"
   ).style.display = "flex";
