@@ -379,115 +379,69 @@ onclick="toggleHistoryRain()"
 
 </div>
 
-<div class="history-grid">
+<!-- サマリー -->
 
-<div class="history-item compact">
+<div class="history-summary-large">
 
-<div class="history-label">
-売上合計
-</div>
+  <div class="summary-label">
+    売上合計
+  </div>
 
-<div class="history-input-row">
-
-<input
-type="tel"
-inputmode="numeric"
-id="historyTotalSales"
-readonly
->
-
-<span>円</span>
+  <div class="summary-value blue">
+    <span id="historyTotalSales">0</span>円
+  </div>
 
 </div>
 
-</div>
+<div class="history-summary-grid">
 
-<div class="history-item compact">
+  <div class="history-summary-card">
 
-<div class="history-label">
-合計件数
-</div>
+    <div class="summary-label">
+      合計件数
+    </div>
 
-<div class="history-input-row">
+    <div class="summary-value">
+      <span id="historyTotalCount">0</span>件
+    </div>
 
-<input
-type="tel"
-inputmode="numeric"
-id="historyTotalCount"
-readonly
->
+  </div>
 
+  <div class="history-summary-card">
 
-<span>件</span>
+    <div class="summary-label">
+      時給換算
+    </div>
 
-</div>
+    <div class="summary-value">
+      <span id="historyHourly">0</span>円
+    </div>
 
-</div>
+  </div>
 
-</div>
+  <div class="history-summary-card">
 
-<div class="history-grid">
+    <div class="summary-label">
+      時間件数
+    </div>
 
-<div class="history-item compact">
+    <div class="summary-value">
+      <span id="historyDeliveryPerHour">0</span>件
+    </div>
 
-<div class="history-label">
-時給換算
-</div>
+  </div>
 
-<div class="history-input-row">
+  <div class="history-summary-card">
 
-<input
-type="tel"
-inputmode="numeric"
-id="historyHourly"
-readonly
->
+    <div class="summary-label">
+      1件単価
+    </div>
 
-<span>円</span>
+    <div class="summary-value">
+      <span id="historyUnitPrice">0</span>円
+    </div>
 
-</div>
-
-</div>
-
-<div class="history-item compact">
-
-<div class="history-label">
-時間件数
-</div>
-
-<div class="history-input-row">
-
-<input
-type="tel"
-inputmode="decimal"
-id="historyDeliveryPerHour"
-readonly
->
-
-<span>件</span>
-
-</div>
-
-</div>
-
-<div class="history-item compact">
-
-<div class="history-label">
-1件単価
-</div>
-
-<div class="history-input-row">
-
-<input
-type="tel"
-inputmode="numeric"
-id="historyUnitPrice"
-readonly
->
-
-<span>円</span>
-
-</div>
+  </div>
 
 </div>
 
