@@ -928,16 +928,19 @@ textarea{
 }
 
 .history-summary-large{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:8px;
+  position: relative;
+  text-align: center;
+  padding: 12px 16px;
 }
 
 .history-summary-large .summary-label{
-  margin:0;
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
 }
 
 .history-summary-large .summary-value{
-  margin:0;
+  margin: 0;
 }
