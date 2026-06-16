@@ -843,11 +843,11 @@ function showHistoryDetail(dateKey){
       dateObj.getDate()
     }日`;
 
-  document.getElementById("historyTotalSales").value =
-    data.totalSales || "";
+  document.getElementById("historyTotalSales").innerText =
+  data.totalSales || 0;
 
-  document.getElementById("historyTotalCount").value =
-    data.totalCount || "";
+document.getElementById("historyTotalCount").innerText =
+  data.totalCount || 0;
 
   const match =
   (data.workTime || "")
@@ -868,11 +868,16 @@ if(match){
 
 }
 
-  document.getElementById("historyHourly").value =
-    data.hourly || "";
+  document.getElementById("historyHourly").innerText =
+  data.hourly || 0;
 
-document.getElementById("historyDeliveryPerHour").value =
-  data.deliveryPerHour || "";
+document.getElementById("historyDeliveryPerHour").innerText =
+  data.deliveryPerHour || 0;
+
+  document.getElementById("historyUnitPrice").innerText =
+  data.totalCount
+    ? Math.round(data.totalSales / data.totalCount)
+    : 0;
 
   document.getElementById("historyUberCount").value =
     data.uberCount || "";
