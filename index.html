@@ -424,44 +424,28 @@ onclick="toggleHistoryRain()"
 <!-- ② 稼働時間 -->
 <div class="card">
 
+ <div class="history-item compact">
+
   <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
 
     <div class="history-label" style="margin:0;">
       稼働時間
-      <span
-        onclick="openWorkTimeModal()"
-        style="
-          margin-left:6px;
-          color:#6b7280;
-          cursor:pointer;
-          font-size:14px;
-        "
-      >
-        ⓘ
-      </span>
+      <span onclick="openWorkTimeModal()" style="margin-left:6px; color:#6b7280; cursor:pointer; font-size:14px;">ⓘ</span>
     </div>
 
     <div class="history-input-row" style="margin:0;">
-      <input
-        type="tel"
-        id="historyWorkHour"
-        oninput="calculateHistoryDetail()"
-      >
-
+      <input type="tel" id="historyWorkHour" oninput="calculateHistoryDetail()">
       <span class="time-unit">時間</span>
 
-      <input
-        type="tel"
-        id="historyWorkMinute"
-        oninput="calculateHistoryDetail()"
-      >
-
+      <input type="tel" id="historyWorkMinute" oninput="calculateHistoryDetail()">
       <span class="time-unit">分</span>
     </div>
 
   </div>
 
 </div>
+
+</div> 
 
 <!-- ③ サービス別 -->
 <div class="card">
