@@ -379,125 +379,311 @@ onclick="toggleHistoryRain()"
 
 </div>
 
-<!-- ① サマリー -->
-<div class="card">
+<div class="history-grid">
 
-  <div class="history-summary-large">
-    <div class="summary-label">売上合計</div>
-    <div class="summary-value blue">
-      <span id="historyTotalSales">0</span>円
-    </div>
-  </div>
+<div class="history-item compact">
 
-  <div class="history-summary-grid">
+<div class="history-label">
+売上合計
+</div>
 
-    <div class="history-summary-card">
-      <div class="summary-label">合計件数</div>
-      <div class="summary-value">
-        <span id="historyTotalCount">0</span>件
-      </div>
-    </div>
+<div class="history-input-row">
 
-    <div class="history-summary-card">
-      <div class="summary-label">時給換算</div>
-      <div class="summary-value">
-        <span id="historyHourly">0</span>円
-      </div>
-    </div>
+<input
+type="tel"
+inputmode="numeric"
+id="historyTotalSales"
+readonly
+>
 
-    <div class="history-summary-card">
-      <div class="summary-label">時間件数</div>
-      <div class="summary-value">
-        <span id="historyDeliveryPerHour">0</span>件
-      </div>
-    </div>
-
-    <div class="history-summary-card">
-      <div class="summary-label">1件単価</div>
-      <div class="summary-value">
-        <span id="historyUnitPrice">0</span>円
-      </div>
-    </div>
-
-  </div>
+<span>円</span>
 
 </div>
 
-<!-- ② 稼働時間 -->
-<div class="card">
+</div>
 
- <div class="history-item compact">
+<div class="history-item compact">
 
-  <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+<div class="history-label">
+合計件数
+</div>
 
-    <div class="history-label" style="margin:0;">
-      稼働時間
-      <span onclick="openWorkTimeModal()" style="margin-left:6px; color:#6b7280; cursor:pointer; font-size:14px;">ⓘ</span>
-    </div>
+<div class="history-input-row">
 
-    <div class="history-input-row" style="margin:0;">
-      <input type="tel" id="historyWorkHour" oninput="calculateHistoryDetail()">
-      <span class="time-unit">時間</span>
+<input
+type="tel"
+inputmode="numeric"
+id="historyTotalCount"
+readonly
+>
 
-      <input type="tel" id="historyWorkMinute" oninput="calculateHistoryDetail()">
-      <span class="time-unit">分</span>
-    </div>
 
-  </div>
+<span>件</span>
 
 </div>
 
-</div> 
-
-<!-- ③ サービス別 -->
-<div class="card">
-
-  <!-- Uber -->
-  <div class="service-detail-row">
-    <div class="service-detail-name">Uber</div>
-    <div class="history-input-row">
-      <input type="tel" id="historyUberCount" oninput="calculateHistoryDetail()">
-      <span>件</span>
-
-      <input type="tel" id="historyUberSales" oninput="calculateHistoryDetail()">
-      <span>円</span>
-    </div>
-  </div>
-
-  <!-- 出前館 -->
-  <div class="service-detail-row">
-    <div class="service-detail-name">出前館</div>
-    <div class="history-input-row">
-      <input type="tel" id="historyDemaeCount" oninput="calculateHistoryDetail()">
-      <span>件</span>
-
-      <input type="tel" id="historyDemaeSales" oninput="calculateHistoryDetail()">
-      <span>円</span>
-    </div>
-  </div>
-
-  <!-- ロケット -->
-  <div class="service-detail-row">
-    <div class="service-detail-name">ロケット</div>
-    <div class="history-input-row">
-      <input type="tel" id="historyRocketCount" oninput="calculateHistoryDetail()">
-      <span>件</span>
-
-      <input type="tel" id="historyRocketSales" oninput="calculateHistoryDetail()">
-      <span>円</span>
-    </div>
-  </div>
+</div>
 
 </div>
 
-<!-- ④ 備考 -->
-<div class="card">
+<div class="history-grid">
 
-  <div class="history-label">備考</div>
-  <textarea id="historyMemo"></textarea>
+<div class="history-item compact">
+
+<div class="history-label">
+時給換算
+</div>
+
+<div class="history-input-row">
+
+<input
+type="tel"
+inputmode="numeric"
+id="historyHourly"
+readonly
+>
+
+<span>円</span>
 
 </div>
-  
+
+</div>
+
+<div class="history-item compact">
+
+<div class="history-label">
+時間件数
+</div>
+
+<div class="history-input-row">
+
+<input
+type="tel"
+inputmode="decimal"
+id="historyDeliveryPerHour"
+readonly
+>
+
+<span>件</span>
+
+</div>
+
+</div>
+
+<div class="history-item compact">
+
+<div class="history-label">
+1件単価
+</div>
+
+<div class="history-input-row">
+
+<input
+type="tel"
+inputmode="numeric"
+id="historyUnitPrice"
+readonly
+>
+
+<span>円</span>
+
+</div>
+
+</div>
+
+<div class="history-item compact">
+
+<div class="history-label">
+
+  稼働時間
+
+  <span
+    onclick="openWorkTimeModal()"
+    style="
+      margin-left:6px;
+      color:#6b7280;
+      cursor:pointer;
+      font-size:14px;
+    "
+  >
+    ⓘ
+  </span>
+
+</div>
+
+<div class="history-input-row">
+
+<div style="display:flex; gap:4px; align-items:center; width:100%;">
+
+<input
+type="tel"
+inputmode="numeric"
+id="historyWorkHour"
+placeholder="0"
+oninput="calculateHistoryDetail()"
+onchange="calculateHistoryDetail()"
+>
+
+<span class="time-unit">時間</span>
+
+<input
+type="tel"
+inputmode="numeric"
+id="historyWorkMinute"
+placeholder="0"
+oninput="calculateHistoryDetail()"
+onchange="calculateHistoryDetail()"
+>
+
+<span class="time-unit">分</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+<!-- Uber -->
+
+<div class="service-detail-block">
+
+<div class="service-detail-row">
+
+<div class="service-detail-name">
+Uber
+</div>
+
+<div class="history-service-grid">
+
+<div class="history-input-row">
+
+<input
+type="tel"
+inputmode="numeric"
+id="historyUberCount"
+oninput="calculateHistoryDetail()"
+>
+
+<span>件</span>
+
+</div>
+
+<div class="history-input-row">
+
+<input
+type="tel"
+inputmode="numeric"
+id="historyUberSales"
+oninput="calculateHistoryDetail()"
+>
+
+<span>円</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 出前館 -->
+
+<div class="service-detail-block">
+
+<div class="service-detail-row">
+
+<div class="service-detail-name">
+出前館
+</div>
+
+<div class="history-service-grid">
+
+<div class="history-input-row">
+
+<input
+type="tel"
+inputmode="numeric"
+id="historyDemaeCount"
+oninput="calculateHistoryDetail()"
+>
+<span>件</span>
+
+</div>
+
+<div class="history-input-row">
+
+<input
+type="tel"
+inputmode="numeric"
+id="historyDemaeSales"
+oninput="calculateHistoryDetail()"
+>
+<span>円</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ロケット -->
+
+<div class="service-detail-block">
+
+<div class="service-detail-row">
+
+<div class="service-detail-name">
+ロケット
+</div>
+
+<div class="history-service-grid">
+
+<div class="history-input-row">
+
+<input
+type="tel"
+inputmode="numeric"
+id="historyRocketCount"
+oninput="calculateHistoryDetail()"
+>
+<span>件</span>
+
+</div>
+
+<div class="history-input-row">
+
+<input
+type="tel"
+inputmode="numeric"
+id="historyRocketSales"
+oninput="calculateHistoryDetail()"
+>
+<span>円</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 備考 -->
+
+<div class="history-memo-block">
+
+<div class="history-label">
+備考
+</div>
+
+<textarea id="historyMemo"></textarea>
+
 <button
 class="end-btn"
 style="width:100%; margin-top:14px;"
