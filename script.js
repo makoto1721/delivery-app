@@ -844,7 +844,7 @@ function showHistoryDetail(dateKey){
     }日`;
 
   document.getElementById("historyTotalSales").innerText =
-  data.totalSales || 0;
+  (data.totalSales || 0).toLocaleString()
 
 document.getElementById("historyTotalCount").innerText =
   data.totalCount || 0;
@@ -869,14 +869,14 @@ if(match){
 }
 
   document.getElementById("historyHourly").innerText =
-  data.hourly || 0;
+  Number(data.hourly || 0).toLocaleString();
 
 document.getElementById("historyDeliveryPerHour").innerText =
   data.deliveryPerHour || 0;
 
   document.getElementById("historyUnitPrice").innerText =
   data.totalCount
-    ? Math.round(data.totalSales / data.totalCount)
+    ? Math.round(data.totalSales / data.totalCount).toLocaleString()
     : 0;
 
   document.getElementById("historyUberCount").value =
@@ -996,7 +996,7 @@ function calculateHistoryDetail(){
   totalCount;
 
   document.getElementById("historyTotalSales").innerText =
-  totalSales;
+  totalSales.toLocaleString();
 
   // 稼働時間
   const hour =
@@ -1016,7 +1016,7 @@ function calculateHistoryDetail(){
   }
 
   document.getElementById("historyHourly").innerText =
-  hourly;
+  hourly.toLocaleString();
 
 let deliveryPerHour = 0;
 
@@ -1038,7 +1038,7 @@ if(totalCount > 0){
 }
 
 document.getElementById("historyUnitPrice").innerText =
-  unitPrice;
+  unitPrice.toLocaleString();
 
 }
 
