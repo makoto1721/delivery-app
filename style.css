@@ -926,3 +926,17 @@ textarea{
   font-size:28px;
 
 }
+
+.history-summary-large{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.history-summary-large .summary-label{
+  margin:0;
+}
+
+.history-summary-large .summary-value{
+  margin:0;
+}
