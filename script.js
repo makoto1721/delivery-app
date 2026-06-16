@@ -992,11 +992,11 @@ function calculateHistoryDetail(){
     demaeSales +
     rocketSales;
 
-  document.getElementById("historyTotalCount").value =
-    totalCount;
+  document.getElementById("historyTotalCount").innerText =
+  totalCount;
 
-  document.getElementById("historyTotalSales").value =
-    totalSales;
+  document.getElementById("historyTotalSales").innerText =
+  totalSales;
 
   // 稼働時間
   const hour =
@@ -1015,7 +1015,7 @@ function calculateHistoryDetail(){
     hourly = Math.round(totalSales / totalHours);
   }
 
-  document.getElementById("historyHourly").value =
+  document.getElementById("historyHourly").innerText =
   hourly;
 
 let deliveryPerHour = 0;
@@ -1025,7 +1025,7 @@ if(totalHours > 0){
     (totalCount / totalHours).toFixed(2);
 }
 
-document.getElementById("historyDeliveryPerHour").value =
+document.getElementById("historyDeliveryPerHour").innerText =
   deliveryPerHour;
 
 let unitPrice = 0;
@@ -1037,7 +1037,7 @@ if(totalCount > 0){
 
 }
 
-document.getElementById("historyUnitPrice").value =
+document.getElementById("historyUnitPrice").innerText =
   unitPrice;
 
 }
