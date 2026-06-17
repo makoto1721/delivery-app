@@ -1083,10 +1083,17 @@ function saveHistoryDetail(){
     date: targetDate,
 
     totalSales:
-      document.getElementById("historyTotalSales").value,
+  Number(
+    document.getElementById("historyTotalSales")
+      .innerText
+      .replace(/,/g,"")
+  ),
 
     totalCount:
-      document.getElementById("historyTotalCount").value,
+  Number(
+    document.getElementById("historyTotalCount")
+      .innerText
+  ),
 
     workTime:
       `${document.getElementById("historyWorkHour").value || 0}時間 ${
@@ -1094,9 +1101,17 @@ function saveHistoryDetail(){
       }分`,
 
     hourly:
-      document.getElementById("historyHourly").value,
+  Number(
+    document.getElementById("historyHourly")
+      .innerText
+      .replace(/,/g,"")
+  ),
+    
 deliveryPerHour:
-  document.getElementById("historyDeliveryPerHour").value,
+  Number(
+    document.getElementById("historyDeliveryPerHour")
+      .innerText
+  ),
 
     uberCount:
       document.getElementById("historyUberCount").value,
