@@ -359,7 +359,35 @@ gap:10px;
 margin-bottom:20px;
 ">
 
-<div class="detail-date" id="detailDate">
+<<div style="
+display:flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+">
+
+<button
+class="calendar-arrow"
+onclick="moveHistoryDate(-1)"
+>
+◀
+</button>
+
+<div
+class="detail-date"
+id="detailDate"
+>
+日付を選択
+</div>
+
+<button
+class="calendar-arrow"
+onclick="moveHistoryDate(1)"
+>
+▶
+</button>
+
+</div>">
 日付を選択
 </div>
 
