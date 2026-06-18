@@ -2509,6 +2509,41 @@ function closeUberDetailModal(){
 
 }
 
+function calculateUberDetail(){
+
+  const base =
+    Number(
+      document.getElementById("historyUberBase").value || 0
+    );
+
+  const promotion =
+    Number(
+      document.getElementById("historyUberPromotion").value || 0
+    );
+
+  const tip =
+    Number(
+      document.getElementById("historyUberTip").value || 0
+    );
+
+  const other =
+    Number(
+      document.getElementById("historyUberOther").value || 0
+    );
+
+  const total =
+    base +
+    promotion +
+    tip +
+    other;
+
+  document.getElementById("historyUberSales").value =
+    total;
+
+  calculateHistoryDetail();
+
+}
+
 function saveUberDetail(){
 
   saveHistoryDetail();
