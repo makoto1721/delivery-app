@@ -2511,7 +2511,9 @@ function closeUberDetailModal(){
 
 function saveUberDetail(){
 
-  alert("保存機能は次で実装します");
+  saveHistoryDetail();
+
+  closeUberDetailModal();
 
 }
 
