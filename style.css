@@ -976,3 +976,8 @@ textarea{
   white-space:nowrap;
   margin-bottom:0;
 }
+
+.history-page input,
+.history-page textarea{
+  background:#f3f4f6;
+}
