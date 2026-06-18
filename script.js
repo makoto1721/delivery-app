@@ -845,7 +845,7 @@ function showHistoryDetail(dateKey){
       demaeSales:"",
       rocketCount:"",
       rocketSales:"",
-      memo:""
+      memo:"",
       uberBase:"",
 uberPromotion:"",
 uberTip:"",
@@ -917,6 +917,18 @@ document.getElementById("historyDeliveryPerHour").innerText =
 
   document.getElementById("historyRocketSales").value =
     data.rocketSales || "";
+
+  document.getElementById("historyUberBase").value =
+  data.uberBase || "";
+
+document.getElementById("historyUberPromotion").value =
+  data.uberPromotion || "";
+
+document.getElementById("historyUberTip").value =
+  data.uberTip || "";
+
+document.getElementById("historyUberOther").value =
+  data.uberOther || "";
 
   document.getElementById("historyMemo").value =
   data.memo || "";
