@@ -2637,3 +2637,60 @@ showHistoryDetail(newDateKey);
 renderCalendar();
 
 }
+
+function calculateUberDetail(){
+
+  const base =
+    Number(
+      document.getElementById("historyUberBase").value || 0
+    );
+
+  const promotion =
+    Number(
+      document.getElementById("historyUberPromotion").value || 0
+    );
+
+  const tip =
+    Number(
+      document.getElementById("historyUberTip").value || 0
+    );
+
+  const other =
+    Number(
+      document.getElementById("historyUberOther").value || 0
+    );
+
+  const total =
+    base +
+    promotion +
+    tip +
+    other;
+
+  document.getElementById("uberDetailTotal")
+    .innerText =
+      total.toLocaleString() + "円";
+
+  const uberSales =
+    Number(
+      document.getElementById("historyUberSales").value || 0
+    );
+
+  const diff =
+    total - uberSales;
+
+  const diffEl =
+    document.getElementById("uberDetailDiff");
+
+  if(diff === 0){
+
+    diffEl.innerText =
+      "✓ Uber売上と一致";
+
+  }else{
+
+    diffEl.innerText =
+      `差額 ${diff.toLocaleString()}円`;
+
+  }
+
+}
