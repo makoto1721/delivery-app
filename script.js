@@ -19,10 +19,16 @@ function switchPage(page){
   }
 
   if(page==="history"){
-    document.getElementById("historyPage").classList.add("active");
-    document.querySelectorAll(".nav-btn")[1].classList.add("active");
-    renderCalendar();
-  }
+  document.getElementById("historyPage").classList.add("active");
+  document.querySelectorAll(".nav-btn")[1].classList.add("active");
+
+  renderCalendar();
+
+  showHistoryDetail(
+    getSelectedHistoryDate()
+    || getBusinessDateKey()
+  );
+}
 
   if(page==="analysis"){
     document.getElementById("analysisPage").classList.add("active");
