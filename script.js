@@ -2465,6 +2465,28 @@ function enterWorkTimeEditMode(){
 
 }
 
+function openUberDetailModal(){
+
+  document.getElementById(
+    "uberDetailModal"
+  ).style.display = "flex";
+
+}
+
+function closeUberDetailModal(){
+
+  document.getElementById(
+    "uberDetailModal"
+  ).style.display = "none";
+
+}
+
+function saveUberDetail(){
+
+  alert("保存機能は次で実装します");
+
+}
+
 function saveWorkTimeModal(){
 
   const targetDate = getSelectedHistoryDate();
