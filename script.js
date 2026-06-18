@@ -846,6 +846,10 @@ function showHistoryDetail(dateKey){
       rocketCount:"",
       rocketSales:"",
       memo:""
+      uberBase:"",
+uberPromotion:"",
+uberTip:"",
+uberOther:"",
     };
 
   }
@@ -1146,9 +1150,33 @@ deliveryPerHour:
       document.getElementById("historyRocketCount").value,
 
     rocketSales:
-      document.getElementById("historyRocketSales").value,
+  document.getElementById("historyRocketSales").value,
 
-   memo:
+    document.getElementById("historyUberBase").value =
+  data.uberBase || "";
+
+document.getElementById("historyUberPromotion").value =
+  data.uberPromotion || "";
+
+document.getElementById("historyUberTip").value =
+  data.uberTip || "";
+
+document.getElementById("historyUberOther").value =
+  data.uberOther || "";
+
+uberBase:
+  document.getElementById("historyUberBase").value,
+
+uberPromotion:
+  document.getElementById("historyUberPromotion").value,
+
+uberTip:
+  document.getElementById("historyUberTip").value,
+
+uberOther:
+  document.getElementById("historyUberOther").value,
+
+memo:
   document.getElementById("historyMemo").value,
 
 start1:
