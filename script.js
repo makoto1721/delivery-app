@@ -44,6 +44,8 @@ function switchPage(page){
 
 let isRainy = false;
 
+let selectedHistoryDate = null;
+
 function toggleRain(){
 
   isRainy = !isRainy;
@@ -744,6 +746,9 @@ firstDay =
       }-${
         String(d).padStart(2,"0")
       }`;
+    
+    const activeDate =
+  selectedHistoryDate || getBusinessDateKey();
 
     const historyData =
       history.find(h=>h.date===dateKey);
@@ -752,6 +757,10 @@ firstDay =
       document.createElement("div");
 
     day.className = "calendar-day";
+
+    if(dateKey === activeDate){
+  day.classList.add("active");
+}
 
     const dayOfWeek =
   new Date(year, month, d).getDay();
@@ -792,15 +801,17 @@ ${
 
     day.onclick = ()=>{
 
-      document
-      .querySelectorAll(".calendar-day")
-      .forEach(el=>el.classList.remove("active"));
+  selectedHistoryDate = dateKey;
 
-      day.classList.add("active");
+  document
+  .querySelectorAll(".calendar-day")
+  .forEach(el=>el.classList.remove("active"));
 
-      showHistoryDetail(dateKey);
+  day.classList.add("active");
 
-    };
+  showHistoryDetail(dateKey);
+
+};
 
     grid.appendChild(day);
 
