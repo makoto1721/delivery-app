@@ -2498,3 +2498,32 @@ showHistoryDetail(targetDate);
 closeWorkTimeModal();
   
 }
+
+function moveHistoryDate(diff){
+
+  const targetDate =
+    getSelectedHistoryDate();
+
+  if(!targetDate){
+    return;
+  }
+
+  const date =
+    new Date(targetDate);
+
+  date.setDate(
+    date.getDate() + diff
+  );
+
+  const newDateKey =
+    `${date.getFullYear()}-${
+      String(date.getMonth()+1)
+      .padStart(2,"0")
+    }-${
+      String(date.getDate())
+      .padStart(2,"0")
+    }`;
+
+  showHistoryDetail(newDateKey);
+
+}
