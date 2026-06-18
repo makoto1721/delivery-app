@@ -2498,6 +2498,7 @@ function openUberDetailModal(){
   document.getElementById(
     "uberDetailModal"
   ).style.display = "flex";
+  calculateUberDetail();
 
 }
 
