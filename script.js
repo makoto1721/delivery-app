@@ -2541,6 +2541,12 @@ function moveHistoryDate(diff){
       .padStart(2,"0")
     }`;
 
-  showHistoryDetail(newDateKey);
+  selectedHistoryDate = newDateKey;
+
+  currentDate = new Date(newDateKey);
+
+showHistoryDetail(newDateKey);
+
+renderCalendar();
 
 }
