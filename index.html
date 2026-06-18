@@ -476,7 +476,22 @@ onclick="toggleHistoryRain()"
 
   <!-- Uber -->
   <div class="service-detail-row">
-    <div class="service-detail-name">Uber</div>
+    <div class="service-detail-name">
+  Uber
+
+  <span
+    onclick="openUberDetailModal()"
+    style="
+      margin-left:6px;
+      color:#6b7280;
+      cursor:pointer;
+      font-size:14px;
+    "
+  >
+    ⓘ
+  </span>
+
+</div>
     <div class="history-input-row">
       <input type="tel" id="historyUberCount" oninput="calculateHistoryDetail()">
       <span>件</span>
@@ -915,6 +930,94 @@ margin-bottom:10px;
 
 </div>
 
+<!-- Uber詳細モーダル -->
+
+<div
+  id="uberDetailModal"
+  class="modal-overlay"
+  style="display:none;"
+>
+
+  <div class="modal-content">
+
+    <div
+      class="detail-date"
+      style="margin-bottom:20px;"
+    >
+      Uber詳細
+    </div>
+
+    <div class="history-label">
+      正味料金
+    </div>
+
+    <input
+      type="tel"
+      id="historyUberBase"
+    >
+
+    <div
+      class="history-label"
+      style="margin-top:14px;"
+    >
+      プロモーション
+    </div>
+
+    <input
+      type="tel"
+      id="historyUberPromotion"
+    >
+
+    <div
+      class="history-label"
+      style="margin-top:14px;"
+    >
+      チップ
+    </div>
+
+    <input
+      type="tel"
+      id="historyUberTip"
+    >
+
+    <div
+      class="history-label"
+      style="margin-top:14px;"
+    >
+      その他
+    </div>
+
+    <input
+      type="tel"
+      id="historyUberOther"
+    >
+
+    <button
+      class="end-btn"
+      style="
+        width:100%;
+        margin-top:20px;
+      "
+      onclick="saveUberDetail()"
+    >
+      保存
+    </button>
+
+    <button
+      class="clear-btn"
+      style="
+        width:100%;
+        margin-top:10px;
+      "
+      onclick="closeUberDetailModal()"
+    >
+      閉じる
+    </button>
+
+  </div>
+
+</div>
+  
 <!-- 下タブ -->
 
 <div class="bottom-nav">
