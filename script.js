@@ -1151,19 +1151,7 @@ deliveryPerHour:
 
     rocketSales:
   document.getElementById("historyRocketSales").value,
-
-    document.getElementById("historyUberBase").value =
-  data.uberBase || "";
-
-document.getElementById("historyUberPromotion").value =
-  data.uberPromotion || "";
-
-document.getElementById("historyUberTip").value =
-  data.uberTip || "";
-
-document.getElementById("historyUberOther").value =
-  data.uberOther || "";
-
+    
 uberBase:
   document.getElementById("historyUberBase").value,
 
