@@ -969,4 +969,5 @@ textarea{
 #detailDate{
   font-size:15px;
   white-space:nowrap;
+  margin:0;
 }
