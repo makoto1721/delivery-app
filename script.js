@@ -1111,6 +1111,9 @@ function saveHistoryDetail(){
       localStorage.getItem("deliveryHistory") || "[]"
     );
 
+  const oldData =
+  history.find(h => h.date === targetDate) || {};
+  
   const newData = {
 
     date: targetDate,
@@ -1180,22 +1183,22 @@ memo:
   document.getElementById("historyMemo").value,
 
 start1:
-  document.getElementById("start1").value,
+  oldData.start1 || "",
 
 end1:
-  document.getElementById("end1").value,
+  oldData.end1 || "",
 
 start2:
-  document.getElementById("start2").value,
+  oldData.start2 || "",
 
 end2:
-  document.getElementById("end2").value,
+  oldData.end2 || "",
 
 start3:
-  document.getElementById("start3").value,
-
+  oldData.start3 || "",
+    
 end3:
-  document.getElementById("end3").value,
+  oldData.end3 || "",
 
 isRainy:historyRainy,
 
