@@ -907,9 +907,47 @@ margin-bottom:10px;
 <!-- 設定 -->
 
 <div id="settingsPage" class="page">
-<div class="card">
-設定機能は今後追加予定
-</div>
+
+  <div class="card">
+
+    <div class="memo-title">
+      データ管理
+    </div>
+
+    <div style="
+      font-size:13px;
+      color:#6b7280;
+      margin-bottom:12px;
+    ">
+      最終バックアップ：
+      <span id="lastBackupDate">未実施</span>
+    </div>
+
+    <div class="data-button-row">
+
+      <button
+        class="start-btn"
+        onclick="exportBackup()">
+        エクスポート
+      </button>
+
+      <button
+        class="end-btn"
+        onclick="document.getElementById('importFile').click()">
+        インポート
+      </button>
+
+    </div>
+
+    <input
+      type="file"
+      id="importFile"
+      accept=".json"
+      style="display:none;"
+      onchange="importBackup(event)">
+
+  </div>
+
 </div>
 
   <!-- 稼働時間詳細モーダル -->
