@@ -529,10 +529,9 @@ onclick="toggleHistoryRain()"
 
 <!-- ④ 備考 -->
 
-  <div class="history-label">備考</div>
-  <textarea id="historyMemo"></textarea>
+<div class="history-label">備考</div>
+<textarea id="historyMemo"></textarea>
 
- 
 <button
 class="end-btn"
 style="width:100%; margin-top:14px;"
@@ -548,9 +547,45 @@ onclick="clearHistoryDetail()"
 >
 この日の内容をクリア
 </button>
+
+<!-- =======================
+データ管理
+======================= -->
+
+<div class="card" style="margin-top:16px;">
+
+  <div class="memo-title">
+    データ管理
+  </div>
+
+  <div class="button-row">
+
+    <button
+      class="start-btn"
+      onclick="exportBackup()">
+      エクスポート
+    </button>
+
+    <button
+      class="end-btn"
+      onclick="document.getElementById('importFile').click()">
+      インポート
+    </button>
+
+  </div>
+
+  <input
+    type="file"
+    id="importFile"
+    accept=".json"
+    style="display:none;"
+    onchange="importBackup(event)">
+
 </div>
 
-</div>   
+</div>
+
+</div>
 
 <!-- 分析 -->
 
