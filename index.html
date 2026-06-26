@@ -548,41 +548,6 @@ onclick="clearHistoryDetail()"
 この日の内容をクリア
 </button>
 
-<!-- =======================
-データ管理
-======================= -->
-
-<div class="card" style="margin-top:16px;">
-
-  <div class="memo-title">
-    データ管理
-  </div>
-
- <div class="data-button-row">
-
-    <button
-      class="start-btn"
-      onclick="exportBackup()">
-      エクスポート
-    </button>
-
-    <button
-      class="end-btn"
-      onclick="document.getElementById('importFile').click()">
-      インポート
-    </button>
-
-  </div>
-
-  <input
-    type="file"
-    id="importFile"
-    accept=".json"
-    style="display:none;"
-    onchange="importBackup(event)">
-
-</div>
-
 </div>
 
 </div>
