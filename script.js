@@ -2837,3 +2837,59 @@ if(document.getElementById("lastBackupDate")){
     lastBackup || "未実施";
 
 }
+
+function importBackup(event){
+
+  const file = event.target.files[0];
+
+  if(!file){
+    return;
+  }
+
+  if(!confirm("現在のデータをバックアップデータで上書きしますか？")){
+    event.target.value = "";
+    return;
+  }
+
+  const reader = new FileReader();
+
+  reader.onload = function(e){
+
+    try{
+
+      const backup =
+        JSON.parse(e.target.result);
+
+      if(!backup.localStorage){
+        alert("バックアップファイルではありません");
+        return;
+      }
+
+      localStorage.clear();
+
+      for(const key in backup.localStorage){
+
+        localStorage.setItem(
+          key,
+          backup.localStorage[key]
+        );
+
+      }
+
+      alert("復元が完了しました。画面を再読み込みします。");
+
+      location.reload();
+
+    }catch(err){
+
+      alert("読み込みに失敗しました");
+
+    }
+
+  };
+
+  reader.readAsText(file);
+
+  event.target.value = "";
+
+}
