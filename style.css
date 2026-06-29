@@ -981,3 +981,27 @@ textarea{
 .history-page textarea{
   background:#f3f4f6;
 }
+
+/* =======================
+データ管理
+======================= */
+
+.backup-btn,
+.restore-btn{
+
+  width:100%;
+  margin-top:12px;
+
+}
+
+.backup-btn{
+
+  background:#2563eb;
+
+}
+
+.restore-btn{
+
+  background:#16a34a;
+
+}
