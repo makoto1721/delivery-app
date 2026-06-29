@@ -2763,3 +2763,77 @@ function updateLastBackupDate(){
     text;
 
 }
+
+function selectBackupFile(){
+
+  document.getElementById("importFile").click();
+
+}
+
+function importBackup(event){
+
+  const file = event.target.files[0];
+
+  if(!file){
+    return;
+  }
+
+  const reader = new FileReader();
+
+  reader.onload = function(e){
+
+    try{
+
+      const backup =
+        JSON.parse(e.target.result);
+
+      if(!backup.localStorage){
+        throw new Error();
+      }
+
+      const ok = confirm(
+        "現在のデータをバックアップの内容で上書きします。\nよろしいですか？"
+      );
+
+      if(!ok){
+        return;
+      }
+
+      localStorage.clear();
+
+      for(const key in backup.localStorage){
+
+        localStorage.setItem(
+          key,
+          backup.localStorage[key]
+        );
+
+      }
+
+      alert(
+        "復元が完了しました。\nアプリを再読み込みします。"
+      );
+
+      location.reload();
+
+    }catch{
+
+      alert("バックアップファイルを読み込めませんでした。");
+
+    }
+
+  };
+
+  reader.readAsText(file);
+
+}
+
+const lastBackup =
+  localStorage.getItem("lastBackupDate");
+
+if(document.getElementById("lastBackupDate")){
+
+  document.getElementById("lastBackupDate").innerText =
+    lastBackup || "未実施";
+
+}
