@@ -2698,3 +2698,68 @@ function calculateUberDetail(){
   }
 
 }
+
+function exportBackup(){
+
+  const backup = {
+    version: 1,
+    backupDate: new Date().toISOString(),
+    localStorage: {}
+  };
+
+  for(let i = 0; i < localStorage.length; i++){
+
+    const key = localStorage.key(i);
+
+    backup.localStorage[key] =
+      localStorage.getItem(key);
+
+  }
+
+  const blob = new Blob(
+    [JSON.stringify(backup, null, 2)],
+    { type:"application/json" }
+  );
+
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+
+  const today =
+    new Date().toISOString().slice(0,10);
+
+  a.href = url;
+  a.download = `delivery-backup-${today}.json`;
+
+  a.click();
+
+  URL.revokeObjectURL(url);
+
+  updateLastBackupDate();
+
+}
+
+function updateLastBackupDate(){
+
+  const now = new Date();
+
+  const text =
+    `${now.getFullYear()}/${
+      String(now.getMonth()+1).padStart(2,"0")
+    }/${
+      String(now.getDate()).padStart(2,"0")
+    } ${
+      String(now.getHours()).padStart(2,"0")
+    }:${
+      String(now.getMinutes()).padStart(2,"0")
+    }`;
+
+  localStorage.setItem(
+    "lastBackupDate",
+    text
+  );
+
+  document.getElementById("lastBackupDate").innerText =
+    text;
+
+}
