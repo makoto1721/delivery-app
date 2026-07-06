@@ -1005,3 +1005,67 @@ textarea{
   background:#16a34a;
 
 }
+
+/* =======================
+月間目標
+======================= */
+
+#monthlyGoalToggle{
+  transition:.2s;
+}
+
+#monthlyGoalToggle.open{
+  transform:rotate(180deg);
+}
+
+#monthlyGoalArea{
+
+  border-top:1px solid #e5e7eb;
+  margin-top:12px;
+  padding-top:12px;
+
+}
+
+.month-goal-grid{
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+
+}
+
+.month-goal-card{
+
+  background:#f9fafb;
+  border-radius:14px;
+  padding:12px;
+  text-align:center;
+
+}
+
+.month-goal-label{
+
+  font-size:11px;
+  color:#6b7280;
+  margin-bottom:6px;
+
+}
+
+.month-goal-value{
+
+  font-size:20px;
+  font-weight:700;
+
+}
+
+.month-goal-value.red{
+  color:#ef4444;
+}
+
+.month-goal-value.blue{
+  color:#2563eb;
+}
+
+.month-goal-value.green{
+  color:#16a34a;
+}
