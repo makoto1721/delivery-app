@@ -2898,10 +2898,105 @@ function renderMonthlyGoal(){
   const area =
     document.getElementById("monthlyGoalArea");
 
+  const goal =
+    getMonthlyGoal();
+
+  const monthSales =
+    Number(
+      document.getElementById("monthTotal")
+        .innerText
+        .replace(/[¥,]/g,"")
+    ) || 0;
+
+  const remaining =
+    Math.max(goal - monthSales, 0);
+
   area.innerHTML = `
-    <div style="padding:20px;background:#ffeeba;">
-      テスト表示
+
+<div class="month-goal-grid">
+
+  <div class="month-goal-card">
+
+    <div class="month-goal-label">
+      月間目標
     </div>
-  `;
+
+    <div
+      class="month-goal-value blue"
+      onclick="editMonthlyGoal()"
+      style="cursor:pointer;"
+    >
+      ${
+        goal > 0
+        ? "¥" + goal.toLocaleString()
+        : "タップして設定"
+      }
+    </div>
+
+  </div>
+
+  <div class="month-goal-card">
+
+    <div class="month-goal-label">
+      残り売上
+    </div>
+
+    <div class="month-goal-value red">
+      ¥${remaining.toLocaleString()}
+    </div>
+
+  </div>
+
+  <div class="month-goal-card">
+
+    <div class="month-goal-label">
+      残り営業日
+    </div>
+
+    <div
+      class="month-goal-value"
+      id="remainingBusinessDays"
+    >
+      -
+    </div>
+
+  </div>
+
+  <div class="month-goal-card">
+
+    <div class="month-goal-label">
+      必要／日
+    </div>
+
+    <div
+      class="month-goal-value green"
+      id="requiredPerDay"
+    >
+      -
+    </div>
+
+  </div>
+
+  <div
+    class="month-goal-card"
+    style="grid-column:1 / 3;"
+  >
+
+    <div class="month-goal-label">
+      必要件数
+    </div>
+
+    <div
+      class="month-goal-value"
+      id="requiredCount"
+    >
+      -
+    </div>
+
+  </div>
+
+</div>
+
+`;
 
 }
