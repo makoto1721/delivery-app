@@ -2893,3 +2893,40 @@ function importBackup(event){
   event.target.value = "";
 
 }
+
+function getMonthKey(){
+
+  return `${currentDate.getFullYear()}-${
+    String(currentDate.getMonth()+1).padStart(2,"0")
+  }`;
+
+}
+
+function getMonthlyGoal(){
+
+  const goals =
+    JSON.parse(
+      localStorage.getItem("monthlyGoals") || "{}"
+    );
+
+  return Number(
+    goals[getMonthKey()] || 0
+  );
+
+}
+
+function saveMonthlyGoal(value){
+
+  const goals =
+    JSON.parse(
+      localStorage.getItem("monthlyGoals") || "{}"
+    );
+
+  goals[getMonthKey()] = Number(value) || 0;
+
+  localStorage.setItem(
+    "monthlyGoals",
+    JSON.stringify(goals)
+  );
+
+}
