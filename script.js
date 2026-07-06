@@ -2778,74 +2778,6 @@ function importBackup(event){
     return;
   }
 
-  const reader = new FileReader();
-
-  reader.onload = function(e){
-
-    try{
-
-      const backup =
-        JSON.parse(e.target.result);
-
-      if(!backup.localStorage){
-        throw new Error();
-      }
-
-      const ok = confirm(
-        "現在のデータをバックアップの内容で上書きします。\nよろしいですか？"
-      );
-
-      if(!ok){
-        return;
-      }
-
-      localStorage.clear();
-
-      for(const key in backup.localStorage){
-
-        localStorage.setItem(
-          key,
-          backup.localStorage[key]
-        );
-
-      }
-
-      alert(
-        "復元が完了しました。\nアプリを再読み込みします。"
-      );
-
-      location.reload();
-
-    }catch{
-
-      alert("バックアップファイルを読み込めませんでした。");
-
-    }
-
-  };
-
-  reader.readAsText(file);
-
-}
-
-const lastBackup =
-  localStorage.getItem("lastBackupDate");
-
-if(document.getElementById("lastBackupDate")){
-
-  document.getElementById("lastBackupDate").innerText =
-    lastBackup || "未実施";
-
-}
-
-function importBackup(event){
-
-  const file = event.target.files[0];
-
-  if(!file){
-    return;
-  }
-
   if(!confirm("現在のデータをバックアップデータで上書きしますか？")){
     event.target.value = "";
     return;
@@ -2928,5 +2860,33 @@ function saveMonthlyGoal(value){
     "monthlyGoals",
     JSON.stringify(goals)
   );
+
+}
+
+function toggleMonthlyGoal(){
+
+  const area =
+    document.getElementById("monthlyGoalArea");
+
+  const btn =
+    document.getElementById("monthlyGoalToggle");
+
+  if(area.style.display === "none" || area.style.display === ""){
+
+    area.style.display = "block";
+
+    btn.innerText = "▲";
+
+    btn.classList.add("open");
+
+  }else{
+
+    area.style.display = "none";
+
+    btn.innerText = "▼";
+
+    btn.classList.remove("open");
+
+  }
 
 }
