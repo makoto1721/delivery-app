@@ -2875,6 +2875,8 @@ function toggleMonthlyGoal(){
 
     area.style.display = "block";
 
+    renderMonthlyGoal();
+
     btn.innerText = "▲";
 
     btn.classList.add("open");
@@ -2888,5 +2890,86 @@ function toggleMonthlyGoal(){
     btn.classList.remove("open");
 
   }
+
+}
+
+function renderMonthlyGoal(){
+
+  const area =
+    document.getElementById("monthlyGoalArea");
+
+  const goal =
+    getMonthlyGoal();
+
+  area.innerHTML = `
+
+<div class="month-goal-grid">
+
+  <div class="month-goal-card">
+
+    <div class="month-goal-label">
+      月間目標
+    </div>
+
+    <div class="month-goal-value blue">
+      ¥${goal.toLocaleString()}
+    </div>
+
+  </div>
+
+  <div class="month-goal-card">
+
+    <div class="month-goal-label">
+      残り売上
+    </div>
+
+    <div class="month-goal-value red">
+      ¥0
+    </div>
+
+  </div>
+
+  <div class="month-goal-card">
+
+    <div class="month-goal-label">
+      残り営業日
+    </div>
+
+    <div class="month-goal-value">
+      0日
+    </div>
+
+  </div>
+
+  <div class="month-goal-card">
+
+    <div class="month-goal-label">
+      必要／日
+    </div>
+
+    <div class="month-goal-value green">
+      ¥0
+    </div>
+
+  </div>
+
+  <div
+    class="month-goal-card"
+    style="grid-column:1 / 3;"
+  >
+
+    <div class="month-goal-label">
+      必要件数
+    </div>
+
+    <div class="month-goal-value">
+      0件
+    </div>
+
+  </div>
+
+</div>
+
+`;
 
 }
