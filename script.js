@@ -3032,6 +3032,19 @@ function updateMonthlyGoalDetail(){
   ).innerText =
     requiredCount + "件";
 
+  const requiredCountPerDay =
+  remainingDays > 0
+  ? Math.ceil(
+      requiredCount / remainingDays
+    )
+  : 0;
+
+
+document.getElementById(
+  "requiredCountPerDay"
+).innerText =
+  requiredCountPerDay + "件";
+
 }
 
 function saveMonthlyGoal(value){
