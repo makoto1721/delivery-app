@@ -2917,6 +2917,11 @@ function renderGoalManageModal(){
 
   for(let month=1; month<=12; month++){
 
+    const isCurrentMonth =
+  goalManageYear === new Date().getFullYear()
+  &&
+  month === new Date().getMonth()+1;
+
     const key =
       `${goalManageYear}-${String(month).padStart(2,"0")}`;
 
@@ -2933,6 +2938,13 @@ align-items:center;
 justify-content:space-between;
 margin-bottom:10px;
 gap:10px;
+padding:8px;
+border-radius:10px;
+background:${
+  isCurrentMonth
+  ? "#eff6ff"
+  : "transparent"
+};
 ">
 
 <div style="font-weight:700;width:40px;">
