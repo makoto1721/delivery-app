@@ -980,6 +980,27 @@ if(historyRainy){
 
 }
 
+  // 非稼働状態復元
+
+historyOffDay =
+  data.isOffDay || false;
+
+const offBtn =
+  document.getElementById("historyOffBtn");
+
+
+if(historyOffDay){
+
+  offBtn.classList.add("active");
+  offBtn.innerText = "休";
+
+}else{
+
+  offBtn.classList.remove("active");
+  offBtn.innerText = "休";
+
+}
+
 } // ← showHistoryDetail を閉じる
 
 function clearHistoryInputs(){
