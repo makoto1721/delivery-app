@@ -2910,6 +2910,121 @@ function getRemainingBusinessDays(){
 
 }
 
+function updateMonthlyGoalDetail(){
+
+  const goal =
+    getMonthlyGoal();
+
+
+  const sales =
+    Number(
+      document.getElementById("monthTotal")
+      .innerText
+      .replace(/[¥,]/g,"")
+    ) || 0;
+
+
+  const remaining =
+    Math.max(
+      goal - sales,
+      0
+    );
+
+
+  const remainingDays =
+    getRemainingBusinessDays();
+
+
+  let requiredPerDay = 0;
+
+
+  if(
+    remainingDays > 0
+  ){
+
+    requiredPerDay =
+      Math.ceil(
+        remaining / remainingDays
+      );
+
+  }
+
+
+  // 平均単価
+  const history =
+    JSON.parse(
+      localStorage.getItem("deliveryHistory") || "[]"
+    );
+
+
+  const monthKey =
+    getMonthKey();
+
+
+  let monthCount = 0;
+  let monthSales = 0;
+
+
+  history.forEach(item=>{
+
+    if(
+      item.date &&
+      item.date.startsWith(monthKey)
+    ){
+
+      monthSales +=
+        Number(item.totalSales || 0);
+
+      monthCount +=
+        Number(item.totalCount || 0);
+
+    }
+
+  });
+
+
+  const averagePrice =
+    monthCount > 0
+    ? Math.round(
+        monthSales / monthCount
+      )
+    : 0;
+
+
+  let requiredCount = 0;
+
+
+  if(
+    averagePrice > 0
+  ){
+
+    requiredCount =
+      Math.ceil(
+        remaining / averagePrice
+      );
+
+  }
+
+
+  document.getElementById(
+    "remainingBusinessDays"
+  ).innerText =
+    remainingDays + "日";
+
+
+  document.getElementById(
+    "requiredPerDay"
+  ).innerText =
+    "¥" + requiredPerDay.toLocaleString();
+
+
+  document.getElementById(
+    "requiredCount"
+  ).innerText =
+    requiredCount + "件";
+
+}
+
 function saveMonthlyGoal(value){
 
   const goals =
@@ -3292,14 +3407,7 @@ function renderMonthlyGoal(){
 
 `;
 
-  const remainingDays =
-  getRemainingBusinessDays();
-
-
-document.getElementById(
-  "remainingBusinessDays"
-).innerText =
-  remainingDays + "日";
+ updateMonthlyGoalDetail();
 
 }
 
