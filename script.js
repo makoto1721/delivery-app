@@ -2861,8 +2861,36 @@ function getRemainingBusinessDays(){
   const month =
     now.getMonth();
 
-  const today =
+  let startDay =
     now.getDate();
+
+
+  const todayKey =
+    `${year}-${
+      String(month+1).padStart(2,"0")
+    }-${
+      String(startDay).padStart(2,"0")
+    }`;
+
+
+  const history =
+    JSON.parse(
+      localStorage.getItem("deliveryHistory") || "[]"
+    );
+
+
+  const todayData =
+    history.find(
+      h => h.date === todayKey
+    );
+
+
+  // 今日実績あり → 明日から
+  if(todayData){
+
+    startDay++;
+
+  }
 
 
   const lastDay =
@@ -2877,31 +2905,12 @@ function getRemainingBusinessDays(){
 
 
   for(
-    let day = today + 1;
+    let day = startDay;
     day <= lastDay;
     day++
   ){
 
-    const date =
-      new Date(
-        year,
-        month,
-        day
-      );
-
-    const week =
-      date.getDay();
-
-
-    // 日曜(0)・土曜(6)以外
-    if(
-      week !== 0 &&
-      week !== 6
-    ){
-
-      count++;
-
-    }
+    count++;
 
   }
 
