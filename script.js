@@ -56,12 +56,12 @@ function toggleRain(){
   if(isRainy){
 
   btn.classList.add("active");
-  btn.innerText = "☔ 雨ｸｴON";
+  btn.innerText = "☔";
 
 }else{
 
   btn.classList.remove("active");
-  btn.innerText = "☔ 雨ｸｴOFF";
+  btn.innerText = "☔";
 
 }
 
@@ -619,7 +619,7 @@ const btn =
 if(isRainy){
 
   btn.classList.add("active");
-  btn.innerText = "☔ 雨ｸｴON";
+  btn.innerText = "☔";
 
 }
 
@@ -948,12 +948,12 @@ const rainBtn =
 if(historyRainy){
 
   rainBtn.classList.add("active");
-  rainBtn.innerText = "☔ 雨ｸｴON";
+  rainBtn.innerText = "☔";
 
 }else{
 
   rainBtn.classList.remove("active");
-  rainBtn.innerText = "☔ 雨ｸｴOFF";
+  rainBtn.innerText = "☔";
 
 }
 
