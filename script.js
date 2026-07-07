@@ -647,6 +647,8 @@ function changeMonth(value){
   );
 
   renderCalendar();
+  renderMonthlyGoal();
+updateMonthlyGoalProgress();
 
 }
 
