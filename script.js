@@ -3394,23 +3394,36 @@ function renderMonthlyGoal(){
 
   </div>
 
-  <div
-    class="month-goal-card"
-    style="grid-column:1 / 3;"
-  >
+  <div class="month-goal-card">
 
-    <div class="month-goal-label">
-      必要件数
-    </div>
-
-    <div
-      class="month-goal-value"
-      id="requiredCount"
-    >
-      -
-    </div>
-
+  <div class="month-goal-label">
+    必要件数
   </div>
+
+  <div
+    class="month-goal-value"
+    id="requiredCount"
+  >
+    -
+  </div>
+
+</div>
+
+
+<div class="month-goal-card">
+
+  <div class="month-goal-label">
+    件数／日
+  </div>
+
+  <div
+    class="month-goal-value"
+    id="requiredCountPerDay"
+  >
+    -
+  </div>
+
+</div>
 
 </div>
 
