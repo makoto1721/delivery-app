@@ -2945,6 +2945,7 @@ inputmode="numeric"
 id="goal-${key}"
 value="${value ? value.toLocaleString() : ""}"
 oninput="formatGoalManageInput(this)"
+onblur="saveGoalManageInput('${key}', this.value)"
 style="
 text-align:center;
 flex:1;
@@ -3044,6 +3045,41 @@ function updateGoalYearTotal(){
 
     totalEl.innerText =
       "¥" + total.toLocaleString();
+
+  }
+
+}
+
+function saveGoalManageInput(key, value){
+
+  const goals =
+    JSON.parse(
+      localStorage.getItem("monthlyGoals") || "{}"
+    );
+
+  const number =
+    Number(
+      String(value).replace(/,/g,"")
+    ) || 0;
+
+
+  goals[key] = number;
+
+
+  localStorage.setItem(
+    "monthlyGoals",
+    JSON.stringify(goals)
+  );
+
+
+  // 現在表示中の月なら更新
+  if(
+    key === getMonthKey()
+  ){
+
+    renderMonthlyGoal();
+
+    updateMonthlyGoalProgress();
 
   }
 
