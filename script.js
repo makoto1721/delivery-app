@@ -3352,7 +3352,7 @@ function renderMonthlyGoal(){
     </div>
 
     <div
-      class="month-goal-value blue"
+      class="month-goal-value green"
       onclick="openGoalManageModal()"
       style="cursor:pointer;"
     >
@@ -3371,9 +3371,9 @@ function renderMonthlyGoal(){
       残り売上
     </div>
 
-    <div class="month-goal-value red">
-      ¥${remaining.toLocaleString()}
-    </div>
+    <div class="month-goal-value">
+  ¥${remaining.toLocaleString()}
+</div>
 
   </div>
 
@@ -3399,11 +3399,11 @@ function renderMonthlyGoal(){
     </div>
 
     <div
-      class="month-goal-value green"
-      id="requiredPerDay"
-    >
-      -
-    </div>
+  class="month-goal-value"
+  id="requiredPerDay"
+>
+  -
+</div>
 
   </div>
 
