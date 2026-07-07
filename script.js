@@ -3016,31 +3016,6 @@ function toggleMonthlyGoal(){
 
 }
 
-function editMonthlyGoal(){
-
-  const currentGoal =
-    getMonthlyGoal();
-
-  const value = prompt(
-    "今月の目標金額を入力してください",
-    currentGoal || ""
-  );
-
-  if(value === null){
-    return;
-  }
-
-  saveMonthlyGoal(
-    Number(
-      String(value).replace(/,/g,"")
-    )
-  );
-
-  renderMonthlyGoal();
-  updateMonthlyGoalProgress();
-
-}
-
 function renderMonthlyGoal(){
 
   const area =
@@ -3071,7 +3046,7 @@ function renderMonthlyGoal(){
 
     <div
       class="month-goal-value blue"
-      onclick="editMonthlyGoal()"
+      onclick="openGoalManageModal()"
       style="cursor:pointer;"
     >
       ${
