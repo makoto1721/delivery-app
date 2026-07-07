@@ -2867,6 +2867,125 @@ function saveMonthlyGoal(value){
 
 }
 
+let goalManageYear =
+  new Date().getFullYear();
+
+function openGoalManageModal(){
+
+  goalManageYear =
+    currentDate.getFullYear();
+
+  renderGoalManageModal();
+
+  document.getElementById(
+    "goalManageModal"
+  ).style.display = "flex";
+
+}
+
+function closeGoalManageModal(){
+
+  document.getElementById(
+    "goalManageModal"
+  ).style.display = "none";
+
+}
+
+function changeGoalYear(diff){
+
+  goalManageYear += diff;
+
+  renderGoalManageModal();
+
+}
+
+function renderGoalManageModal(){
+
+  document.getElementById(
+    "goalManageYear"
+  ).innerText =
+    goalManageYear + "年";
+
+  const goals =
+    JSON.parse(
+      localStorage.getItem("monthlyGoals") || "{}"
+    );
+
+  let html = "";
+
+  let total = 0;
+
+  for(let month=1; month<=12; month++){
+
+    const key =
+      `${goalManageYear}-${String(month).padStart(2,"0")}`;
+
+    const value =
+      Number(goals[key] || 0);
+
+    total += value;
+
+    html += `
+
+<div style="
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:10px;
+gap:10px;
+">
+
+<div style="font-weight:700;width:40px;">
+${month}月
+</div>
+
+<input
+type="number"
+inputmode="numeric"
+id="goal-${key}"
+value="${value || ""}"
+style="
+text-align:right;
+flex:1;
+"
+/>
+
+</div>
+
+`;
+
+  }
+
+  html += `
+
+<hr>
+
+<div style="
+display:flex;
+justify-content:space-between;
+font-weight:700;
+font-size:18px;
+margin-top:14px;
+">
+
+<div>
+年間目標
+</div>
+
+<div style="color:#2563eb;">
+¥${total.toLocaleString()}
+</div>
+
+</div>
+
+`;
+
+  document.getElementById(
+    "goalManageBody"
+  ).innerHTML = html;
+
+}
+
 function toggleMonthlyGoal(){
 
   const area =
