@@ -80,17 +80,17 @@ function toggleHistoryRain(){
   const btn =
     document.getElementById("historyRainBtn");
 
-  if(historyRainy){
+ if(historyRainy){
 
-    btn.classList.add("active");
-    btn.innerText = "☔ 雨ｸｴON";
+  btn.classList.add("active");
+  btn.innerText = "☔";
 
-  }else{
+}else{
 
-    btn.classList.remove("active");
-    btn.innerText = "☔ 雨ｸｴOFF";
+  btn.classList.remove("active");
+  btn.innerText = "☔";
 
-  }
+}
 
 }
 
