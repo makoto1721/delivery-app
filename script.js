@@ -2958,6 +2958,29 @@ function updateMonthlyGoalDetail(){
   const goal =
     getMonthlyGoal();
 
+    const now = new Date();
+
+  const currentYear =
+    now.getFullYear();
+
+  const currentMonth =
+    now.getMonth();
+
+
+  const targetYear =
+    currentDate.getFullYear();
+
+  const targetMonth =
+    currentDate.getMonth();
+
+
+  const isPastMonth =
+    targetYear < currentYear ||
+    (
+      targetYear === currentYear &&
+      targetMonth < currentMonth
+    );
+
 
   const sales =
     Number(
@@ -3056,15 +3079,19 @@ function updateMonthlyGoalDetail(){
 
 
   document.getElementById(
-    "requiredPerDay"
-  ).innerText =
-    "¥" + requiredPerDay.toLocaleString();
+  "requiredPerDay"
+).innerText =
+  isPastMonth
+  ? "-"
+  : "¥" + requiredPerDay.toLocaleString();
 
 
   document.getElementById(
-    "requiredCount"
-  ).innerText =
-    requiredCount + "件";
+  "requiredCount"
+).innerText =
+  isPastMonth
+  ? "-"
+  : requiredCount + "件";
 
   const requiredCountPerDay =
   remainingDays > 0
@@ -3077,7 +3104,9 @@ function updateMonthlyGoalDetail(){
 document.getElementById(
   "requiredCountPerDay"
 ).innerText =
-  requiredCountPerDay + "件";
+  isPastMonth
+  ? "-"
+  : requiredCountPerDay + "件";
 
 }
 
