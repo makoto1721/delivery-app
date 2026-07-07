@@ -2885,7 +2885,7 @@ function getRemainingBusinessDays(){
     );
 
 
-  // 今日実績あり → 明日から
+  // 今日すでに実績保存済みなら翌日から
   if(todayData){
 
     startDay++;
