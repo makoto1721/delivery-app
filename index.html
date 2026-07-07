@@ -1166,6 +1166,75 @@ onclick="selectBackupFile()">
   </div>
 
 </div>
+
+  <!-- =======================
+目標管理モーダル
+======================= -->
+
+<div
+  id="goalManageModal"
+  class="modal-overlay"
+  style="display:none;"
+>
+
+  <div class="modal-content">
+
+    <div
+      style="
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        margin-bottom:18px;
+      "
+    >
+
+      <button
+        class="calendar-arrow"
+        onclick="changeGoalYear(-1)"
+      >
+        ◀
+      </button>
+
+      <div
+        id="goalManageYear"
+        style="
+          font-size:22px;
+          font-weight:700;
+        "
+      >
+        2026年
+      </div>
+
+      <button
+        class="calendar-arrow"
+        onclick="changeGoalYear(1)"
+      >
+        ▶
+      </button>
+
+    </div>
+
+    <div
+      id="goalManageBody"
+      style="
+        max-height:420px;
+        overflow:auto;
+        margin-bottom:18px;
+      "
+    >
+    </div>
+
+    <button
+      class="end-btn"
+      style="width:100%;"
+      onclick="closeGoalManageModal()"
+    >
+      閉じる
+    </button>
+
+  </div>
+
+</div>
   
 <!-- 下タブ -->
 
