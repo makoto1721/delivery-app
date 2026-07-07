@@ -2851,6 +2851,65 @@ function getMonthlyGoal(){
 
 }
 
+function getRemainingBusinessDays(){
+
+  const now = new Date();
+
+  const year =
+    now.getFullYear();
+
+  const month =
+    now.getMonth();
+
+  const today =
+    now.getDate();
+
+
+  const lastDay =
+    new Date(
+      year,
+      month + 1,
+      0
+    ).getDate();
+
+
+  let count = 0;
+
+
+  for(
+    let day = today + 1;
+    day <= lastDay;
+    day++
+  ){
+
+    const date =
+      new Date(
+        year,
+        month,
+        day
+      );
+
+    const week =
+      date.getDay();
+
+
+    // 日曜(0)・土曜(6)以外
+    if(
+      week !== 0 &&
+      week !== 6
+    ){
+
+      count++;
+
+    }
+
+  }
+
+
+  return count;
+
+}
+
 function saveMonthlyGoal(value){
 
   const goals =
@@ -3232,6 +3291,15 @@ function renderMonthlyGoal(){
 </div>
 
 `;
+
+  const remainingDays =
+  getRemainingBusinessDays();
+
+
+document.getElementById(
+  "remainingBusinessDays"
+).innerText =
+  remainingDays + "日";
 
 }
 
