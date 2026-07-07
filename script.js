@@ -691,6 +691,8 @@ function renderCalendar(){
   .innerText =
     `¥${monthTotal.toLocaleString()}`;
 
+  updateMonthlyGoalProgress();
+
   const days =
   ["月","火","水","木","金","土","日"];
 
@@ -2893,6 +2895,31 @@ function toggleMonthlyGoal(){
 
 }
 
+function editMonthlyGoal(){
+
+  const currentGoal =
+    getMonthlyGoal();
+
+  const value = prompt(
+    "今月の目標金額を入力してください",
+    currentGoal || ""
+  );
+
+  if(value === null){
+    return;
+  }
+
+  saveMonthlyGoal(
+    Number(
+      String(value).replace(/,/g,"")
+    )
+  );
+
+  renderMonthlyGoal();
+  updateMonthlyGoalProgress();
+
+}
+
 function renderMonthlyGoal(){
 
   const area =
@@ -2998,5 +3025,52 @@ function renderMonthlyGoal(){
 </div>
 
 `;
+
+}
+
+function updateMonthlyGoalProgress(){
+
+  const goal =
+    getMonthlyGoal();
+
+  const progressEl =
+    document.getElementById(
+      "monthlyGoalProgress"
+    );
+
+  if(!progressEl){
+    return;
+  }
+
+  const monthSales =
+    Number(
+      document.getElementById("monthTotal")
+        .innerText
+        .replace(/[¥,]/g,"")
+    ) || 0;
+
+  if(goal <= 0){
+
+    progressEl.style.width = "0%";
+    progressEl.innerText = "";
+
+    return;
+
+  }
+
+  let percent =
+    Math.floor(
+      (monthSales / goal) * 100
+    );
+
+  if(percent > 100){
+    percent = 100;
+  }
+
+  progressEl.style.width =
+    percent + "%";
+
+  progressEl.innerText =
+    percent + "%";
 
 }
