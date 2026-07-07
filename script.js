@@ -2855,48 +2855,82 @@ function getRemainingBusinessDays(){
 
   const now = new Date();
 
-  const year =
+  const currentYear =
     now.getFullYear();
 
-  const month =
+  const currentMonth =
     now.getMonth();
 
-  let startDay =
-    now.getDate();
+
+  // 実績ページで表示している年月
+  const targetYear =
+    currentDate.getFullYear();
+
+  const targetMonth =
+    currentDate.getMonth();
 
 
-  const todayKey =
-    `${year}-${
-      String(month+1).padStart(2,"0")
-    }-${
-      String(startDay).padStart(2,"0")
-    }`;
+  // 過去月
+  if(
+    targetYear < currentYear ||
+    (
+      targetYear === currentYear &&
+      targetMonth < currentMonth
+    )
+  ){
+
+    return 0;
+
+  }
 
 
-  const history =
-    JSON.parse(
-      localStorage.getItem("deliveryHistory") || "[]"
-    );
+  let startDay = 1;
 
 
-  const todayData =
-    history.find(
-      h => h.date === todayKey
-    );
+  // 今月の場合のみ今日判定
+  if(
+    targetYear === currentYear &&
+    targetMonth === currentMonth
+  ){
+
+    startDay =
+      now.getDate();
 
 
-  // 今日すでに実績保存済みなら翌日から
-  if(todayData){
+    const todayKey =
+      `${currentYear}-${
+        String(currentMonth+1).padStart(2,"0")
+      }-${
+        String(startDay).padStart(2,"0")
+      }`;
 
-    startDay++;
+
+    const history =
+      JSON.parse(
+        localStorage.getItem("deliveryHistory") || "[]"
+      );
+
+
+    const todayData =
+      history.find(
+        h => h.date === todayKey
+      );
+
+
+    // 今日実績済みなら翌日から
+    if(todayData){
+
+      startDay++;
+
+    }
 
   }
 
 
   const lastDay =
     new Date(
-      year,
-      month + 1,
+      targetYear,
+      targetMonth + 1,
       0
     ).getDate();
 
