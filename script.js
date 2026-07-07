@@ -2940,12 +2940,13 @@ ${month}月
 </div>
 
 <input
-type="number"
+type="text"
 inputmode="numeric"
 id="goal-${key}"
-value="${value || ""}"
+value="${value ? value.toLocaleString() : ""}"
+oninput="formatGoalManageInput(this)"
 style="
-text-align:right;
+text-align:center;
 flex:1;
 "
 />
@@ -2972,7 +2973,10 @@ margin-top:14px;
 年間目標
 </div>
 
-<div style="color:#2563eb;">
+<div
+id="goalYearTotal"
+style="color:#2563eb;"
+>
 ¥${total.toLocaleString()}
 </div>
 
@@ -2983,6 +2987,65 @@ margin-top:14px;
   document.getElementById(
     "goalManageBody"
   ).innerHTML = html;
+
+}
+
+function formatGoalManageInput(input){
+
+  let value =
+    input.value.replace(/,/g,"");
+
+  if(value === ""){
+    input.value = "";
+  }else{
+
+    value =
+      Number(value).toLocaleString();
+
+    input.value = value;
+
+  }
+
+  updateGoalYearTotal();
+
+}
+
+function updateGoalYearTotal(){
+
+  let total = 0;
+
+  for(let month=1; month<=12; month++){
+
+    const key =
+      `${goalManageYear}-${String(month).padStart(2,"0")}`;
+
+    const input =
+      document.getElementById(
+        `goal-${key}`
+      );
+
+    if(input){
+
+      total +=
+        Number(
+          input.value.replace(/,/g,"")
+        ) || 0;
+
+    }
+
+  }
+
+  const totalEl =
+    document.getElementById(
+      "goalYearTotal"
+    );
+
+  if(totalEl){
+
+    totalEl.innerText =
+      "¥" + total.toLocaleString();
+
+  }
 
 }
 
