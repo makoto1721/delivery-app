@@ -72,6 +72,29 @@ function toggleRain(){
 /* ↓↓↓ ここに追加 ↓↓↓ */
 
 let historyRainy = false;
+let historyOffDay = false;
+
+function toggleHistoryOffDay(){
+
+  historyOffDay = !historyOffDay;
+
+  const btn =
+    document.getElementById("historyOffBtn");
+
+
+  if(historyOffDay){
+
+    btn.classList.add("active");
+    btn.innerText = "休";
+
+  }else{
+
+    btn.classList.remove("active");
+    btn.innerText = "休";
+
+  }
+
+}
 
 function toggleHistoryRain(){
 
