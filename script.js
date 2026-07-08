@@ -5,6 +5,53 @@ let touchEndX = 0;
 
 const BUSINESS_RESET_HOUR = 4;
 
+const BUSINESS_RESET_HOUR = 4;
+
+
+// ==========================
+// グローバル変数
+// ==========================
+
+let currentDate = new Date();
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+let isRainy = false;
+
+let selectedHistoryDate = null;
+
+let historyRainy = false;
+
+let historyOffDay = false;
+
+
+// ==========================
+// 共通処理
+// ==========================
+
+function getHistory(){
+
+  return JSON.parse(
+    localStorage.getItem("deliveryHistory") || "[]"
+  );
+
+}
+
+function saveHistory(history){
+
+  localStorage.setItem(
+    "deliveryHistory",
+    JSON.stringify(history)
+  );
+
+}
+
+
+// ==========================
+// ページ切替
+// ==========================
+
 function switchPage(page){
 
   document.querySelectorAll(".page")
