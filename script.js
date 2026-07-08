@@ -581,10 +581,7 @@ isRainy:isRainy,
 
   }
 
-  localStorage.setItem(
-    "deliveryHistory",
-    JSON.stringify(history)
-  );
+  saveHistory(history);
 
   alert("実績へ保存しました");
 
