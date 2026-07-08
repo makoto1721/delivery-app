@@ -877,10 +877,7 @@ ${
 
 function showHistoryDetail(dateKey){
 
-  const history =
-    JSON.parse(
-      localStorage.getItem("deliveryHistory") || "[]"
-    );
+  const history = getHistory();
 
   let data =
     history.find(h=>h.date===dateKey);
