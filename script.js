@@ -1,12 +1,4 @@
-let currentDate = new Date();
-
-let touchStartX = 0;
-let touchEndX = 0;
-
 const BUSINESS_RESET_HOUR = 4;
-
-const BUSINESS_RESET_HOUR = 4;
-
 
 // ==========================
 // グローバル変数
