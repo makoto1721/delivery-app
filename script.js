@@ -739,10 +739,7 @@ function renderCalendar(){
   .innerText =
     `${year}年 ${month+1}月`;
 
-  const history =
-    JSON.parse(
-      localStorage.getItem("deliveryHistory") || "[]"
-    );
+  const history = getHistory();
 
   let monthTotal = 0;
 
