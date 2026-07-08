@@ -1864,15 +1864,28 @@ let weekendMaxPerHour = 0;
     : "0.0";
 
   const unitPrice =
-    totalCount > 0
-    ? Math.round(totalSales / totalCount)
-    : 0;
+  totalCount > 0
+  ? Math.round(totalSales / totalCount)
+  : 0;
 
-  const weekdayAvgSales =
+
+const weekdayWorkDays =
+  weekdayFiltered.filter(
+    h => !h.isOffDay
+  ).length;
+
+
+const weekendWorkDays =
+  weekendFiltered.filter(
+    h => !h.isOffDay
+  ).length;
+
+
+const weekdayAvgSales =
   weekdayWorkDays > 0
   ? Math.round(weekdaySales / weekdayWorkDays)
   : 0;
-
+  
 const weekdayAvgHourly =
   weekdayHours > 0
   ? Math.round(weekdaySales / weekdayHours)
@@ -1893,17 +1906,6 @@ const weekdayUnitPrice =
   ? Math.round(weekdaySales / weekdayCount)
   : 0;
 
-
-const weekdayWorkDays =
-  weekdayFiltered.filter(
-    h => !h.isOffDay
-  ).length;
-
-
-const weekendWorkDays =
-  weekendFiltered.filter(
-    h => !h.isOffDay
-  ).length;
 
 const weekendAvgSales =
   weekendWorkDays > 0
