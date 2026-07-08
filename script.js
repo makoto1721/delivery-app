@@ -566,6 +566,7 @@ memo:
   document.getElementById("memo").value,
 
 isRainy:isRainy,
+isOffDay:false,
   };
 
   const index =
