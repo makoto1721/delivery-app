@@ -2639,10 +2639,7 @@ function saveWorkTimeModal(){
   history[index].end3 =
     document.getElementById("modalEnd3").value;
 
-  localStorage.setItem(
-    "deliveryHistory",
-    JSON.stringify(history)
-  );
+  saveHistory(history);
 
   alert("稼働時間を保存しました");
 
