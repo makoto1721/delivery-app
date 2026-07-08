@@ -2896,6 +2896,7 @@ function getMonthlyGoal(){
 function getRemainingBusinessDays(){
 
   const now = new Date();
+  const history = getHistory();
 
   const currentYear =
     now.getFullYear();
@@ -2945,11 +2946,7 @@ function getRemainingBusinessDays(){
       }-${
         String(startDay).padStart(2,"0")
       }`;
-
-
-    const history = getHistory();
-
-
+    
     const todayData =
       history.find(
         h => h.date === todayKey
