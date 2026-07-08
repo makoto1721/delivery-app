@@ -835,7 +835,7 @@ ${historyData?.isOffDay ? "休" : ""}
 
 <div class="day-sales">
 ${
-  historyData
+  historyData && !historyData.isOffDay
   ? Number(historyData.totalSales).toLocaleString()
   : ""
 }
@@ -843,7 +843,7 @@ ${
 
 <div class="day-count">
 ${
-  historyData
+  historyData && !historyData.isOffDay
   ? `${historyData.totalCount}件`
   : ""
 }
