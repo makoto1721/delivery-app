@@ -1280,11 +1280,8 @@ isRainy:historyRainy,
 
   }
 
-  localStorage.setItem(
-    "deliveryHistory",
-    JSON.stringify(history)
-  );
-
+  saveHistory(history);
+  
   renderCalendar();
 showHistoryDetail(targetDate);
 renderAnalysis();
