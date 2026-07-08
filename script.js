@@ -1868,8 +1868,10 @@ let weekendMaxPerHour = 0;
     ? Math.round(totalSales / totalCount)
     : 0;
 
-  const weekdayWorkDays =
-  weekdayFiltered.length;
+  const weekendWorkDays =
+  weekendFiltered.filter(
+    h => !h.isOffDay
+  ).length;
 
 const weekdayAvgSales =
   weekdayWorkDays > 0
@@ -1897,7 +1899,9 @@ const weekdayUnitPrice =
   : 0;
 
   const weekendWorkDays =
-  weekendFiltered.length;
+  weekendFiltered.filter(
+    h => !h.isOffDay
+  ).length;
 
 const weekendAvgSales =
   weekendWorkDays > 0
