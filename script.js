@@ -1263,7 +1263,9 @@ start3:
 end3:
   oldData.end3 || "",
 
-isRainy:historyRainy,
+isRainy: historyRainy,
+
+isOffDay: historyOffDay,
 
   };
 
