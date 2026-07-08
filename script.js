@@ -1893,7 +1893,14 @@ const weekdayUnitPrice =
   ? Math.round(weekdaySales / weekdayCount)
   : 0;
 
-  const weekendWorkDays =
+
+const weekdayWorkDays =
+  weekdayFiltered.filter(
+    h => !h.isOffDay
+  ).length;
+
+
+const weekendWorkDays =
   weekendFiltered.filter(
     h => !h.isOffDay
   ).length;
