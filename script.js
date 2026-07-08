@@ -830,6 +830,7 @@ day.innerHTML =
 <div class="day-number ${dayClass}">
 ${d}
 ${historyData?.isRainy ? "☔" : ""}
+${historyData?.isOffDay ? "休" : ""}
 </div>
 
 <div class="day-sales">
