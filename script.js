@@ -3602,4 +3602,18 @@ function updateMonthlyGoalProgress(){
   progressEl.innerText =
     percent + "%";
 
+  // 残り売上
+const remaining =
+  Math.max(goal - monthSales, 0);
+
+// 残り稼働日
+const remainingDays =
+  getRemainingBusinessDays();
+
+// 表示
+document.getElementById(
+  "remainingBusinessDays"
+).innerText =
+  remainingDays;
+
 }
