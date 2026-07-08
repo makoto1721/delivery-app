@@ -2975,19 +2975,31 @@ function getRemainingBusinessDays(){
 
   let count = 0;
 
+for(
+  let day = startDay;
+  day <= lastDay;
+  day++
+){
 
-  for(
-    let day = startDay;
-    day <= lastDay;
-    day++
-  ){
+  const dateKey =
+    `${targetYear}-${
+      String(targetMonth + 1).padStart(2,"0")
+    }-${
+      String(day).padStart(2,"0")
+    }`;
 
-    count++;
+  const data =
+    history.find(h => h.date === dateKey);
 
+  if(data?.isOffDay){
+    continue;
   }
 
+  count++;
 
-  return count;
+}
+
+return count;
 
 }
 
