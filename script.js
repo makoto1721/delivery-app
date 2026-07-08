@@ -24,7 +24,9 @@ let historyOffDay = false;
 
 function getHistory(){
 
-  const history = getHistory();
+  return JSON.parse(
+    localStorage.getItem("deliveryHistory") || "[]"
+  );
 
 }
 
@@ -486,8 +488,7 @@ function finishWork(){
 
   const dateKey = getBusinessDateKey();
 
-  let history =
-    const history = getHistory();
+  let history = getHistory();
 
   const totalSales =
     getNumber("uberSales") +
@@ -1174,8 +1175,7 @@ function saveHistoryDetail(){
     return;
   }
 
-  let history =
-    const history = getHistory();
+  let history = getHistory();
   
   const oldData =
   history.find(h => h.date === targetDate) || {};
@@ -1322,8 +1322,7 @@ function clearHistoryDetail(){
       String(match[3]).padStart(2,"0")
     }`;
 
-  let history =
-    const history = getHistory();
+  let history = getHistory();
 
   history =
     history.filter(h => h.date !== targetDate);
@@ -2619,8 +2618,7 @@ function saveWorkTimeModal(){
     return;
   }
 
-  let history =
-    const history = getHistory();
+  let history = getHistory();
 
   const index =
     history.findIndex(h => h.date === targetDate);
