@@ -24,9 +24,7 @@ let historyOffDay = false;
 
 function getHistory(){
 
-  return JSON.parse(
-    localStorage.getItem("deliveryHistory") || "[]"
-  );
+  const history = getHistory();
 
 }
 
@@ -489,9 +487,7 @@ function finishWork(){
   const dateKey = getBusinessDateKey();
 
   let history =
-    JSON.parse(
-      localStorage.getItem("deliveryHistory") || "[]"
-    );
+    const history = getHistory();
 
   const totalSales =
     getNumber("uberSales") +
@@ -1179,10 +1175,8 @@ function saveHistoryDetail(){
   }
 
   let history =
-    JSON.parse(
-      localStorage.getItem("deliveryHistory") || "[]"
-    );
-
+    const history = getHistory();
+  
   const oldData =
   history.find(h => h.date === targetDate) || {};
   
@@ -1329,9 +1323,7 @@ function clearHistoryDetail(){
     }`;
 
   let history =
-    JSON.parse(
-      localStorage.getItem("deliveryHistory") || "[]"
-    );
+    const history = getHistory();
 
   history =
     history.filter(h => h.date !== targetDate);
@@ -1489,10 +1481,7 @@ function goCurrentMonth(){
 
 function renderAnalysis(){
 
-  const history =
-    JSON.parse(
-      localStorage.getItem("deliveryHistory") || "[]"
-    );
+  const history = getHistory();
 
   const now = analysisDate;
 
@@ -2314,10 +2303,7 @@ function openWorkTimeModal(){
     return;
   }
 
-  const history =
-    JSON.parse(
-      localStorage.getItem("deliveryHistory") || "[]"
-    );
+      const history = getHistory();
 
   const data =
     history.find(h => h.date === targetDate);
@@ -2435,10 +2421,7 @@ function enterWorkTimeEditMode(){
     return;
   }
 
-  const history =
-    JSON.parse(
-      localStorage.getItem("deliveryHistory") || "[]"
-    );
+      const history = getHistory();
 
   const data =
     history.find(h => h.date === targetDate) || {};
@@ -2637,9 +2620,7 @@ function saveWorkTimeModal(){
   }
 
   let history =
-    JSON.parse(
-      localStorage.getItem("deliveryHistory") || "[]"
-    );
+    const history = getHistory();
 
   const index =
     history.findIndex(h => h.date === targetDate);
@@ -2973,10 +2954,7 @@ function getRemainingBusinessDays(){
       }`;
 
 
-    const history =
-      JSON.parse(
-        localStorage.getItem("deliveryHistory") || "[]"
-      );
+    const history = getHistory();
 
 
     const todayData =
@@ -3085,10 +3063,7 @@ function updateMonthlyGoalDetail(){
 
 
   // 平均単価
-  const history =
-    JSON.parse(
-      localStorage.getItem("deliveryHistory") || "[]"
-    );
+  const history = getHistory();
 
 
   const monthKey =
