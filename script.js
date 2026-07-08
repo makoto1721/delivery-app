@@ -89,10 +89,6 @@ function switchPage(page){
 
 }
 
-let isRainy = false;
-
-let selectedHistoryDate = null;
-
 function toggleRain(){
 
   isRainy = !isRainy;
@@ -115,11 +111,6 @@ function toggleRain(){
   saveCurrentData();
 
 }
-
-/* ↓↓↓ ここに追加 ↓↓↓ */
-
-let historyRainy = false;
-let historyOffDay = false;
 
 function toggleHistoryOffDay(){
 
