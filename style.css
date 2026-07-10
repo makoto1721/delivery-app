@@ -119,6 +119,9 @@ body{
 table{
   width:100%;
   border-collapse:collapse;
+}
+
+.input-table{
   table-layout:fixed;
 }
 
@@ -139,8 +142,8 @@ td{
   text-align:left;
 }
 
-table th:nth-child(2),
-table td:nth-child(2){
+.input-table th:nth-child(2),
+.input-table td:nth-child(2){
   width:20%;
 }
 
