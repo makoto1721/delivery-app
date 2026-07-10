@@ -702,30 +702,27 @@ function createCountOptions(){
 
     select.innerHTML = "";
 
-    const select =
-  document.getElementById(id);
+    // 未選択
+    const blank =
+      document.createElement("option");
 
-select.innerHTML = "";
+    blank.value = "";
+    blank.textContent = "";
 
-const blank =
-  document.createElement("option");
+    select.appendChild(blank);
 
-blank.value = "";
-blank.textContent = "";
+    // 0～99
+    for(let i=0;i<=99;i++){
 
-select.appendChild(blank);
+      const option =
+        document.createElement("option");
 
-for(let i=0;i<=99;i++){
+      option.value = i;
+      option.textContent = i;
 
-  const option =
-    document.createElement("option");
+      select.appendChild(option);
 
-  option.value = i;
-  option.textContent = i;
-
-  select.appendChild(option);
-
-}
+    }
 
   });
 
