@@ -1083,3 +1083,35 @@ textarea{
 .month-goal-value.green{
   color:#16a34a;
 }
+
+/* =======================
+売上入力クリアボタン
+======================= */
+
+.input-wrap{
+  position:relative;
+}
+
+.input-wrap input{
+  padding-right:34px;
+}
+
+.clear-btn{
+  position:absolute;
+  right:8px;
+  top:50%;
+  transform:translateY(-50%);
+  border:none;
+  background:transparent;
+  color:#9ca3af;
+  font-size:18px;
+  cursor:pointer;
+  padding:0;
+  width:20px;
+  height:20px;
+  line-height:20px;
+}
+
+.clear-btn:hover{
+  color:#ef4444;
+}
