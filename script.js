@@ -1685,7 +1685,10 @@ let weekendMaxPerHour = 0;
   let maxPerHour = 0;
 
   filtered.forEach(h=>{
- 
+
+    if(h.isOffDay){
+  return;
+} 
     const sales =
       Number(h.totalSales || 0);
 
@@ -1746,6 +1749,10 @@ let weekendMaxPerHour = 0;
 
   weekdayFiltered.forEach(h=>{
 
+    if(h.isOffDay){
+  return;
+}
+
   const sales =
     Number(h.totalSales || 0);
 
@@ -1797,6 +1804,9 @@ let weekendMaxPerHour = 0;
 
     weekendFiltered.forEach(h=>{
 
+      if(h.isOffDay){
+  return;
+}
   const sales =
     Number(h.totalSales || 0);
 
