@@ -687,6 +687,37 @@ if(isRainy){
 
 }
 
+function createCountOptions(){
+
+  [
+    "uberCount",
+    "demaeCount",
+    "rocketCount"
+  ].forEach(id=>{
+
+    const select =
+      document.getElementById(id);
+
+    if(!select) return;
+
+    select.innerHTML = "";
+
+    for(let i=0;i<=99;i++){
+
+      const option =
+        document.createElement("option");
+
+      option.value = i;
+      option.textContent = i;
+
+      select.appendChild(option);
+
+    }
+
+  });
+
+}
+
 
 function changeMonth(value){
 
@@ -1346,8 +1377,12 @@ let analysisDate = new Date();
 document.getElementById("businessDate").value =
   getBusinessDateKey();
 
+createCountOptions();
+
 loadCurrentData();
+
 renderCalendar();
+
 renderAnalysis();
 
 
