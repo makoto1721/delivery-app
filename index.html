@@ -87,7 +87,11 @@ id="goalProgressFill"
 <td class="service-name">Uber</td>
 
 <td>
-<input type="tel" inputmode="numeric" id="uberCount" oninput="calculateResults()">
+  <input
+    type="tel"
+    inputmode="numeric"
+    id="uberCount"
+    oninput="calculateResults()">
 </td>
 
 <td>
@@ -99,7 +103,10 @@ id="goalProgressFill"
 <td class="service-name">出前館</td>
 
 <td>
-<input type="tel" inputmode="numeric" id="demaeCount" oninput="calculateResults()">
+  <select
+    id="demaeCount"
+    onchange="calculateResults()">
+  </select>
 </td>
 
 <td>
@@ -111,7 +118,10 @@ id="goalProgressFill"
 <td class="service-name">ロケット</td>
 
 <td>
-<input type="tel" inputmode="numeric" id="rocketCount" oninput="calculateResults()">
+  <select
+    id="rocketCount"
+    onchange="calculateResults()">
+  </select>
 </td>
 
 <td>
