@@ -1096,7 +1096,7 @@ textarea{
   padding-right:34px;
 }
 
-.clear-btn{
+.input-clear-btn{
   position:absolute;
   right:8px;
   top:50%;
@@ -1112,6 +1112,6 @@ textarea{
   line-height:20px;
 }
 
-.clear-btn:hover{
+.input-clear-btn:hover{
   color:#ef4444;
 }
