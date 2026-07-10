@@ -702,17 +702,30 @@ function createCountOptions(){
 
     select.innerHTML = "";
 
-    for(let i=0;i<=99;i++){
+    const select =
+  document.getElementById(id);
 
-      const option =
-        document.createElement("option");
+select.innerHTML = "";
 
-      option.value = i;
-      option.textContent = i;
+const blank =
+  document.createElement("option");
 
-      select.appendChild(option);
+blank.value = "";
+blank.textContent = "";
 
-    }
+select.appendChild(blank);
+
+for(let i=0;i<=99;i++){
+
+  const option =
+    document.createElement("option");
+
+  option.value = i;
+  option.textContent = i;
+
+  select.appendChild(option);
+
+}
 
   });
 
