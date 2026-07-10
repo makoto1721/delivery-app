@@ -162,6 +162,7 @@ input[readonly]{
 }
 
 input:focus,
+select:focus,
 textarea:focus{
   outline:none;
   background:#eef4ff;
