@@ -1626,7 +1626,10 @@ document.getElementById(
 
 }
 
-  const workDays = filtered.length;
+  const workDays =
+  filtered.filter(
+    h => !h.isOffDay
+  ).length;
 
   // 平日・土日データ抽出
 const weekdayFiltered = filtered.filter(h => {
