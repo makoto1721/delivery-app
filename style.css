@@ -119,6 +119,7 @@ body{
 table{
   width:100%;
   border-collapse:collapse;
+  table-layout:fixed;
 }
 
 th{
@@ -136,6 +137,16 @@ td{
   width:34%;
   font-weight:700;
   text-align:left;
+}
+
+table th:nth-child(2),
+table td:nth-child(2){
+  width:20%;
+}
+
+table th:nth-child(3),
+table td:nth-child(3){
+  width:46%;
 }
 
 input,
