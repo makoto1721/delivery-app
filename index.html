@@ -94,7 +94,24 @@ id="goalProgressFill"
 </td>
 
 <td>
-<input type="tel" inputmode="numeric" id="uberSales" oninput="calculateResults()">
+
+  <div class="input-wrap">
+
+    <input
+      type="tel"
+      inputmode="numeric"
+      id="uberSales"
+      oninput="calculateResults()">
+
+    <button
+      type="button"
+      class="clear-btn"
+      onclick="clearInput('uberSales')">
+      ×
+    </button>
+
+  </div>
+
 </td>
 </tr>
 
