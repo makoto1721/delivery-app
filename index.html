@@ -126,7 +126,24 @@ id="goalProgressFill"
 </td>
 
 <td>
-<input type="tel" inputmode="numeric" id="demaeSales" oninput="calculateResults()">
+
+  <div class="input-wrap">
+
+    <input
+      type="tel"
+      inputmode="numeric"
+      id="demaeSales"
+      oninput="calculateResults()">
+
+    <button
+      type="button"
+      class="input-clear-btn"
+      onclick="clearInput('demaeSales')">
+      ×
+    </button>
+
+  </div>
+
 </td>
 </tr>
 
@@ -141,7 +158,24 @@ id="goalProgressFill"
 </td>
 
 <td>
-<input type="tel" inputmode="numeric" id="rocketSales" oninput="calculateResults()">
+
+  <div class="input-wrap">
+
+    <input
+      type="tel"
+      inputmode="numeric"
+      id="rocketSales"
+      oninput="calculateResults()">
+
+    <button
+      type="button"
+      class="input-clear-btn"
+      onclick="clearInput('rocketSales')">
+      ×
+    </button>
+
+  </div>
+
 </td>
 </tr>
 
