@@ -308,6 +308,14 @@ document.getElementById("goalProgressFill")
 
 }
 
+function clearInput(id){
+
+  document.getElementById(id).value = "";
+
+  calculateResults();
+
+}
+
 function calculateWorkTime(){
 
   let totalMinutes = 0;
