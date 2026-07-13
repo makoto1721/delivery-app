@@ -2336,6 +2336,14 @@ historySwipeArea.addEventListener("touchend", e=>{
 const analysisSwipeArea =
   document.getElementById("analysisPage");
 
+
+analysisSwipeArea.addEventListener("touchstart", e=>{
+
+  touchStartX = e.changedTouches[0].screenX;
+
+});
+
+
 analysisSwipeArea.addEventListener("touchend", e=>{
 
   touchEndX = e.changedTouches[0].screenX;
