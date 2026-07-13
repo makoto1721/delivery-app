@@ -2348,14 +2348,6 @@ analysisSwipeArea.addEventListener("touchend", e=>{
 
 });
 
-analysisSwipeArea.addEventListener("touchend", e=>{
-
-  touchEndX = e.changedTouches[0].screenX;
-
-  handleSwipe("analysis");
-
-});
-
 function renderAnalysisList(history){
 
   const area =
