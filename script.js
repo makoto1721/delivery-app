@@ -2356,47 +2356,106 @@ analysisSwipeArea.addEventListener("touchend", e=>{
 
 });
 
-function createWeekChart(){
+function createWeekChart(days){
 
-  return ["月","火","水","木","金","土","日"]
-  .map(day=>{
+  const weekDays =
+    ["月","火","水","木","金","土","日"];
+
+
+  const salesList =
+    weekDays.map((day,index)=>{
+
+      const target =
+        days.find(h=>{
+
+          const date =
+            new Date(h.date);
+
+          const dayIndex =
+            date.getDay();
+
+          const convert =
+            dayIndex === 0
+            ? 6
+            : dayIndex - 1;
+
+          return convert === index;
+
+        });
+
+
+      return target
+      ? Number(target.totalSales || 0)
+      : 0;
+
+    });
+
+
+  const maxSales =
+    Math.max(...salesList,1);
+
+
+
+  return weekDays.map((day,index)=>{
+
+
+    const height =
+      salesList[index] > 0
+      ? Math.round(
+          (salesList[index] / maxSales) * 80
+        )
+      : 5;
+
+
 
     return `
-    <div style="
-    flex:1;
-    text-align:center;
-    ">
 
-      <div style="
-      height:80px;
-      display:flex;
-      align-items:flex-end;
-      justify-content:center;
-      ">
+<div
+style="
+flex:1;
+text-align:center;
+"
+>
 
-        <div style="
-        width:10px;
-        height:30px;
-        background:#d1d5db;
-        border-radius:3px;
-        ">
-        </div>
+<div
+style="
+height:80px;
+display:flex;
+align-items:flex-end;
+justify-content:center;
+"
+>
 
-      </div>
+<div
+title="${salesList[index].toLocaleString()}円"
+style="
+width:10px;
+height:${height}px;
+background:#d1d5db;
+border-radius:3px;
+"
+>
+</div>
 
-      <div style="
-      font-size:10px;
-      color:#6b7280;
-      margin-top:4px;
-      ">
-      ${day}
-      </div>
+</div>
 
-    </div>
-    `;
 
-  })
-  .join("");
+<div
+style="
+font-size:10px;
+color:#6b7280;
+margin-top:4px;
+"
+>
+${day}
+</div>
+
+
+</div>
+
+`;
+
+  }).join("");
 
 }
 
