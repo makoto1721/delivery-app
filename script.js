@@ -2623,6 +2623,8 @@ ${createWeekChart()}
 
 
 
+    });
+
   area.innerHTML = html;
 
 
