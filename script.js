@@ -2356,6 +2356,50 @@ analysisSwipeArea.addEventListener("touchend", e=>{
 
 });
 
+function createWeekChart(){
+
+  return ["月","火","水","木","金","土","日"]
+  .map(day=>{
+
+    return `
+    <div style="
+    flex:1;
+    text-align:center;
+    ">
+
+      <div style="
+      height:80px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:center;
+      ">
+
+        <div style="
+        width:10px;
+        height:30px;
+        background:#d1d5db;
+        border-radius:3px;
+        ">
+        </div>
+
+      </div>
+
+      <div style="
+      font-size:10px;
+      color:#6b7280;
+      margin-top:4px;
+      ">
+      ${day}
+      </div>
+
+    </div>
+    `;
+
+  })
+  .join("");
+
+}
+
 function renderAnalysisList(history){
 
   const area =
@@ -2564,7 +2608,7 @@ gap:3px;
 >
 
 
-${["月","火","水","木","金","土","日"].map(day=>`
+${createWeekChart()}
 
 <div
 style="
