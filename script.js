@@ -2667,7 +2667,7 @@ gap:3px;
 >
 
 
-${createWeekChart()}
+${createWeekChart(week.days)}
 
 
 </div>
