@@ -1568,8 +1568,7 @@ if(analysisType === "list"){
 
 if(analysisType === "list"){
 
-  listArea.innerHTML =
-    "<h3>一覧モード準備中</h3>";
+  renderAnalysisList(history);
 
   return;
 
@@ -2337,9 +2336,15 @@ historySwipeArea.addEventListener("touchend", e=>{
 const analysisSwipeArea =
   document.getElementById("analysisPage");
 
-analysisSwipeArea.addEventListener("touchstart", e=>{
+analysisSwipeArea.addEventListener("touchend", e=>{
 
-  touchStartX = e.changedTouches[0].screenX;
+  touchEndX = e.changedTouches[0].screenX;
+
+  if(analysisType === "list"){
+    return;
+  }
+
+  handleSwipe("analysis");
 
 });
 
@@ -2350,6 +2355,54 @@ analysisSwipeArea.addEventListener("touchend", e=>{
   handleSwipe("analysis");
 
 });
+
+function renderAnalysisList(history){
+
+  const area =
+    document.getElementById(
+      "analysisListArea"
+    );
+
+  if(!area) return;
+
+
+  area.innerHTML = "";
+
+
+  if(history.length === 0){
+
+    area.innerHTML =
+      "<div class='card'>データがありません</div>";
+
+    return;
+
+  }
+
+
+  area.innerHTML = `
+
+    <div class="card">
+
+      <div style="
+        font-weight:700;
+        font-size:16px;
+      ">
+        一覧テスト表示
+      </div>
+
+      <div style="
+        margin-top:8px;
+        color:#6b7280;
+      ">
+        登録日数：
+        ${history.length}日分
+      </div>
+
+    </div>
+
+  `;
+
+}
 
 function toggleWeekdayWeekendAnalysis(){
 
