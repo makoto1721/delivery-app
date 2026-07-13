@@ -2366,9 +2366,6 @@ function renderAnalysisList(history){
   if(!area) return;
 
 
-  area.innerHTML = "";
-
-
   if(history.length === 0){
 
     area.innerHTML =
@@ -2379,28 +2376,172 @@ function renderAnalysisList(history){
   }
 
 
-  area.innerHTML = `
+  // =======================
+  // 週単位へまとめる
+  // =======================
 
-    <div class="card">
+  const weeks = {};
 
-      <div style="
-        font-weight:700;
-        font-size:16px;
-      ">
-        一覧テスト表示
-      </div>
 
-      <div style="
-        margin-top:8px;
-        color:#6b7280;
-      ">
-        登録日数：
-        ${history.length}日分
-      </div>
+  history.forEach(h=>{
 
-    </div>
 
-  `;
+    if(h.isOffDay){
+      return;
+    }
+
+
+    const date =
+      new Date(h.date);
+
+
+    // 月曜日を取得
+
+    const day =
+      date.getDay();
+
+
+    const monday =
+      new Date(date);
+
+
+    monday.setDate(
+      date.getDate() -
+      (day === 0 ? 6 : day - 1)
+    );
+
+
+    monday.setHours(
+      0,0,0,0
+    );
+
+
+    const key =
+      monday.toISOString()
+      .split("T")[0];
+
+
+    if(!weeks[key]){
+
+      weeks[key] = {
+
+        monday:monday,
+
+        sales:0,
+
+        count:0,
+
+        days:[]
+
+      };
+
+    }
+
+
+    weeks[key].sales +=
+      Number(h.totalSales || 0);
+
+
+    weeks[key].count +=
+      Number(h.totalCount || 0);
+
+
+    weeks[key].days.push(h);
+
+
+  });
+
+
+
+  // =======================
+  // 新しい週を上に表示
+  // =======================
+
+
+  const weekList =
+    Object.values(weeks)
+    .sort(
+      (a,b)=>
+      b.monday - a.monday
+    );
+
+
+
+  let html = "";
+
+
+
+  weekList.forEach(week=>{
+
+
+    const sunday =
+      new Date(week.monday);
+
+
+    sunday.setDate(
+      week.monday.getDate()+6
+    );
+
+
+    html += `
+
+<div class="card">
+
+
+<div style="
+font-size:16px;
+font-weight:700;
+margin-bottom:8px;
+">
+
+${week.monday.getMonth()+1}/${week.monday.getDate()}
+〜
+${sunday.getMonth()+1}/${sunday.getDate()}
+
+</div>
+
+
+<div style="
+font-size:14px;
+color:#6b7280;
+">
+
+売上：
+<span style="
+font-weight:700;
+color:#111827;
+">
+${week.sales.toLocaleString()}
+</span>
+円
+
+<br>
+
+
+件数：
+<span style="
+font-weight:700;
+color:#111827;
+">
+${week.count}
+</span>
+件
+
+
+</div>
+
+
+</div>
+
+
+`;
+
+  });
+
+
+
+  area.innerHTML = html;
+
 
 }
 
