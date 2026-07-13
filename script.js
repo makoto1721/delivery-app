@@ -2530,9 +2530,6 @@ ${week.count}
 
 </div>
 
-
-</div>
-
 <div
 style="
 display:flex;
