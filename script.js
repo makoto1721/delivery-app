@@ -2700,7 +2700,7 @@ color:#374151;
 <span style="
 font-size:18px;
 font-weight:700;
-color:#111827;
+color:#2563eb;
 ">
 ${week.sales.toLocaleString()}
 </span>
