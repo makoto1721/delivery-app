@@ -1438,6 +1438,14 @@ if(type === "all"){
 
 }
 
+  if(type === "list"){
+
+  document
+    .getElementById("analysisListBtn")
+    .classList.add("active");
+
+}
+
   renderAnalysis();
 
 }
@@ -1536,6 +1544,37 @@ function renderAnalysis(){
 
   const now = analysisDate;
 
+  const normalArea =
+  document.getElementById(
+    "analysisNormalArea"
+  );
+
+const listArea =
+  document.getElementById(
+    "analysisListArea"
+  );
+
+if(analysisType === "list"){
+
+  normalArea.style.display = "none";
+  listArea.style.display = "block";
+
+}else{
+
+  normalArea.style.display = "block";
+  listArea.style.display = "none";
+
+}
+
+if(analysisType === "list"){
+
+  listArea.innerHTML =
+    "<h3>一覧モード準備中</h3>";
+
+  return;
+
+}
+  
   let filtered = [];
 
   if(analysisType === "year"){
