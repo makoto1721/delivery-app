@@ -2678,8 +2678,9 @@ flex:1;
 >
 
 <div style="
-font-size:16px;
+font-size:13px;
 font-weight:700;
+color:#6b7280;
 margin-bottom:8px;
 ">
 
@@ -2691,12 +2692,13 @@ ${String(sunday.getFullYear()).slice(2)}/${sunday.getMonth()+1}/${sunday.getDate
 
 
 <div style="
-font-size:14px;
-color:#6b7280;
+font-size:16px;
+color:#374151;
 ">
 
 売上：
 <span style="
+font-size:18px;
 font-weight:700;
 color:#111827;
 ">
