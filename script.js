@@ -2488,6 +2488,24 @@ function renderAnalysisList(history){
 <div class="card">
 
 
+<div
+style="
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:12px;
+"
+>
+
+
+<!-- 左側：週情報 -->
+
+<div
+style="
+flex:1;
+"
+>
+
 <div style="
 font-size:16px;
 font-weight:700;
@@ -2517,7 +2535,6 @@ ${week.sales.toLocaleString()}
 
 <br>
 
-
 件数：
 <span style="
 font-weight:700;
@@ -2527,17 +2544,22 @@ ${week.count}
 </span>
 件
 
+</div>
 
 </div>
+
+
+
+<!-- 右側：仮グラフ -->
 
 <div
 style="
 display:flex;
 justify-content:space-between;
 align-items:flex-end;
-height:120px;
-margin-top:16px;
-padding:0 4px;
+height:100px;
+width:150px;
+gap:3px;
 "
 >
 
@@ -2551,19 +2573,19 @@ text-align:center;
 "
 >
 
+
 <div
 style="
-height:90px;
+height:80px;
 display:flex;
-flex-direction:column;
-justify-content:flex-end;
-align-items:center;
+align-items:flex-end;
+justify-content:center;
 "
 >
 
 <div
 style="
-width:14px;
+width:10px;
 height:30px;
 background:#d1d5db;
 border-radius:3px;
@@ -2571,15 +2593,14 @@ border-radius:3px;
 >
 </div>
 
-
 </div>
 
 
 <div
 style="
-font-size:11px;
+font-size:10px;
 color:#6b7280;
-margin-top:6px;
+margin-top:4px;
 "
 >
 ${day}
@@ -2588,15 +2609,19 @@ ${day}
 
 </div>
 
+
 `).join("")}
 
 
 </div>
 
 
-`;
+</div>
 
-  });
+
+</div>
+
+`;
 
 
 
