@@ -2362,49 +2362,82 @@ function createWeekChart(days){
     ["月","火","水","木","金","土","日"];
 
 
-  const salesList =
+  const salesData =
     weekDays.map((day,index)=>{
 
-      const target =
-        days.find(h=>{
-
-          const date =
-            new Date(h.date);
-
-          const dayIndex =
-            date.getDay();
-
-          const convert =
-            dayIndex === 0
-            ? 6
-            : dayIndex - 1;
-
-          return convert === index;
-
-        });
+      let result = {
+        uber:0,
+        demae:0,
+        rocket:0
+      };
 
 
-      return target
-      ? Number(target.totalSales || 0)
-      : 0;
+      days.forEach(h=>{
+
+        const date =
+          new Date(h.date);
+
+        const dayIndex =
+          date.getDay() === 0
+          ? 6
+          : date.getDay() - 1;
+
+
+        if(dayIndex === index){
+
+          result.uber +=
+            Number(h.uberSales || 0);
+
+          result.demae +=
+            Number(h.demaeSales || 0);
+
+          result.rocket +=
+            Number(h.rocketSales || 0);
+
+        }
+
+      });
+
+
+      result.total =
+        result.uber +
+        result.demae +
+        result.rocket;
+
+
+      return result;
 
     });
 
 
+
   const maxSales =
-    Math.max(...salesList,1);
+    Math.max(
+      ...salesData.map(d=>d.total),
+      1
+    );
 
 
 
   return weekDays.map((day,index)=>{
 
 
-    const height =
-      salesList[index] > 0
+    const data =
+      salesData[index];
+
+
+    const totalHeight =
+      data.total > 0
       ? Math.round(
-          (salesList[index] / maxSales) * 80
+          data.total / maxSales * 80
         )
       : 5;
+
+
+    const ratio =
+      data.total > 0
+      ? totalHeight / data.total
+      : 0;
 
 
 
@@ -2417,6 +2450,7 @@ text-align:center;
 "
 >
 
+
 <div
 style="
 height:80px;
@@ -2426,18 +2460,51 @@ justify-content:center;
 "
 >
 
+
 <div
-title="${salesList[index].toLocaleString()}円"
 style="
-width:10px;
-height:${height}px;
-background:#d1d5db;
+width:12px;
+height:${totalHeight}px;
+display:flex;
+flex-direction:column-reverse;
 border-radius:3px;
+overflow:hidden;
 "
 >
-</div>
+
+
+<div
+title="Uber ${data.uber.toLocaleString()}円"
+style="
+height:${Math.round(data.uber * ratio)}px;
+background:#22c55e;
+"
+></div>
+
+
+<div
+title="出前館 ${data.demae.toLocaleString()}円"
+style="
+height:${Math.round(data.demae * ratio)}px;
+background:#ef4444;
+"
+></div>
+
+
+<div
+title="ロケット ${data.rocket.toLocaleString()}円"
+style="
+height:${Math.round(data.rocket * ratio)}px;
+background:#f97316;
+"
+></div>
+
 
 </div>
+
+
+</div>
+
 
 
 <div
@@ -2452,6 +2519,7 @@ ${day}
 
 
 </div>
+
 
 `;
 
