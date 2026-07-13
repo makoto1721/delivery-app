@@ -1444,9 +1444,13 @@ if(type === "all"){
     .getElementById("analysisListBtn")
     .classList.add("active");
 
+  renderAnalysisList();
+
+  return;
+
 }
 
-  renderAnalysis();
+renderAnalysis();
 
 }
 
