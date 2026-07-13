@@ -2683,9 +2683,9 @@ font-weight:700;
 margin-bottom:8px;
 ">
 
-${week.monday.getMonth()+1}/${week.monday.getDate()}
+${String(week.monday.getFullYear()).slice(2)}/${week.monday.getMonth()+1}/${week.monday.getDate()}
 〜
-${sunday.getMonth()+1}/${sunday.getDate()}
+${String(sunday.getFullYear()).slice(2)}/${sunday.getMonth()+1}/${sunday.getDate()}
 
 </div>
 
