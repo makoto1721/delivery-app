@@ -3677,6 +3677,41 @@ document.getElementById(
 
 }
 
+function updateTodayGoal(requiredPerDay){
+
+  const todayKey =
+    getBusinessDateKey();
+
+  const autoGoalKey =
+    "autoGoal_" + todayKey;
+
+  if(
+    localStorage.getItem(autoGoalKey)
+  ){
+    return;
+  }
+
+  const goalInput =
+    document.getElementById("dailyGoal");
+
+  if(!goalInput){
+    return;
+  }
+
+  goalInput.value =
+    requiredPerDay;
+
+  formatGoalInput();
+
+  calculateResults();
+
+  localStorage.setItem(
+    autoGoalKey,
+    "done"
+  );
+
+}
+
 function saveMonthlyGoal(value){
 
   const goals =
