@@ -3585,6 +3585,8 @@ function updateMonthlyGoalDetail(){
 
   }
 
+  updateTodayGoal(requiredPerDay);
+
 
   // 平均単価
   const history = getHistory();
