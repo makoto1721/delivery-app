@@ -3728,6 +3728,11 @@ function saveMonthlyGoal(value){
     JSON.stringify(goals)
   );
 
+  // 今日の自動目標を再計算できるようにする
+  localStorage.removeItem(
+    "autoGoal_" + getBusinessDateKey()
+  );
+
 }
 
 let goalManageYear =
