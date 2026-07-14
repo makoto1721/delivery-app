@@ -3954,14 +3954,21 @@ function saveGoalManageInput(key, value){
 
   // 現在表示中の月なら更新
   if(
-    key === getMonthKey()
-  ){
+  key === getMonthKey()
+){
 
-    renderMonthlyGoal();
+  // 今日の自動目標を再計算できるようにする
+  localStorage.removeItem(
+    "autoGoal_" + getBusinessDateKey()
+  );
 
-    updateMonthlyGoalProgress();
+  renderMonthlyGoal();
 
-  }
+  updateMonthlyGoalProgress();
+
+  updateMonthlyGoalDetail();
+
+}
 
 }
 
