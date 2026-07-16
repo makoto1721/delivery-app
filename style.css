@@ -543,19 +543,29 @@ textarea{
   background:white;
   border-top:1px solid #e5e7eb;
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(5,1fr);
   z-index:999;
   padding:10px 0 18px;
   
 }
 
 .nav-btn{
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
   background:transparent;
   color:#6b7280;
   border:none;
-  padding:12px 0 8px;
-  font-size:12px;
+
+  padding:8px 0 6px;
+
+  font-size:11px;
+
   box-shadow:none;
+
 }
 
 .nav-btn.active{
@@ -564,9 +574,23 @@ textarea{
 }
 
 .nav-icon{
+
   display:block;
-  font-size:22px;
-  margin-bottom:6px;
+
+  font-size:24px;
+
+  margin-bottom:3px;
+
+}
+
+.nav-text{
+
+  display:block;
+
+  line-height:1;
+
+  white-space:nowrap;
+
 }
 
 /* 稼働時間だけ文字を小さく */
