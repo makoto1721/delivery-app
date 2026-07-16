@@ -24,7 +24,18 @@ let historyOffDay = false;
 
 function formatAnalysisDate(date){
 
+  if(!date){
+    return "";
+  }
+
+
   const d = new Date(date);
+
+
+  if(isNaN(d.getTime())){
+    return "";
+  }
+
 
   return (
     String(d.getFullYear()).slice(2)
