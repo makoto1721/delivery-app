@@ -22,6 +22,20 @@ let historyOffDay = false;
 // 共通処理
 // ==========================
 
+function formatAnalysisDate(date){
+
+  const d = new Date(date);
+
+  return (
+    String(d.getFullYear()).slice(2)
+    + "/"
+    + (d.getMonth()+1)
+    + "/"
+    + d.getDate()
+  );
+
+}
+
 function getHistory(){
 
   return JSON.parse(
@@ -1824,27 +1838,27 @@ if(analysisType === "range"){
 
 
   document.getElementById(
-    "analysisPeriodLabel"
-  ).innerText =
-    `${analysisRangeStart}〜${analysisRangeEnd}`;
+  "analysisPeriodLabel"
+).innerText =
+  `${formatAnalysisDate(analysisRangeStart)}〜${formatAnalysisDate(analysisRangeEnd)}`;
 
 
   document.getElementById(
-    "analysisServicePeriod"
-  ).innerText =
-    `${analysisRangeStart}〜${analysisRangeEnd}`;
+  "analysisServicePeriod"
+).innerText =
+  `${formatAnalysisDate(analysisRangeStart)}〜${formatAnalysisDate(analysisRangeEnd)}`;
 
 
   document.getElementById(
-    "weekdayTitle"
-  ).innerText =
-    `${analysisRangeStart}〜${analysisRangeEnd}（平日）`;
+  "weekdayTitle"
+).innerText =
+  `${formatAnalysisDate(analysisRangeStart)}〜${formatAnalysisDate(analysisRangeEnd)}（平日）`;
 
 
   document.getElementById(
-    "weekendTitle"
-  ).innerText =
-    `${analysisRangeStart}〜${analysisRangeEnd}（土日）`;
+  "weekendTitle"
+).innerText =
+  `${formatAnalysisDate(analysisRangeStart)}〜${formatAnalysisDate(analysisRangeEnd)}（土日）`;
 
 }
   
