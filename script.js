@@ -1596,6 +1596,21 @@ function renderAnalysis(){
 
   }
 
+  const rangeArea =
+  document.getElementById(
+    "analysisRangeArea"
+  );
+
+
+if(analysisType === "range"){
+
+  rangeArea.style.display = "block";
+
+}else{
+
+  rangeArea.style.display = "none";
+
+}
 
   const history = getHistory();
 
@@ -4249,5 +4264,45 @@ document.getElementById(
   "remainingBusinessDays"
 ).innerText =
   remainingDays;
+
+}
+
+function applyAnalysisRange(){
+
+  const start =
+    document.getElementById(
+      "analysisRangeStart"
+    ).value;
+
+
+  const end =
+    document.getElementById(
+      "analysisRangeEnd"
+    ).value;
+
+
+  if(!start || !end){
+
+    alert("開始日と終了日を入力してください");
+
+    return;
+
+  }
+
+
+  if(start > end){
+
+    alert("開始日は終了日より前の日付にしてください");
+
+    return;
+
+  }
+
+
+  analysisRangeStart = start;
+  analysisRangeEnd = end;
+
+
+  renderAnalysis();
 
 }
