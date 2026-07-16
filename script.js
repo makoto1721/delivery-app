@@ -78,13 +78,26 @@ function switchPage(page){
   .forEach(b=>b.classList.remove("active"));
 
   if(page==="today"){
-    document.getElementById("todayPage").classList.add("active");
-    document.querySelectorAll(".nav-btn")[0].classList.add("active");
-  }
+
+  document
+    .getElementById("todayPage")
+    .classList.add("active");
+
+  document
+    .getElementById("todayTab")
+    .classList.add("active");
+
+}
 
   if(page==="history"){
-  document.getElementById("historyPage").classList.add("active");
-  document.querySelectorAll(".nav-btn")[1].classList.add("active");
+
+  document
+    .getElementById("historyPage")
+    .classList.add("active");
+
+  document
+    .getElementById("historyTab")
+    .classList.add("active");
 
   renderCalendar();
 
@@ -92,17 +105,32 @@ function switchPage(page){
     getSelectedHistoryDate()
     || getBusinessDateKey()
   );
+
 }
 
   if(page==="analysis"){
-    document.getElementById("analysisPage").classList.add("active");
-    document.querySelectorAll(".nav-btn")[2].classList.add("active");
-  }
+
+  document
+    .getElementById("analysisPage")
+    .classList.add("active");
+
+  document
+    .getElementById("analysisTab")
+    .classList.add("active");
+
+}
 
   if(page==="settings"){
-    document.getElementById("settingsPage").classList.add("active");
-    document.querySelectorAll(".nav-btn")[3].classList.add("active");
-  }
+
+  document
+    .getElementById("settingsPage")
+    .classList.add("active");
+
+  document
+    .getElementById("settingsTab")
+    .classList.add("active");
+
+}
 
 }
 
