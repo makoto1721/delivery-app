@@ -2436,7 +2436,10 @@ const prevBtn =
 const nextBtn =
   document.getElementById("analysisNextBtn");
 
-if(analysisType === "all"){
+if(
+  analysisType === "all" ||
+  analysisType === "range"
+){
 
   prevBtn.classList.add(
     "analysis-arrow-disabled"
