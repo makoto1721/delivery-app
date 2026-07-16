@@ -1446,6 +1446,16 @@ if(type === "all"){
 
  }
 
+  // 週間だけ「分析／一覧」切替を表示
+const weekViewArea =
+  document.getElementById("weekViewModeArea");
+
+if(type === "week"){
+  weekViewArea.style.display = "block";
+}else{
+  weekViewArea.style.display = "none";
+}
+
 renderAnalysis();
 
 }
