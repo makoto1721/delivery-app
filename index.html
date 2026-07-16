@@ -1510,34 +1510,23 @@ onclick="selectBackupFile()">
 <div class="bottom-nav">
 
 <button
+id="todayTab"
 class="nav-btn active"
-onclick="switchPage('home')">
+onclick="switchPage('today')">
 
 <span class="nav-icon material-symbols-outlined">
 home
 </span>
 
 <span class="nav-text">
-ホーム
+今日
 </span>
 
 </button>
 
-<button
-class="nav-btn"
-onclick="switchPage('today')">
-
-<span class="nav-icon material-symbols-outlined">
-add_circle
-</span>
-
-<span class="nav-text">
-記録
-</span>
-
-</button>
 
 <button
+id="historyTab"
 class="nav-btn"
 onclick="switchPage('history')">
 
@@ -1551,7 +1540,9 @@ calendar_month
 
 </button>
 
+
 <button
+id="analysisTab"
 class="nav-btn"
 onclick="switchPage('analysis')">
 
@@ -1565,7 +1556,9 @@ bar_chart
 
 </button>
 
+
 <button
+id="settingsTab"
 class="nav-btn"
 onclick="switchPage('settings')">
 
