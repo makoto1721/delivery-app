@@ -1390,6 +1390,8 @@ renderAnalysis();
 }
 
 let analysisType = "week";
+let analysisRangeStart = "";
+let analysisRangeEnd = "";
 let weekViewMode = "analysis";
 let analysisDate = new Date();
 
@@ -1435,6 +1437,14 @@ if(type === "all"){
 
   document
     .getElementById("analysisAllBtn")
+    .classList.add("active");
+
+}
+
+  if(type === "range"){
+
+  document
+    .getElementById("analysisRangeBtn")
     .classList.add("active");
 
 }
