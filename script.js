@@ -1390,6 +1390,7 @@ renderAnalysis();
 }
 
 let analysisType = "week";
+let weekViewMode = "analysis";
 let analysisDate = new Date();
 
 document.getElementById("businessDate").value =
