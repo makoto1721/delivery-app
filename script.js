@@ -1752,21 +1752,21 @@ if(analysisType === "all"){
 
   document.getElementById(
     "analysisPeriodLabel"
-  ).innerText = "全期間";
+  ).innerText = "累計";
 
   document.getElementById(
     "analysisServicePeriod"
-  ).innerText = "全期間";
+  ).innerText = "累計";
 
   document.getElementById(
   "weekdayTitle"
 ).innerText =
-  "全期間（平日）";
+  "累計（平日）";
 
 document.getElementById(
   "weekendTitle"
 ).innerText =
-  "全期間（土日）";
+  "累計（土日）";
 
 }
 
