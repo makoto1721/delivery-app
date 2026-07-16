@@ -764,25 +764,53 @@ onclick="changeAnalysisType('list')">
 id="weekViewModeArea"
 style="
 display:none;
+justify-content:center;
+align-items:center;
+gap:24px;
 margin-top:12px;
-text-align:center;
+margin-bottom:4px;
 "
 >
 
-<button
+<label
 id="weekAnalysisViewBtn"
-class="rain-btn active"
-style="margin-right:6px;"
+onclick="changeWeekViewMode('analysis')"
+style="
+display:flex;
+align-items:center;
+gap:6px;
+cursor:pointer;
+font-size:15px;
+font-weight:600;
+color:#111827;
+"
 >
-📊 分析
-</button>
 
-<button
+<span id="analysisRadio">●</span>
+
+分析
+
+</label>
+
+<label
 id="weekListViewBtn"
-class="rain-btn"
+onclick="changeWeekViewMode('list')"
+style="
+display:flex;
+align-items:center;
+gap:6px;
+cursor:pointer;
+font-size:15px;
+font-weight:600;
+color:#6b7280;
+"
 >
-📋 一覧
-</button>
+
+<span id="listRadio">○</span>
+
+一覧
+
+</label>
 
 </div>
 
