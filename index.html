@@ -1509,83 +1509,94 @@ onclick="selectBackupFile()">
 
 <div class="bottom-nav">
 
-<button
-id="homeTab"
-class="nav-btn active"
-onclick="switchPage('home')">
+  <!-- ホーム -->
 
-<span class="nav-icon material-symbols-outlined">
-home
-</span>
+  <button
+    id="homeTab"
+    class="nav-btn"
+    onclick="switchPage('home')">
 
-<span class="nav-text">
-ホーム
-</span>
+    <span class="nav-icon material-symbols-outlined">
+      home
+    </span>
 
-</button>  
+    <span class="nav-text">
+      ホーム
+    </span>
 
-<button
-id="todayTab"
-class="nav-btn"
-onclick="switchPage('today')">
-
-<span class="nav-icon material-symbols-outlined">
-add_circle
-</span>
-
-<span class="nav-text">
-記録
-</span>
-
-</button>
+  </button>
 
 
-<button
-id="historyTab"
-class="nav-btn"
-onclick="switchPage('history')">
+  <!-- 実績 -->
 
-<span class="nav-icon material-symbols-outlined">
-calendar_month
-</span>
+  <button
+    id="historyTab"
+    class="nav-btn"
+    onclick="switchPage('history')">
 
-<span class="nav-text">
-実績
-</span>
+    <span class="nav-icon material-symbols-outlined">
+      calendar_month
+    </span>
 
-</button>
+    <span class="nav-text">
+      実績
+    </span>
 
-
-<button
-id="analysisTab"
-class="nav-btn"
-onclick="switchPage('analysis')">
-
-<span class="nav-icon material-symbols-outlined">
-bar_chart
-</span>
-
-<span class="nav-text">
-分析
-</span>
-
-</button>
+  </button>
 
 
-<button
-id="settingsTab"
-class="nav-btn"
-onclick="switchPage('settings')">
+  <!-- 記録 -->
 
-<span class="nav-icon material-symbols-outlined">
-settings
-</span>
+  <button
+    id="todayTab"
+    class="nav-btn active"
+    onclick="switchPage('today')">
 
-<span class="nav-text">
-設定
-</span>
+    <span class="nav-icon material-symbols-outlined">
+      add_circle
+    </span>
 
-</button>
+    <span class="nav-text">
+      記録
+    </span>
+
+  </button>
+
+
+  <!-- 分析 -->
+
+  <button
+    id="analysisTab"
+    class="nav-btn"
+    onclick="switchPage('analysis')">
+
+    <span class="nav-icon material-symbols-outlined">
+      bar_chart
+    </span>
+
+    <span class="nav-text">
+      分析
+    </span>
+
+  </button>
+
+
+  <!-- 設定 -->
+
+  <button
+    id="settingsTab"
+    class="nav-btn"
+    onclick="switchPage('settings')">
+
+    <span class="nav-icon material-symbols-outlined">
+      settings
+    </span>
+
+    <span class="nav-text">
+      設定
+    </span>
+
+  </button>
 
 </div>
 
