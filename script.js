@@ -1438,15 +1438,7 @@ if(type === "all"){
     .classList.add("active");
 
 }
-
-  if(type === "list"){
-
-  document
-    .getElementById("analysisListBtn")
-    .classList.add("active");
-
- }
-
+ 
   renderAnalysis();
 
 }
@@ -2409,9 +2401,12 @@ analysisSwipeArea.addEventListener("touchend", e=>{
 
   touchEndX = e.changedTouches[0].screenX;
 
-  if(analysisType === "list"){
-    return;
-  }
+  if(
+  analysisType === "week" &&
+  weekViewMode === "list"
+){
+  return;
+}
 
   handleSwipe("analysis");
 
