@@ -1603,7 +1603,10 @@ const listArea =
     "analysisListArea"
   );
 
-if(analysisType === "list"){
+if(
+  analysisType === "week" &&
+  weekViewMode === "list"
+){
 
   normalArea.style.display = "none";
   listArea.style.display = "block";
@@ -1615,7 +1618,10 @@ if(analysisType === "list"){
 
 }
 
-if(analysisType === "list"){
+if(
+  analysisType === "week" &&
+  weekViewMode === "list"
+){
 
   renderAnalysisList(history);
 
