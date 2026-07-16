@@ -1447,17 +1447,7 @@ if(type === "all"){
 
  }
 
-  // 週間だけ「分析／一覧」切替を表示
-const weekViewArea =
-  document.getElementById("weekViewModeArea");
-
-if(type === "week"){
-  weekViewArea.style.display = "flex";
-}else{
-  weekViewArea.style.display = "none";
-}
-
-renderAnalysis();
+  renderAnalysis();
 
 }
 
@@ -1588,6 +1578,22 @@ function goCurrentMonth(){
 }
 
 function renderAnalysis(){
+
+  const weekViewArea =
+    document.getElementById(
+      "weekViewModeArea"
+    );
+
+  if(analysisType === "week"){
+
+    weekViewArea.style.display = "flex";
+
+  }else{
+
+    weekViewArea.style.display = "none";
+
+  }
+
 
   const history = getHistory();
 
