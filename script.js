@@ -1451,7 +1451,7 @@ const weekViewArea =
   document.getElementById("weekViewModeArea");
 
 if(type === "week"){
-  weekViewArea.style.display = "block";
+  weekViewArea.style.display = "flex";
 }else{
   weekViewArea.style.display = "none";
 }
