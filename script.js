@@ -1795,6 +1795,59 @@ document.getElementById(
 
 }
 
+if(analysisType === "range"){
+
+  filtered = history.filter(h=>{
+
+    const d = new Date(h.date);
+
+    const start =
+      new Date(analysisRangeStart);
+
+    const end =
+      new Date(analysisRangeEnd);
+
+    end.setHours(
+      23,
+      59,
+      59,
+      999
+    );
+
+
+    return (
+      d >= start &&
+      d <= end
+    );
+
+  });
+
+
+  document.getElementById(
+    "analysisPeriodLabel"
+  ).innerText =
+    `${analysisRangeStart}〜${analysisRangeEnd}`;
+
+
+  document.getElementById(
+    "analysisServicePeriod"
+  ).innerText =
+    `${analysisRangeStart}〜${analysisRangeEnd}`;
+
+
+  document.getElementById(
+    "weekdayTitle"
+  ).innerText =
+    `${analysisRangeStart}〜${analysisRangeEnd}（平日）`;
+
+
+  document.getElementById(
+    "weekendTitle"
+  ).innerText =
+    `${analysisRangeStart}〜${analysisRangeEnd}（土日）`;
+
+}
+  
   const workDays =
   filtered.filter(
     h => !h.isOffDay
