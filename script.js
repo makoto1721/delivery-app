@@ -77,6 +77,18 @@ function switchPage(page){
   document.querySelectorAll(".nav-btn")
   .forEach(b=>b.classList.remove("active"));
 
+  if(page==="home"){
+
+  document
+    .getElementById("homePage")
+    .classList.add("active");
+
+  document
+    .getElementById("homeTab")
+    .classList.add("active");
+
+}
+
   if(page==="today"){
 
   document
