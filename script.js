@@ -1461,6 +1461,44 @@ renderAnalysis();
 
 }
 
+function changeWeekViewMode(mode){
+
+  weekViewMode = mode;
+
+  const analysisRadio =
+    document.getElementById("analysisRadio");
+
+  const listRadio =
+    document.getElementById("listRadio");
+
+  const analysisBtn =
+    document.getElementById("weekAnalysisViewBtn");
+
+  const listBtn =
+    document.getElementById("weekListViewBtn");
+
+  if(mode === "analysis"){
+
+    analysisRadio.innerText = "●";
+    listRadio.innerText = "○";
+
+    analysisBtn.style.color = "#111827";
+    listBtn.style.color = "#6b7280";
+
+  }else{
+
+    analysisRadio.innerText = "○";
+    listRadio.innerText = "●";
+
+    analysisBtn.style.color = "#6b7280";
+    listBtn.style.color = "#111827";
+
+  }
+
+  renderAnalysis();
+
+}
+
 function moveAnalysisPeriod(value){
 
   if(analysisType === "all"){
