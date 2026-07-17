@@ -4625,6 +4625,8 @@ function getCurrentMonthSummary(){
 
   let totalSales = 0;
 
+　let totalCount = 0;
+
   history.forEach(h=>{
 
     if(
@@ -4634,6 +4636,9 @@ function getCurrentMonthSummary(){
 
       totalSales +=
         Number(h.totalSales || 0);
+
+      totalCount +=
+  Number(h.totalCount || 0);
 
     }
 
@@ -4682,11 +4687,42 @@ const needSalesPerDay =
     )
   : remainingSales;
 
+  // 平均1件単価
+
+const unitPrice =
+  totalCount > 0
+  ? Math.round(
+      totalSales / totalCount
+    )
+  : 0;
+
+
+// 目標達成に必要な件数
+
+const remainingCount =
+  unitPrice > 0
+  ? Math.ceil(
+      remainingSales / unitPrice
+    )
+  : 0;
+
+
+// 1日あたり必要件数
+
+const needCountPerDay =
+  remainingDays > 0
+  ? Math.ceil(
+      remainingCount / remainingDays
+    )
+  : remainingCount;
+
   return{
 
   goal,
 
   totalSales,
+
+  totalCount,
 
   percent,
 
@@ -4694,7 +4730,13 @@ const needSalesPerDay =
 
   remainingDays,
 
-  needSalesPerDay
+  needSalesPerDay,
+
+  unitPrice,
+
+  remainingCount,
+
+  needCountPerDay
 
 };
 
