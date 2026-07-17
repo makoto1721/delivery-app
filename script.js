@@ -2008,27 +2008,31 @@ let weekendMaxPerHour = 0;
   (h.workTime || "")
   .match(/(\d+)時間\s*(\d+)分/);
 
+
 if(timeMatch){
 
-  totalHours +=
+  const hours =
     Number(timeMatch[1])
     +
     Number(timeMatch[2]) / 60;
 
+
+  totalHours += hours;
+
+
+  if(hours > 0){
+
+    const perHour =
+      count / hours;
+
+
+    if(perHour > maxPerHour){
+      maxPerHour = perHour;
+    }
+
+  }
+
 }
-
-      totalHours += hours;
-
-      if(hours > 0){
-
-        const perHour =
-          count / hours;
-
-        if(perHour > maxPerHour){
-          maxPerHour = perHour;
-        }
-
-      }
 
     }
 
