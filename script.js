@@ -2004,20 +2004,18 @@ let weekendMaxPerHour = 0;
       minSales = sales;
     }
 
-    const match =
+   const timeMatch =
   (h.workTime || "")
   .match(/(\d+)時間\s*(\d+)分/);
 
-    if(match){
+if(timeMatch){
 
-      const hour =
-        Number(match[1]);
+  totalHours +=
+    Number(timeMatch[1])
+    +
+    Number(timeMatch[2]) / 60;
 
-      const minute =
-        Number(match[2]);
-
-      const hours =
-        hour + (minute / 60);
+}
 
       totalHours += hours;
 
