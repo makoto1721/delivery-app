@@ -4496,3 +4496,51 @@ function applyAnalysisRange(){
   renderAnalysis();
 
 }
+
+function getCurrentMonthSummary(){
+
+  const history = getHistory();
+
+  const monthKey = getMonthKey();
+
+  const goals =
+    JSON.parse(
+      localStorage.getItem("monthlyGoals") || "{}"
+    );
+
+  const goal =
+    Number(goals[monthKey] || 0);
+
+  let totalSales = 0;
+
+  history.forEach(h=>{
+
+    if(
+      h.date &&
+      h.date.startsWith(monthKey)
+    ){
+
+      totalSales +=
+        Number(h.totalSales || 0);
+
+    }
+
+  });
+
+  const percent =
+    goal > 0
+    ? Math.min(
+        Math.round(totalSales / goal * 100),
+        100
+      )
+    : 0;
+
+  return{
+
+    goal,
+    totalSales,
+    percent
+
+  };
+
+}
