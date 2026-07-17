@@ -2796,6 +2796,24 @@ id="homeProgressSales"
 
 `;
 
+const summary =
+  getCurrentMonthSummary();
+
+  document.getElementById(
+  "homeProgressBar"
+).style.width =
+  summary.percent + "%";
+
+document.getElementById(
+  "homeProgressBar"
+).innerText =
+  summary.percent + "%";
+
+document.getElementById(
+  "homeProgressSales"
+).innerText =
+  `¥${summary.totalSales.toLocaleString()} / ¥${summary.goal.toLocaleString()}`;
+
 }
 
 function renderAnalysisList(history){
