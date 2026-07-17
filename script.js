@@ -2026,11 +2026,13 @@ if(timeMatch){
       count / hours;
 
 
-    if(perHour > maxPerHour){
+        if(perHour > maxPerHour){
       maxPerHour = perHour;
     }
 
-    }
+  }
+
+}
 
 });
   
