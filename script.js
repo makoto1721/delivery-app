@@ -4553,12 +4553,55 @@ function getCurrentMonthSummary(){
       )
     : 0;
 
+  // 残り売上
+const remainingSales =
+  Math.max(
+    goal - totalSales,
+    0
+  );
+
+
+// 今月の日数
+const today = new Date();
+
+const lastDay =
+  new Date(
+    today.getFullYear(),
+    today.getMonth()+1,
+    0
+  );
+
+
+// 残り営業日（記録がある日ではなく、残り日数）
+const remainingDays =
+  Math.max(
+    lastDay.getDate() - today.getDate(),
+    0
+  );
+
+
+// 1日あたり必要売上
+const needSalesPerDay =
+  remainingDays > 0
+  ? Math.ceil(
+      remainingSales / remainingDays
+    )
+  : remainingSales;
+
   return{
 
-    goal,
-    totalSales,
-    percent
+  goal,
 
-  };
+  totalSales,
+
+  percent,
+
+  remainingSales,
+
+  remainingDays,
+
+  needSalesPerDay
+
+};
 
 }
