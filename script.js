@@ -2814,6 +2814,100 @@ document.getElementById(
 ).innerText =
   `¥${summary.totalSales.toLocaleString()} / ¥${summary.goal.toLocaleString()}`;
 
+  const targetArea =
+  document.getElementById(
+    "homeProgressArea"
+  );
+
+targetArea.innerHTML += `
+
+<div
+style="
+margin-top:20px;
+padding-top:15px;
+border-top:1px solid #e5e7eb;
+"
+>
+
+<div
+style="
+font-size:14px;
+font-weight:700;
+margin-bottom:10px;
+"
+>
+目標達成まで
+</div>
+
+
+<div
+style="
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:8px;
+"
+>
+
+
+<div class="result-item">
+
+<div class="result-label">
+残り売上
+</div>
+
+<div class="result-value">
+${summary.remainingSales.toLocaleString()}
+</div>
+
+<div class="result-unit">
+円
+</div>
+
+</div>
+
+
+
+<div class="result-item">
+
+<div class="result-label">
+残り日数
+</div>
+
+<div class="result-value">
+${summary.remainingDays}
+</div>
+
+<div class="result-unit">
+日
+</div>
+
+</div>
+
+
+
+<div class="result-item">
+
+<div class="result-label">
+必要売上/日
+</div>
+
+<div class="result-value blue">
+${summary.needSalesPerDay.toLocaleString()}
+</div>
+
+<div class="result-unit">
+円
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+`;
+
 }
 
 function renderAnalysisList(history){
