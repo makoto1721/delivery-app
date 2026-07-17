@@ -2843,7 +2843,7 @@ margin-bottom:10px;
 <div
 style="
 display:grid;
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:repeat(2,1fr);
 gap:8px;
 "
 >
@@ -2901,6 +2901,38 @@ ${summary.needSalesPerDay.toLocaleString()}
 
 </div>
 
+<div class="result-item">
+
+<div class="result-label">
+必要件数
+</div>
+
+<div class="result-value">
+${summary.remainingCount}
+</div>
+
+<div class="result-unit">
+件
+</div>
+
+</div>
+
+
+<div class="result-item">
+
+<div class="result-label">
+件数/日
+</div>
+
+<div class="result-value blue">
+${summary.needCountPerDay}
+</div>
+
+<div class="result-unit">
+件
+</div>
+
+</div>
 
 </div>
 
