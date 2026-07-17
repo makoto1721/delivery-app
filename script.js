@@ -2733,6 +2733,69 @@ ${day}
 
 function renderHomeProgress(){
 
+  const area =
+    document.getElementById(
+      "homeProgressArea"
+    );
+
+  area.innerHTML = `
+
+<div
+style="
+margin-top:12px;
+"
+>
+
+<div
+style="
+width:100%;
+height:22px;
+background:#e5e7eb;
+border-radius:999px;
+overflow:hidden;
+"
+>
+
+<div
+id="homeProgressBar"
+style="
+width:0%;
+height:100%;
+background:#2563eb;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-weight:700;
+font-size:12px;
+transition:.25s;
+"
+>
+
+0%
+
+</div>
+
+</div>
+
+<div
+style="
+margin-top:12px;
+text-align:center;
+font-size:22px;
+font-weight:700;
+"
+id="homeProgressSales"
+>
+
+¥0 / ¥0
+
+</div>
+
+</div>
+
+`;
+
 }
 
 function renderAnalysisList(history){
