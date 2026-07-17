@@ -4625,8 +4625,8 @@ function getCurrentMonthSummary(){
 
   let totalSales = 0;
 
-　let totalCount = 0;
-
+let totalCount = 0;
+  
   history.forEach(h=>{
 
     if(
