@@ -2030,15 +2030,12 @@ if(timeMatch){
       maxPerHour = perHour;
     }
 
-  }
-
-}
-
     }
 
-  });
+});
+  
 
-  weekdayFiltered.forEach(h=>{
+weekdayFiltered.forEach(h=>{
 
     if(h.isOffDay){
   return;
