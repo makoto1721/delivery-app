@@ -2865,7 +2865,21 @@ ${summary.remainingSales.toLocaleString()}
 
 </div>
 
+<div class="result-item">
 
+<div class="result-label">
+必要件数
+</div>
+
+<div class="result-value">
+${summary.remainingCount}
+</div>
+
+<div class="result-unit">
+件
+</div>
+
+</div>
 
 <div class="result-item">
 
@@ -2883,6 +2897,21 @@ ${summary.remainingDays}
 
 </div>
 
+<div class="result-item">
+
+<div class="result-label">
+件数/日
+</div>
+
+<div class="result-value blue">
+${summary.needCountPerDay}
+</div>
+
+<div class="result-unit">
+件
+</div>
+
+</div>
 
 
 <div class="result-item">
@@ -2901,38 +2930,7 @@ ${summary.needSalesPerDay.toLocaleString()}
 
 </div>
 
-<div class="result-item">
 
-<div class="result-label">
-必要件数
-</div>
-
-<div class="result-value">
-${summary.remainingCount}
-</div>
-
-<div class="result-unit">
-件
-</div>
-
-</div>
-
-
-<div class="result-item">
-
-<div class="result-label">
-件数/日
-</div>
-
-<div class="result-value blue">
-${summary.needCountPerDay}
-</div>
-
-<div class="result-unit">
-件
-</div>
-
-</div>
 
 </div>
 
