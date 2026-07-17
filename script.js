@@ -2933,21 +2933,22 @@ ${summary.needSalesPerDay.toLocaleString()}
 
 <div class="result-item">
 
-  <div>
-    必要稼働時間
-  </div>
-
-  <strong>
-    ${
-      summary.needWorkHoursPerDay > 0
-      ? `約${summary.needWorkHoursPerDay}時間/日`
-      : "-"
-    }
-  </strong>
-
+<div class="result-label">
+必要稼働時間
 </div>
 
+<div class="result-value blue">
+${
+  summary.needWorkHoursPerDay > 0
+  ? summary.needWorkHoursPerDay
+  : "-"
+}
 </div>
+
+<div class="result-unit">
+時間/日
+</div>
+
 
 </div>
 
