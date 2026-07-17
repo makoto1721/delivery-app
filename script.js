@@ -4672,7 +4672,7 @@ let totalHours = 0;
 
       const match =
   (h.workTime || "")
-  .match(/(\d+)時間\s(\d+)分/);
+  .match(/(\d+)時間\s*(\d+)分/);
 
 if(match){
 
