@@ -4656,6 +4656,8 @@ function getCurrentMonthSummary(){
   let totalSales = 0;
 
 let totalCount = 0;
+
+let totalHours = 0;  
   
   history.forEach(h=>{
 
@@ -4669,6 +4671,23 @@ let totalCount = 0;
 
       totalCount +=
   Number(h.totalCount || 0);
+
+      const match =
+  (h.workTime || "")
+  .match(/(\d+)時間\s(\d+)分/);
+
+if(match){
+
+  const hour =
+    Number(match[1]);
+
+  const minute =
+    Number(match[2]);
+
+  totalHours +=
+    hour + (minute / 60);
+
+}
 
     }
 
@@ -4746,6 +4765,32 @@ const needCountPerDay =
     )
   : remainingCount;
 
+  // 平均配達件数/時間
+
+const avgCountPerHour =
+  totalHours > 0
+  ? Number(
+      (totalCount / totalHours)
+      .toFixed(2)
+    )
+  : 0;
+
+  // 1時間あたり売上
+
+const salesPerHour =
+  unitPrice * avgCountPerHour;
+
+
+// 1日必要稼働時間
+
+const needWorkHoursPerDay =
+  salesPerHour > 0
+  ? Number(
+      (needSalesPerDay / salesPerHour)
+      .toFixed(1)
+    )
+  : 0;
+
   return{
 
   goal,
@@ -4766,7 +4811,13 @@ const needCountPerDay =
 
   remainingCount,
 
-  needCountPerDay
+  needCountPerDay,
+
+totalHours,
+
+avgCountPerHour,
+
+needWorkHoursPerDay
 
 };
 
