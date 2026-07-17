@@ -87,6 +87,8 @@ function switchPage(page){
     .getElementById("homeTab")
     .classList.add("active");
 
+  renderHomeProgress();
+
 }
 
   if(page==="today"){
@@ -2726,6 +2728,10 @@ ${day}
 `;
 
   }).join("");
+
+}
+
+function renderHomeProgress(){
 
 }
 
