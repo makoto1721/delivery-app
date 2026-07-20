@@ -2812,8 +2812,25 @@ document.getElementById(
 
 document.getElementById(
   "homeProgressSales"
-).innerText =
-  `¥${summary.totalSales.toLocaleString()} / ¥${summary.goal.toLocaleString()}`;
+).innerHTML =
+`
+¥${summary.totalSales.toLocaleString()} /
+<span
+id="homeGoalButton"
+style="
+color:#2563eb;
+cursor:pointer;
+text-decoration:underline;
+"
+>
+¥${summary.goal.toLocaleString()}
+</span>
+`;
+
+  document.getElementById(
+  "homeGoalButton"
+).onclick =
+  openGoalManageModal;
 
   const targetArea =
   document.getElementById(
