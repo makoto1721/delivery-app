@@ -4290,7 +4290,9 @@ flex:1;
 
 <div style="
 display:flex;
-justify-content:space-between;
+justify-content:center;
+align-items:center;
+gap:12px;
 font-weight:700;
 font-size:18px;
 margin-top:14px;
