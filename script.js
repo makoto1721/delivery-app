@@ -4725,23 +4725,9 @@ const remainingSales =
   );
 
 
-// 今月の日数
-const today = new Date();
-
-const lastDay =
-  new Date(
-    today.getFullYear(),
-    today.getMonth()+1,
-    0
-  );
-
-
-// 残り営業日（記録がある日ではなく、残り日数）
+// 残り稼働日数
 const remainingDays =
-  Math.max(
-    lastDay.getDate() - today.getDate(),
-    0
-  );
+  getRemainingBusinessDays();
 
 
 // 1日あたり必要売上
