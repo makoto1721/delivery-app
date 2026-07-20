@@ -2826,12 +2826,7 @@ text-decoration:underline;
 ¥${summary.goal.toLocaleString()}
 </span>
 `;
-
-  document.getElementById(
-  "homeGoalButton"
-).onclick =
-  openGoalManageModal;
-
+  
   const targetArea =
   document.getElementById(
     "homeProgressArea"
@@ -2970,6 +2965,11 @@ ${
 </div>
 
 `;
+
+ document.getElementById(
+  "homeGoalButton"
+).onclick =
+  openGoalManageModal; 
 
 }
 
