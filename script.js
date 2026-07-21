@@ -3858,6 +3858,38 @@ function getMonthlyGoal(){
 
 }
 
+function getWorkedBusinessDays(){
+
+  const history = getHistory();
+
+  const year =
+    currentDate.getFullYear();
+
+  const month =
+    currentDate.getMonth();
+
+  let count = 0;
+
+  history.forEach(h=>{
+
+    if(!h.date) return;
+
+    const d = new Date(h.date);
+
+    if(
+      d.getFullYear() === year &&
+      d.getMonth() === month &&
+      !h.isOffDay
+    ){
+      count++;
+    }
+
+  });
+
+  return count;
+
+}
+
 function getRemainingBusinessDays(){
 
   const now = new Date();
