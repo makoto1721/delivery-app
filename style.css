@@ -1217,11 +1217,11 @@ textarea{
 
   background:white;
 
-  padding:8px;
+  padding:12px 10px;
 
   display:flex;
 
-  gap:8px;
+  gap:10px;
 
   justify-content:center;
 
