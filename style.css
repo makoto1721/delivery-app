@@ -1230,3 +1230,15 @@ textarea{
   z-index:900;
 
 }
+
+.record-control-bar button{
+
+  height:44px;
+
+  border-radius:10px;
+
+  font-size:15px;
+
+  font-weight:700;
+
+}
