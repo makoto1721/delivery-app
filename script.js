@@ -4512,10 +4512,10 @@ let totalHours = 0;
   history.forEach(h=>{
 
     if(
-      h.date &&
-      h.date.startsWith(monthKey)
-    ){
-
+  h.date &&
+  h.date.startsWith(monthKey) &&
+  !h.isOffDay
+){
       totalSales +=
         Number(h.totalSales || 0);
 
