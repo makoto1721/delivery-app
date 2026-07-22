@@ -152,20 +152,29 @@ function toggleRain(){
 
   isRainy = !isRainy;
 
-  const btn =
-    document.getElementById("rainToggleBtn");
+  const buttons = [
+    document.getElementById("rainToggleBtn"),
+    document.getElementById("rainToggleBtn2")
+  ];
 
-  if(isRainy){
+  buttons.forEach(btn=>{
 
-  btn.classList.add("active");
-  btn.innerText = "☔";
+    if(!btn) return;
 
-}else{
+    if(isRainy){
 
-  btn.classList.remove("active");
-  btn.innerText = "☔";
+      btn.classList.add("active");
 
-}
+    }else{
+
+      btn.classList.remove("active");
+
+    }
+
+    btn.innerText = "☔";
+
+  });
+
 
   saveCurrentData();
 
