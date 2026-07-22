@@ -1264,3 +1264,31 @@ align-items:center;
 justify-content:center;
 
 }
+
+.record-control-bar.mini{
+
+  width:44px;
+
+  padding:8px;
+
+  border-radius:12px;
+
+  left:auto;
+
+  right:10px;
+
+}
+
+.record-control-bar.mini button:not(.minimize-btn){
+
+  display:none;
+
+}
+
+.record-control-bar.mini .minimize-btn{
+
+  width:44px;
+
+  height:44px;
+
+}
