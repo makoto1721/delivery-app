@@ -4720,3 +4720,14 @@ forecastSales
 };
 
 }
+
+function toggleRecordBar(){
+
+  const bar =
+    document.querySelector(
+      ".record-control-bar"
+    );
+
+  bar.classList.toggle("mini");
+
+}
