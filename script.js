@@ -4728,6 +4728,25 @@ function toggleRecordBar(){
       ".record-control-bar"
     );
 
+  const btn =
+    document.getElementById(
+      "recordBarToggleBtn"
+    );
+
+
   bar.classList.toggle("mini");
+
+
+  if(
+    bar.classList.contains("mini")
+  ){
+
+    btn.innerText = "↖↘";
+
+  }else{
+
+    btn.innerText = "↘↖";
+
+  }
 
 }
