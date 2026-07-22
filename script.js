@@ -4563,6 +4563,23 @@ const remainingSales =
 const remainingDays =
   getRemainingBusinessDays();
 
+  // 営業済み日数
+const workedDays =
+  getWorkedBusinessDays();
+
+
+// 平均売上/日
+const avgSales =
+  workedDays > 0
+  ? Math.round(totalSales / workedDays)
+  : 0;
+
+
+// 月末予測売上
+const forecastSales =
+  avgSales *
+  (workedDays + remainingDays);
+
 
 // 1日あたり必要売上
 const needSalesPerDay =
@@ -4653,7 +4670,9 @@ totalHours,
 
 avgCountPerHour,
 
-needWorkHoursPerDay
+needWorkHoursPerDay,
+
+forecastSales
 
 };
 
