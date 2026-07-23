@@ -1399,9 +1399,15 @@ margin:0;
 
 #workStatusCard.mini .work-mini-icon{
 
-  display:block;
+  display:flex;
 
-  font-size:28px;
+  justify-content:center;
+
+  align-items:center;
+
+  width:100%;
+
+  height:100%;
 
 }
 
