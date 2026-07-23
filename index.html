@@ -262,7 +262,9 @@ onblur="formatGoalInput()"
 </div>
 
 </div>
-
+  
+<!--
+  
 <!-- 稼働 -->
 
 <div class="card">
@@ -315,6 +317,43 @@ onclick="calculateWorkTime()"
 </tr>
 
 </table>
+
+</div>
+
+--> 
+
+<div class="card" id="workStatusCard">
+
+  <div class="work-status-title">
+
+    ▶ 稼働を開始する
+
+  </div>
+
+  <div class="work-status-sub">
+
+    タップして配達記録を開始します
+
+  </div>
+
+  <div class="work-status-bottom">
+
+    <button
+      id="rainToggleBtn"
+      class="rain-btn"
+      onclick="toggleRain()"
+    >
+      ☔ 通常
+    </button>
+
+    <button
+      id="recordBarToggleBtn"
+      class="minimize-btn"
+    >
+      ▼
+    </button>
+
+  </div>
 
 </div>
   
