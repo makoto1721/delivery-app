@@ -1372,14 +1372,47 @@ margin:0;
 }
 
 
-#workStatusCard.mini::after{
+#workStatusCard.mini .minimize-btn{
+  display:none;
+}
 
-  content:"🚗";
+.work-mini-icon{
+
+  display:none;
+
+}
+
+
+#workStatusCard.mini{
+
+  width:60px;
+  height:60px;
+
+  padding:0;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+}
+
+
+#workStatusCard.mini .work-mini-icon{
+
+  display:block;
 
   font-size:28px;
 
 }
 
-#workStatusCard.mini .minimize-btn{
+
+#workStatusCard.mini
+.work-status-title,
+#workStatusCard.mini
+.work-status-sub,
+#workStatusCard.mini
+.work-status-bottom{
+
   display:none;
+
 }
