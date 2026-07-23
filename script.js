@@ -4728,22 +4728,9 @@ function toggleRecordBar(){
       "workStatusCard"
     );
 
-
   if(!card) return;
 
 
-  const isMini =
-    card.classList.contains("mini");
-
-
-  if(isMini){
-
-    card.classList.remove("mini");
-
-  }else{
-
-    card.classList.add("mini");
-
-  }
+  card.classList.toggle("mini");
 
 }
