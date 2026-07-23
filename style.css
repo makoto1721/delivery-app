@@ -1447,3 +1447,50 @@ margin:0;
   gap:8px;
 
 }
+
+/* 稼働状態カード */
+
+#workStatusCard{
+
+  border:2px solid #3b82f6;
+  border-radius:16px;
+
+  padding:12px 14px;
+
+  background:#ffffff;
+
+}
+
+
+/* タイトル */
+
+.work-status-title{
+
+  font-size:15px;
+  font-weight:700;
+
+}
+
+
+/* 説明 */
+
+.work-status-sub{
+
+  margin-top:4px;
+
+  font-size:12px;
+
+  color:#6b7280;
+
+}
+
+
+/* ボタンエリア */
+
+.work-status-actions{
+
+  display:flex;
+
+  gap:8px;
+
+}
