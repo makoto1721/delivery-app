@@ -1421,7 +1421,7 @@ margin:0;
 
   position:fixed;
 
-  bottom:70px;
+  bottom:80px;  /* ← 70pxから変更 */
 
   left:10px;
   right:10px;
@@ -1429,6 +1429,15 @@ margin:0;
   z-index:1000;
 
   margin:0;
+
+
+  border:2px solid #3b82f6;
+
+  border-radius:16px;
+
+  padding:8px 12px;  /* ← ここを縮小 */
+
+  background:#ffffff;
 
 }
 
@@ -1466,7 +1475,8 @@ margin:0;
 
 .work-status-title{
 
-  font-size:15px;
+  font-size:14px;  /* 15px→14px */
+
   font-weight:700;
 
 }
@@ -1476,9 +1486,9 @@ margin:0;
 
 .work-status-sub{
 
-  margin-top:4px;
+  margin-top:1px;  /* 4px→1px */
 
-  font-size:12px;
+  font-size:11px;  /* 12px→11px */
 
   color:#6b7280;
 
@@ -1492,5 +1502,18 @@ margin:0;
   display:flex;
 
   gap:8px;
+
+}
+
+.work-status-header{
+
+  line-height:1.2;
+
+}
+
+
+.work-status-sub{
+
+  line-height:1.2;
 
 }
