@@ -1431,3 +1431,19 @@ margin:0;
   margin:0;
 
 }
+
+.work-status-header{
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+}
+
+
+.work-status-actions{
+
+  display:flex;
+  gap:8px;
+
+}
