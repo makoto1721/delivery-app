@@ -1416,3 +1416,18 @@ margin:0;
   display:none;
 
 }
+
+#workStatusCard{
+
+  position:fixed;
+
+  bottom:70px;
+
+  left:10px;
+  right:10px;
+
+  z-index:1000;
+
+  margin:0;
+
+}
