@@ -1527,3 +1527,15 @@ margin:0;
   display:none;
 
 }
+
+.work-mini-icon{
+
+  display:none;
+
+  font-size:34px;
+
+  color:#2563eb;
+
+  cursor:pointer;
+
+}
