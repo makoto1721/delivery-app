@@ -4723,30 +4723,16 @@ forecastSales
 
 function toggleRecordBar(){
 
-  const bar =
-    document.querySelector(
-      ".record-control-bar"
-    );
-
-  const btn =
+  const card =
     document.getElementById(
-      "recordBarToggleBtn"
+      "workStatusCard"
     );
 
 
-  bar.classList.toggle("mini");
+  if(!card) return;
 
 
-  if(
-    bar.classList.contains("mini")
-  ){
+  card.classList.toggle("mini");
 
-    btn.innerText = "↖↘";
-
-  }else{
-
-    btn.innerText = "↘↖";
-
-  }
 
 }
