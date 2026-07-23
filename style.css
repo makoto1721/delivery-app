@@ -1379,3 +1379,7 @@ margin:0;
   font-size:28px;
 
 }
+
+#workStatusCard.mini .minimize-btn{
+  display:none;
+}
