@@ -340,17 +340,20 @@ style="cursor:pointer;"
   <div class="work-status-bottom">
 
     <button
-      id="rainToggleBtn"
-      class="rain-btn"
-      onclick="toggleRain()"
-    >
+id="rainToggleBtn"
+class="rain-btn"
+onclick="event.stopPropagation(); toggleRain();"
+>
       ☔ 通常
     </button>
 
     <button
-      id="recordBarToggleBtn"
-      class="minimize-btn"
-    >
+id="recordBarToggleBtn"
+class="minimize-btn"
+onclick="event.stopPropagation(); toggleRecordBar();"
+>
+▼
+</button>
       ▼
     </button>
 
