@@ -4731,6 +4731,18 @@ function toggleRecordBar(){
   if(!card) return;
 
 
-  card.classList.toggle("mini");
+  const isMini =
+    card.classList.contains("mini");
+
+
+  if(isMini){
+
+    card.classList.remove("mini");
+
+  }else{
+
+    card.classList.add("mini");
+
+  }
 
 }
