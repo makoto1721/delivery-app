@@ -743,6 +743,30 @@ function loadCurrentData(){
 
   const data = JSON.parse(saved);
 
+  const card =
+  document.getElementById(
+    "workStatusCard"
+  );
+
+if(card){
+
+  const isMini =
+    localStorage.getItem(
+      "workStatusCardMini"
+    );
+
+  if(isMini==="true"){
+
+    card.classList.add("mini");
+
+  }else{
+
+    card.classList.remove("mini");
+
+  }
+
+}
+
 isRainy = data.isRainy || false;
 
 const btn =
@@ -4744,5 +4768,11 @@ function toggleRecordBar(){
     card.classList.add("mini");
 
   }
+
+
+  localStorage.setItem(
+    "workStatusCardMini",
+    card.classList.contains("mini")
+  );
 
 }
