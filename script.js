@@ -790,8 +790,13 @@ if(isRainy){
 
   });
 
-  formatGoalInput();
+    formatGoalInput();
   calculateResults();
+
+  console.log(
+    "mini after load:",
+    card.classList.contains("mini")
+  );
 
 }
 
