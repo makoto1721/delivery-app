@@ -4781,3 +4781,21 @@ function toggleRecordBar(){
   );
 
 }
+
+// ==========================
+// 稼働カード状態保存（iPhone対応）
+// ==========================
+
+document.addEventListener("visibilitychange", () => {
+
+  const card =
+    document.getElementById("workStatusCard");
+
+  if(!card) return;
+
+  localStorage.setItem(
+    "workStatusCardMini",
+    card.classList.contains("mini")
+  );
+
+});
