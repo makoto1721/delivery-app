@@ -795,11 +795,6 @@ if(isRainy){
 
 }
 
-console.log(
-  "mini after load:",
-  card.classList.contains("mini")
-);
-
 function createCountOptions(){
 
   [
