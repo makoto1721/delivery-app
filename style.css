@@ -1586,19 +1586,36 @@ work-status-header
 }
 
 
-/* 最小化時だけ表示 */
+/* 最小化時のバイクアイコン */
 
 #workStatusCard.mini .work-mini-icon{
 
   display:flex;
 
-  justify-content:center;
+  width:60px;
+
+  height:60px;
 
   align-items:center;
 
-  width:100%;
+  justify-content:center;
 
-  height:100%;
+  margin:0 auto;
+
+}
+
+
+#workStatusCard.mini .work-mini-icon span{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-size:26px;
+
+  line-height:1;
 
 }
 
