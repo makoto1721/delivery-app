@@ -552,7 +552,13 @@ function endWork(){
 
   }
 
-  calculateWorkTime();
+    calculateWorkTime();
+
+  document.getElementById("workStatusTitle").innerText =
+    "▶ 稼働を開始する";
+
+  document.getElementById("workStatusSub").innerText =
+    "タップして配達記録を開始します";
 
 }
 
