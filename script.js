@@ -4801,16 +4801,68 @@ function toggleRecordBar(){
     card.classList.contains("mini");
 
 
+  const control =
+    document.getElementById(
+      "workStatusControl"
+    );
+
+
+  const expandBtn =
+    document.getElementById(
+      "workExpandBtn"
+    );
+
+
   if(isMini){
+
+    // 最小化解除
 
     card.classList.remove("mini");
 
+
+    // 展開状態を閉じる
+    if(control){
+
+      control.style.display = "none";
+
+    }
+
+
+    // 展開アイコンを収納状態へ
+    if(expandBtn){
+
+      expandBtn.innerText =
+        "expand_more";
+
+    }
+
+
   }else{
+
+    // 最小化
 
     card.classList.add("mini");
 
+
+    // 展開中なら閉じる
+    if(control){
+
+      control.style.display = "none";
+
+    }
+
+
+    if(expandBtn){
+
+      expandBtn.innerText =
+        "expand_more";
+
+    }
+
   }
 
+
+  // 最小化状態を保存
 
   localStorage.setItem(
     "workStatusCardMini",
