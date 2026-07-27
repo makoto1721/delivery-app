@@ -1469,13 +1469,7 @@ margin:0;
 
 }
 
-.work-status-header{
-
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-}
+work-status-header
 
 
 .work-status-actions{
@@ -1503,7 +1497,15 @@ margin:0;
 
 .work-status-title{
 
-  font-size:14px;  /* 15px→14px */
+  display:flex;
+
+  align-items:center;
+
+  white-space:nowrap;
+
+  margin-right:16px;
+
+  font-size:14px;
 
   font-weight:700;
 
@@ -1595,15 +1597,13 @@ margin:0;
 
 .work-status-time{
 
-  display:none;
-
-  font-size:18px;
+  font-size:14px;
 
   font-weight:700;
 
-  color:#111827;
+  white-space:nowrap;
 
-  margin-top:2px;
+  margin-right:auto;
 
 }
 
@@ -1691,5 +1691,32 @@ margin:0;
   font-size:20px;
 
   line-height:1;
+
+}
+
+.timer-toggle-btn,
+.minimize-btn{
+
+  width:36px;
+
+  height:36px;
+
+  border:none;
+
+  border-radius:8px;
+
+  background:#e5e7eb;
+
+  color:#111827;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  margin-left:6px;
+
+  font-size:20px;
 
 }
