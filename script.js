@@ -514,10 +514,16 @@ function startWork(){
   calculateWorkTime();
 
   document.getElementById("workStatusTitle").innerText =
-    "🟢 稼働中";
+  "🟢 稼働中";
 
-  document.getElementById("workStatusSub").innerText =
-    "オンライン";
+document.getElementById("workStatusSub").style.display =
+  "none";
+
+document.getElementById("workStatusTime").style.display =
+  "block";
+
+document.getElementById("workStatusTime").innerText =
+  document.getElementById("workTime").innerText;
 
 }
 
@@ -555,10 +561,16 @@ function endWork(){
     calculateWorkTime();
 
   document.getElementById("workStatusTitle").innerText =
-    "▶ 稼働を開始する";
+  "▶ 稼働を開始する";
 
-  document.getElementById("workStatusSub").innerText =
-    "タップして配達記録を開始します";
+document.getElementById("workStatusSub").style.display =
+  "block";
+
+document.getElementById("workStatusSub").innerText =
+  "タップして配達記録を開始します";
+
+document.getElementById("workStatusTime").style.display =
+  "none";
 
 }
 
