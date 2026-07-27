@@ -1385,6 +1385,10 @@ margin:0;
   display:none;
 }
 
+#workStatusCard.mini .work-status-control{
+  display:none !important;
+}
+
 #workStatusCard.mini .work-status-time{
   display:none !important;
 }
