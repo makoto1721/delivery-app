@@ -1720,3 +1720,30 @@ work-status-header
   font-size:20px;
 
 }
+
+.work-status-header{
+
+  display:flex;
+
+  align-items:center;
+
+  width:100%;
+
+}
+
+.timer-toggle-btn{
+
+  margin-left:8px;
+
+  flex-shrink:0;
+
+}
+
+
+.work-status-time{
+
+  margin-left:16px;
+
+  margin-right:auto;
+
+}
