@@ -1549,6 +1549,46 @@ id="workStatusSub"
 
 </div>
 
+   <div
+class="work-status-control"
+id="workStatusControl"
+style="display:none;"
+>
+
+  <button
+  class="stop-btn"
+  onclick="event.stopPropagation(); endWork();"
+  >
+    停止
+  </button>
+
+
+  <button
+  class="end-btn"
+  onclick="event.stopPropagation(); finishWork();"
+  >
+    終了
+  </button>
+
+
+  <button
+  class="clear-btn"
+  onclick="event.stopPropagation(); clearAllData();"
+  >
+    クリア
+  </button>
+
+
+  <button
+  class="rain-btn"
+  onclick="event.stopPropagation(); toggleRain();"
+  >
+    ☔
+  </button>
+
+
+</div>
+
 <div
 class="work-status-time"
 id="workStatusTime"
