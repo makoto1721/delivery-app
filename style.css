@@ -1777,3 +1777,9 @@ work-status-header
   line-height:1;
 
 }
+
+.work-mini-icon.material-symbols-outlined{
+
+  transform:translateY(-1px);
+
+}
