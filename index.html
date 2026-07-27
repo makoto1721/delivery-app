@@ -1465,12 +1465,51 @@ two_wheeler
   <div class="work-status-header">
 
 
-<div
-class="work-status-title"
-id="workStatusTitle"
->
+<div class="work-status-header">
+
+
+  <div
+  class="work-status-title"
+  id="workStatusTitle"
+  >
 
     ▶ 稼働を開始する
+
+  </div>
+
+
+  <div
+  class="work-status-time"
+  id="workStatusTime"
+  style="display:none;"
+  >
+
+    00:00:00
+
+  </div>
+
+
+  <button
+  class="timer-toggle-btn material-symbols-outlined"
+  id="workExpandBtn"
+  onclick="event.stopPropagation(); toggleWorkExpand();"
+  >
+
+    expand_less
+
+  </button>
+
+
+  <button
+  class="timer-toggle-btn material-symbols-outlined"
+  id="workMiniBtn"
+  onclick="event.stopPropagation(); toggleRecordBar();"
+  >
+
+    unfold_less
+
+  </button>
+
 
 </div>
 
