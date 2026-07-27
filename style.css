@@ -1816,3 +1816,34 @@ work-status-header
   line-height:1;
 
 }
+
+#workStatusCard.mini .work-mini-icon{
+
+  position:absolute;
+
+  left:0;
+
+  right:0;
+
+  margin:auto;
+
+  width:60px;
+
+  height:60px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+}
+
+
+#workStatusCard.mini .work-mini-icon span{
+
+  transform:none;
+
+  position:static;
+
+}
