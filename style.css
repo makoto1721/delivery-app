@@ -1580,3 +1580,17 @@ margin:0;
   height:100%;
 
 }
+
+.work-status-time{
+
+  display:none;
+
+  font-size:18px;
+
+  font-weight:700;
+
+  color:#111827;
+
+  margin-top:2px;
+
+}
