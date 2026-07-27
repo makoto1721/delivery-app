@@ -1412,11 +1412,13 @@ margin:0;
 
   justify-content:center;
 
-  font-size:26px;
-
   padding:0;
 
+  margin:0;
+
   line-height:1;
+
+  font-size:26px;
 
 }
 
@@ -1761,5 +1763,17 @@ work-status-header
   margin-left:16px;
 
   margin-right:auto;
+
+}
+
+.work-mini-icon.material-symbols-outlined{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  line-height:1;
 
 }
