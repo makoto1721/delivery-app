@@ -513,6 +513,12 @@ function startWork(){
 
   calculateWorkTime();
 
+  document.getElementById("workStatusTitle").innerText =
+    "🟢 稼働中";
+
+  document.getElementById("workStatusSub").innerText =
+    "オンライン";
+
 }
 
 function endWork(){
