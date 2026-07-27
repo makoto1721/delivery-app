@@ -1398,30 +1398,6 @@ margin:0;
   display:none;
 }
 
-.work-mini-icon{
-
-  width:48px;
-
-  height:48px;
-
-  border-radius:50%;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  padding:0;
-
-  margin:0;
-
-  line-height:1;
-
-  font-size:26px;
-
-}
-
 
 #workStatusCard.mini{
 
@@ -1436,21 +1412,34 @@ margin:0;
 
 }
 
-
 #workStatusCard.mini .work-mini-icon{
+
+  width:60px;
+
+  height:60px;
+
+  border-radius:50%;
 
   display:flex;
 
-  justify-content:center;
-
   align-items:center;
 
-  width:100%;
+  justify-content:center;
 
-  height:100%;
+  padding:0;
+
+  margin:0;
 
 }
 
+
+#workStatusCard.mini .work-mini-icon .material-symbols-outlined{
+
+  font-size:26px;
+
+  line-height:1;
+
+}
 
 #workStatusCard.mini
 .work-status-title,
