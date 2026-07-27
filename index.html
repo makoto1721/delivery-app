@@ -1531,35 +1531,63 @@ id="workStatusControl"
 style="display:none;"
 >
 
+
   <button
-  class="stop-btn"
+  class="work-control-btn stop"
   onclick="event.stopPropagation(); endWork();"
   >
+
+    <span class="material-symbols-outlined">
+      pause
+    </span>
+
     停止
+
   </button>
 
 
+
   <button
-  class="end-btn"
+  class="work-control-btn finish"
   onclick="event.stopPropagation(); finishWork();"
   >
+
+    <span class="material-symbols-outlined">
+      check_circle
+    </span>
+
     終了
+
   </button>
 
 
+
   <button
-  class="clear-btn"
+  class="work-control-btn clear"
   onclick="event.stopPropagation(); clearAllData();"
   >
+
+    <span class="material-symbols-outlined">
+      delete
+    </span>
+
     クリア
+
   </button>
 
 
+
   <button
-  class="rain-btn"
+  class="work-control-btn rain"
   onclick="event.stopPropagation(); toggleRain();"
   >
+
+    <span class="material-symbols-outlined">
+      umbrella
+    </span>
+
     ☔
+
   </button>
 
 
