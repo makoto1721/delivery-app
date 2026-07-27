@@ -449,6 +449,19 @@ function calculateWorkTime(){
   document.getElementById("workTime").innerText =
     `${h}時間 ${m}分`;
 
+const workStatusTime =
+  document.getElementById("workStatusTime");
+
+if(
+  workStatusTime &&
+  workStatusTime.style.display !== "none"
+){
+
+  workStatusTime.innerText =
+    `${h}時間 ${m}分`;
+
+}
+  
   const totalSales =
     getNumber("uberSales") +
     getNumber("demaeSales") +
