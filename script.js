@@ -4836,3 +4836,37 @@ document.addEventListener("visibilitychange", () => {
   );
 
 });
+
+function toggleWorkExpand(){
+
+  const control =
+    document.getElementById(
+      "workStatusControl"
+    );
+
+  const btn =
+    document.getElementById(
+      "workExpandBtn"
+    );
+
+
+  if(!control || !btn) return;
+
+
+  if(control.style.display === "none"){
+
+    control.style.display = "flex";
+
+    btn.innerText =
+      "expand_less";
+
+  }else{
+
+    control.style.display = "none";
+
+    btn.innerText =
+      "expand_more";
+
+  }
+
+}
