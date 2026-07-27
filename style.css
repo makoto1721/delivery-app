@@ -1766,7 +1766,13 @@ work-status-header
 
 }
 
-.work-mini-icon.material-symbols-outlined{
+.work-mini-icon{
+
+  width:48px;
+
+  height:48px;
+
+  border-radius:50%;
 
   display:flex;
 
@@ -1774,13 +1780,16 @@ work-status-header
 
   justify-content:center;
 
-  line-height:1;
-
 }
 
-.work-mini-icon.material-symbols-outlined{
 
-  transform:translateY(-1px);
+.work-mini-icon .material-symbols-outlined{
+
+  font-size:26px;
+
+  line-height:1;
+
+  transform:translateX(3px);
 
 }
 
