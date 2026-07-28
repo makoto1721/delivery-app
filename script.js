@@ -1533,8 +1533,8 @@ function changeAnalysisType(type){
   analysisType = type;
 
   document
-    .querySelectorAll("#analysisPage .rain-btn")
-    .forEach(btn=>btn.classList.remove("active"));
+  .querySelectorAll("#analysisPage .analysis-tab")
+  .forEach(btn=>btn.classList.remove("active"));
 
   if(type === "year"){
     document
