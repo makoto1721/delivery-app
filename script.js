@@ -153,23 +153,18 @@ function toggleRain(){
   isRainy = !isRainy;
 
   const buttons = [
+
     document.getElementById("rainToggleBtn"),
+
     document.getElementById("rainToggleBtn2")
+
   ];
 
   buttons.forEach(btn=>{
 
     if(!btn) return;
 
-    if(isRainy){
-
-      btn.classList.add("active");
-
-    }else{
-
-      btn.classList.remove("active");
-
-    }
+    btn.classList.toggle("active", isRainy);
 
   });
 
