@@ -1852,12 +1852,22 @@ work-status-header
 .analysis-tab{
 
   flex:1;
-  background:#fff;
-  color:#111827;
-  border:1px solid #d1d5db;
+
+  background:#f8fafc;
+
+  color:#374151;
+
+  border:1px solid #e5e7eb;
+
   border-radius:8px;
+
   padding:10px 4px;
+
   font-weight:600;
+
+  cursor:pointer;
+
+  transition:0.2s;
 
 }
 
@@ -1865,7 +1875,9 @@ work-status-header
 .analysis-tab.active{
 
   background:#eff6ff;
+
   color:#2563eb;
+
   border-color:#2563eb;
 
 }
