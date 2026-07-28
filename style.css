@@ -1881,3 +1881,32 @@ work-status-header
   border-color:#2563eb;
 
 }
+
+.history-toggle-btn{
+
+  width:42px;
+
+  padding:10px 0;
+
+  border-radius:8px;
+
+  border:1px solid #d1d5db;
+
+  background:#f8fafc;
+
+  color:#374151;
+
+  font-weight:700;
+
+}
+
+
+.history-toggle-btn.active{
+
+  background:#eff6ff;
+
+  color:#2563eb;
+
+  border-color:#2563eb;
+
+}
