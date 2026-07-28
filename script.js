@@ -168,6 +168,16 @@ function toggleRain(){
 
   });
 
+  const rainText =
+  document.getElementById("rainText");
+
+if(rainText){
+
+  rainText.innerText =
+    isRainy ? "雨ON" : "雨OFF";
+
+}
+
   saveCurrentData();
 
 }
@@ -794,6 +804,16 @@ function loadCurrentData(){
     rainBtn.classList.toggle("active", isRainy);
 
   }
+
+  const rainText =
+  document.getElementById("rainText");
+
+if(rainText){
+
+  rainText.innerText =
+    isRainy ? "雨ON" : "雨OFF";
+
+}
 
   // 入力値を復元
   Object.keys(data).forEach(key=>{
