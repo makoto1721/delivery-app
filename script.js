@@ -767,57 +767,52 @@ function loadCurrentData(){
   const data = JSON.parse(saved);
 
   const card =
-  document.getElementById(
-    "workStatusCard"
-  );
+    document.getElementById("workStatusCard");
 
-if(card){
+  if(card){
 
-  const isMini =
-    localStorage.getItem(
-      "workStatusCardMini"
-    );
+    const isMini =
+      localStorage.getItem("workStatusCardMini");
 
-  if(isMini==="true"){
+    if(isMini === "true"){
 
-    card.classList.add("mini");
+      card.classList.add("mini");
 
-  }else{
+    }else{
 
-    card.classList.remove("mini");
+      card.classList.remove("mini");
+
+    }
 
   }
 
-}
+  // 雨状態を復元
+  isRainy = data.isRainy || false;
 
-isRainy = data.isRainy || false;
+  const rainBtn =
+    document.getElementById("rainToggleBtn");
 
-const btn =
-  document.getElementById("rainToggleBtn");
+  if(rainBtn){
 
-isRainy = data.isRainy || false;
+    rainBtn.classList.toggle("active", isRainy);
 
-const btn =
-  document.getElementById("rainToggleBtn");
+  }
 
-if(btn){
-
-  btn.classList.toggle("active", isRainy);
-
-}
-
+  // 入力値を復元
   Object.keys(data).forEach(key=>{
 
     const el =
       document.getElementById(key);
 
     if(el){
+
       el.value = data[key];
+
     }
 
   });
 
-    formatGoalInput();
+  formatGoalInput();
   calculateResults();
 
   console.log(
