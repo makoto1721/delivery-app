@@ -1698,21 +1698,26 @@ work-status-header
 
 }
 
-
-/* 雨ボタン */
-.work-control-btn.rain{
-
-  background:#94a3b8;
-
-  color:#fff;
-
-}
-
 .rain-emoji{
 
   font-size:20px;
 
   line-height:1;
+
+}
+
+/* 雨ボタン */
+
+.work-control-btn.rain{
+
+  color:#111827;
+
+}
+
+
+.work-control-btn.rain.active{
+
+  color:#2563eb;
 
 }
 
