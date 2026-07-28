@@ -1848,3 +1848,24 @@ work-status-header
   position:static;
 
 }
+
+.analysis-tab{
+
+  flex:1;
+  background:#fff;
+  color:#111827;
+  border:1px solid #d1d5db;
+  border-radius:8px;
+  padding:10px 4px;
+  font-weight:600;
+
+}
+
+
+.analysis-tab.active{
+
+  background:#eff6ff;
+  color:#2563eb;
+  border-color:#2563eb;
+
+}
