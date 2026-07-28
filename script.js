@@ -171,10 +171,7 @@ function toggleRain(){
 
     }
 
-    btn.innerText = "☔";
-
   });
-
 
   saveCurrentData();
 
