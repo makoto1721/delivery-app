@@ -207,9 +207,6 @@ function toggleHistoryRain(){
 
 }
 
-}
-
-
 function getNumber(id){
   return Number(document.getElementById(id).value || 0);
 }
