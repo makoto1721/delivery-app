@@ -201,15 +201,9 @@ function toggleHistoryRain(){
   const btn =
     document.getElementById("historyRainBtn");
 
- if(historyRainy){
+  if(!btn) return;
 
-  btn.classList.add("active");
-  btn.innerText = "☔";
-
-}else{
-
-  btn.classList.remove("active");
-  btn.innerText = "☔";
+  btn.classList.toggle("active", historyRainy);
 
 }
 
@@ -801,10 +795,14 @@ isRainy = data.isRainy || false;
 const btn =
   document.getElementById("rainToggleBtn");
 
-if(isRainy){
+isRainy = data.isRainy || false;
 
-  btn.classList.add("active");
-  btn.innerText = "☔";
+const btn =
+  document.getElementById("rainToggleBtn");
+
+if(btn){
+
+  btn.classList.toggle("active", isRainy);
 
 }
 
