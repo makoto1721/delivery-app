@@ -281,16 +281,13 @@ button:active{
   border:2px solid #ef4444;
 }
 
-/* 雨OFF：グレー */
+/* 雨ON */
+.work-control-btn.rain.active{
 
-.rain-btn{
-  background:#94a3b8;
-}
-
-/* 雨ON：青 */
-
-.rain-btn.active{
   background:#2563eb;
+
+  color:#fff;
+
 }
 
 
@@ -1703,10 +1700,11 @@ work-status-header
 
 
 /* 雨ボタン */
-
 .work-control-btn.rain{
 
-  color:#2563eb;
+  background:#94a3b8;
+
+  color:#fff;
 
 }
 
