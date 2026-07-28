@@ -282,14 +282,12 @@ button:active{
 }
 
 /* 雨ON */
+
 .work-control-btn.rain.active{
 
-  background:#2563eb;
-
-  color:#fff;
+  color:#2563eb;
 
 }
-
 
 /* =======================
 打刻
