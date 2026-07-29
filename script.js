@@ -2338,6 +2338,16 @@ const weekendUnitPrice =
   ? Math.round(weekendSales / weekendCount)
   : 0;
 
+  const weekdayAvgWorkHours =
+  weekdayWorkDays > 0
+    ? (weekdayHours / weekdayWorkDays).toFixed(1)
+    : "0.0";
+
+  const weekendAvgWorkHours =
+  weekendWorkDays > 0
+    ? (weekendHours / weekendWorkDays).toFixed(1)
+    : "0.0";
+
   document.getElementById("analysisWorkDays").innerText =
     workDays;
 
@@ -2476,10 +2486,10 @@ const weekendUnitPrice =
   </div>
 
   <div class="result-item">
-    <div class="result-label">最高件数/時間</div>
-    <div class="result-value">${weekdayMaxPerHour.toFixed(2)}</div>
-    <div class="result-unit">件</div>
-  </div>
+  <div class="result-label">平均稼働時間</div>
+  <div class="result-value">${weekdayAvgWorkHours}</div>
+  <div class="result-unit">時間</div>
+</div>
 
   <div class="result-item">
     <div class="result-label">平均件数/日</div>
@@ -2554,10 +2564,10 @@ document.getElementById("weekendSummary").innerHTML = `
   </div>
 
   <div class="result-item">
-    <div class="result-label">最高件数/時間</div>
-    <div class="result-value">${weekendMaxPerHour.toFixed(2)}</div>
-    <div class="result-unit">件</div>
-  </div>
+  <div class="result-label">平均稼働時間</div>
+  <div class="result-value">${weekendAvgWorkHours}</div>
+  <div class="result-unit">時間</div>
+</div>
 
   <div class="result-item">
     <div class="result-label">平均件数/日</div>
