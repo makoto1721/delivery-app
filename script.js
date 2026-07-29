@@ -806,14 +806,14 @@ function loadCurrentData(){
   }
 
   const rainText =
-  document.getElementById("rainText");
+    document.getElementById("rainText");
 
-if(rainText){
+  if(rainText){
 
-  rainText.innerText =
-    isRainy ? "雨ON" : "雨OFF";
+    rainText.innerText =
+      isRainy ? "雨ON" : "雨OFF";
 
-}
+  }
 
   // 入力値を復元
   Object.keys(data).forEach(key=>{
@@ -831,6 +831,35 @@ if(rainText){
 
   formatGoalInput();
   calculateResults();
+
+  // ==========================
+  // 未終了の稼働があれば稼働中表示を復元
+  // ==========================
+  if(
+
+    (data.start1 && !data.end1) ||
+
+    (data.start2 && !data.end2) ||
+
+    (data.start3 && !data.end3)
+
+  ){
+
+    document.getElementById("workStatusTitle").innerText =
+      "🟢 稼働中";
+
+    document.getElementById("workStatusSub").style.display =
+      "none";
+
+    document.getElementById("workStatusTime").style.display =
+      "block";
+
+    calculateWorkTime();
+
+    document.getElementById("workStatusTime").innerText =
+      document.getElementById("workTime").innerText;
+
+  }
 
   console.log(
     "mini after load:",
