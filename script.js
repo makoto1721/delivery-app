@@ -2375,8 +2375,10 @@ const weekendUnitPrice =
   document.getElementById("analysisAvgPerHour").innerText =
     avgPerHour;
 
-  document.getElementById("analysisMaxPerHour").innerText =
-    maxPerHour.toFixed(2);
+  document.getElementById("analysisAvgWorkHours").innerText =
+  workDays > 0
+    ? (totalHours / workDays).toFixed(1)
+    : "0.0";
 
   document.getElementById("analysisAvgPerDay").innerText =
     avgPerDay;
