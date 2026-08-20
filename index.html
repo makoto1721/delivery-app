@@ -110,7 +110,7 @@ id="goalProgressFill"
     Uber
 
     <span
-      onclick="event.stopPropagation(); openUberDetailModal();"
+      onclick="event.stopPropagation(); openUberDetailModal('current');"
       style="
         margin-left:6px;
         color:#6b7280;
@@ -612,16 +612,16 @@ onclick="toggleHistoryOffDay()"
   Uber
 
   <span
-    onclick="openUberDetailModal()"
-    style="
-      margin-left:6px;
-      color:#6b7280;
-      cursor:pointer;
-      font-size:14px;
-    "
-  >
-    ⓘ
-  </span>
+  onclick="openUberDetailModal('history')"
+  style="
+    margin-left:6px;
+    color:#6b7280;
+    cursor:pointer;
+    font-size:14px;
+  "
+>
+  ⓘ
+</span>
 
 </div>
     <div class="history-input-row">
