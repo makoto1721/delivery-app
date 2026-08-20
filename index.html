@@ -104,47 +104,53 @@ id="goalProgressFill"
 </tr>
 
 <tr>
-<td class="service-name">Uber</td>
 
-<td>
-  <select
-    id="uberCount"
-    onchange="calculateResults()">
-  </select>
-</td>
+  <td class="service-name">
 
-<td>
+    Uber
 
-  <div class="input-wrap">
+    <span
+      onclick="event.stopPropagation(); openUberDetailModal();"
+      style="
+        margin-left:6px;
+        color:#6b7280;
+        cursor:pointer;
+        font-size:14px;
+      "
+    >
+      ⓘ
+    </span>
 
-  <input
-    type="tel"
-    inputmode="numeric"
-    id="uberSales"
-    oninput="calculateResults()">
+  </td>
 
-  <button
-    type="button"
-    class="input-clear-btn"
-    onclick="clearInput('uberSales')">
-    ×
-  </button>
+  <td>
+    <select
+      id="uberCount"
+      onchange="calculateResults()">
+    </select>
+  </td>
 
-  <span
-    onclick="event.stopPropagation(); openUberDetailModal();"
-    style="
-      margin-left:6px;
-      color:#6b7280;
-      cursor:pointer;
-      font-size:14px;
-    "
-  >
-    ⓘ
-  </span>
+  <td>
 
-</div>
+    <div class="input-wrap">
 
-</td>
+      <input
+        type="tel"
+        inputmode="numeric"
+        id="uberSales"
+        oninput="calculateResults()">
+
+      <button
+        type="button"
+        class="input-clear-btn"
+        onclick="clearInput('uberSales')">
+        ×
+      </button>
+
+    </div>
+
+  </td>
+
 </tr>
 
 <tr>
