@@ -717,6 +717,18 @@ function saveCurrentData(){
     uberSales:
       document.getElementById("uberSales").value,
 
+    uberBase:
+  localStorage.getItem("currentUberBase") || "",
+
+uberPromotion:
+  localStorage.getItem("currentUberPromotion") || "",
+
+uberTip:
+  localStorage.getItem("currentUberTip") || "",
+
+uberOther:
+  localStorage.getItem("currentUberOther") || "",
+
     demaeCount:
       document.getElementById("demaeCount").value,
 
