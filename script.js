@@ -806,7 +806,10 @@ function loadCurrentData(){
 
   }
 
+  // ==========================
   // 雨状態を復元
+  // ==========================
+
   isRainy = data.isRainy || false;
 
   const rainBtn =
@@ -828,7 +831,11 @@ function loadCurrentData(){
 
   }
 
+
+  // ==========================
   // 入力値を復元
+  // ==========================
+
   Object.keys(data).forEach(key=>{
 
     const el =
@@ -842,12 +849,46 @@ function loadCurrentData(){
 
   });
 
-  formatGoalInput();
-  calculateResults();
 
   // ==========================
-  // 未終了の稼働があれば稼働中表示を復元
+  // Uber売上内訳を復元
   // ==========================
+
+  localStorage.setItem(
+    "currentUberBase",
+    data.uberBase || ""
+  );
+
+  localStorage.setItem(
+    "currentUberPromotion",
+    data.uberPromotion || ""
+  );
+
+  localStorage.setItem(
+    "currentUberTip",
+    data.uberTip || ""
+  );
+
+  localStorage.setItem(
+    "currentUberOther",
+    data.uberOther || ""
+  );
+
+
+  // ==========================
+  // 表示・計算を更新
+  // ==========================
+
+  formatGoalInput();
+
+  calculateResults();
+
+
+  // ==========================
+  // 未終了の稼働があれば
+  // 稼働中表示を復元
+  // ==========================
+
   if(
 
     (data.start1 && !data.end1) ||
@@ -873,6 +914,7 @@ function loadCurrentData(){
       document.getElementById("workTime").innerText;
 
   }
+
 
   console.log(
     "mini after load:",
