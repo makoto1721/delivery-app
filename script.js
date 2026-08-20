@@ -17,6 +17,7 @@ let historyRainy = false;
 
 let historyOffDay = false;
 
+let uberDetailSource = "";
 
 // ==========================
 // 共通処理
@@ -3665,11 +3666,31 @@ function enterWorkTimeEditMode(){
 
 }
 
-function openUberDetailModal(){
+function openUberDetailModal(source){
+
+  uberDetailSource = source || "history";
 
   document.getElementById(
     "uberDetailModal"
   ).style.display = "flex";
+
+  if(uberDetailSource === "current"){
+
+    // 記録ページから開いた場合
+    document.getElementById("historyUberBase").value =
+      localStorage.getItem("currentUberBase") || "";
+
+    document.getElementById("historyUberPromotion").value =
+      localStorage.getItem("currentUberPromotion") || "";
+
+    document.getElementById("historyUberTip").value =
+      localStorage.getItem("currentUberTip") || "";
+
+    document.getElementById("historyUberOther").value =
+      localStorage.getItem("currentUberOther") || "";
+
+  }
+
   calculateUberDetail();
 
 }
@@ -3682,42 +3703,78 @@ function closeUberDetailModal(){
 
 }
 
-function calculateUberDetail(){
+
+function saveUberDetail(){
 
   const base =
-    Number(
-      document.getElementById("historyUberBase").value || 0
-    );
+    document.getElementById("historyUberBase").value;
 
   const promotion =
-    Number(
-      document.getElementById("historyUberPromotion").value || 0
-    );
+    document.getElementById("historyUberPromotion").value;
 
   const tip =
-    Number(
-      document.getElementById("historyUberTip").value || 0
-    );
+    document.getElementById("historyUberTip").value;
 
   const other =
-    Number(
-      document.getElementById("historyUberOther").value || 0
-    );
+    document.getElementById("historyUberOther").value;
+
 
   const total =
-    base +
-    promotion +
-    tip +
-    other;
+    Number(base || 0) +
+    Number(promotion || 0) +
+    Number(tip || 0) +
+    Number(other || 0);
+
+
+  // ==========================
+  // 記録ページから開いた場合
+  // ==========================
+
+  if(uberDetailSource === "current"){
+
+    document.getElementById("uberSales").value =
+      total;
+
+    // 内訳を一時保存
+    localStorage.setItem(
+      "currentUberBase",
+      base
+    );
+
+    localStorage.setItem(
+      "currentUberPromotion",
+      promotion
+    );
+
+    localStorage.setItem(
+      "currentUberTip",
+      tip
+    );
+
+    localStorage.setItem(
+      "currentUberOther",
+      other
+    );
+
+    // 通常の現在データ保存
+    calculateResults();
+    saveCurrentData();
+
+    closeUberDetailModal();
+
+    return;
+
+  }
+
+
+  // ==========================
+  // 実績ページから開いた場合
+  // ==========================
 
   document.getElementById("historyUberSales").value =
     total;
 
   calculateHistoryDetail();
-
-}
-
-function saveUberDetail(){
 
   saveHistoryDetail();
 
@@ -3833,10 +3890,45 @@ function calculateUberDetail(){
     tip +
     other;
 
+
+  // 内訳合計を表示
   document.getElementById("uberDetailTotal")
     .innerText =
       total.toLocaleString() + "円";
 
+
+  // 記録ページから開いている場合
+  if(uberDetailSource === "current"){
+
+    const uberSales =
+      Number(
+        document.getElementById("uberSales").value || 0
+      );
+
+    const diff =
+      total - uberSales;
+
+    const diffEl =
+      document.getElementById("uberDetailDiff");
+
+    if(diff === 0){
+
+      diffEl.innerText =
+        "✓ Uber売上と一致";
+
+    }else{
+
+      diffEl.innerText =
+        `差額 ${diff.toLocaleString()}円`;
+
+    }
+
+    return;
+
+  }
+
+
+  // 実績ページから開いている場合
   const uberSales =
     Number(
       document.getElementById("historyUberSales").value || 0
